@@ -18,19 +18,14 @@
 ; magit
 ; projectile
 ; neotree
+; powerline
 ;;;
+
+(global-set-key (kbd "C-x g") 'magit-status)
 
 ;; change the size of initial frame
 (add-to-list 'default-frame-alist '(height . 60))
 (add-to-list 'default-frame-alist '(width . 150))
-
-;; load package manager, add the Melpa package registry
-(require 'package)
-(add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/") t)
-(package-initialize)
-
-(unless (package-installed-p 'projectile)
-  (package-install 'projectile))
 
 ;; neotree theme
 (setq neo-theme (if (display-graphic-p) 'nerd))
@@ -41,11 +36,15 @@
   (package-install 'use-package))
 (require 'use-package)
 
+(unless (package-installed-p 'projectile)
+  (package-install 'projectile))
+
 (use-package evil
   :ensure t
   :defer .1 ;; don't block emacs when starting, load evil immediately after startup
   :init
   (setq evil-want-integration nil) ;; required by evil-collection
+  (setq evil-want-keybinding nil) ;; also required by evil-collection
   (setq evil-search-module 'evil-search)
   (setq evil-ex-complete-emacs-commands nil)
   (setq evil-vsplit-window-right t) ;; like vim's 'splitright'

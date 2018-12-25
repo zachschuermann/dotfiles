@@ -2,34 +2,41 @@
 
 ;; ----- ido-last-directory-list -----
 (
+ ("/Users/Zach/Desktop/DEV/scheming/little-schemer/" . "1-toys/")
+ ("/Users/Zach/Desktop/DEV/scheming/" . "little-schemer/")
+ ("/Users/Zach/Desktop/DEV/" . "scheming/")
+ ("/Users/Zach/Desktop/" . "DEV/")
  ("/Users/Zach/" . "Desktop/")
 )
 
 ;; ----- ido-work-directory-list -----
 (
+ "/Users/Zach/Desktop/DEV/scheming/little-schemer/1-toys/"
  "/Users/Zach/.emacs.d/"
  "/Users/Zach/Desktop/"
 )
 
 ;; ----- ido-work-file-list -----
 (
+ "notes.org"
+ "playground.scm"
  "init.el"
  "org-mode-tutorial.org"
 )
 
 ;; ----- ido-dir-file-cache -----
 (
- ("/Users/Zach/.emacs.d/" (23585 46716 482896 637000) "conf/" "elpa/" "recentf" "init.el" "auto-save-list/" "plugins/" "ido.last" "../" "./")
+ ("/Users/Zach/Desktop/DEV/scheming/little-schemer/1-toys/" (23585 56968 0 0) "playground.lisp" "Makefile" "notes.org" "playground.scm" "../" "./")
 
- ("/Users/Zach/Desktop/" (23585 46611 0 0) "How-to-Learn-Emacs-v2-Large.png" "College/" "test.txt" "DEV/" "org-mode-tutorial.org" "#org-mode-tutorial.org#" ".localized" "Spring_2019/" ".DS_Store" "Misc/" "../" "./")
+ ("/Users/Zach/Desktop/DEV/scheming/little-schemer/" (23585 57234 0 0) "1-toys/" "0-hello/" "../" "./")
 
- ("/Users/Zach/Desktop/DEV/" (23585 46608 0 0) "CTCI/" "scheming/" "Websites/" "Ng_MLY02.pdf" "crash100118.txt" "Electron/" "zerver/" "Screen Shot 2018-02-19 at 8.49.05 PM.png" "parse-dev/" "Screen Shot 2018-06-28 at 8.23.59 PM.png" "OU-Student-Reviews-DB/" "plotly_stuff/" ".ipynb_checkpoints/" "bashful/" "Paxton_DEV/" "justice/" "FloydHub/" "Temp-gauge/" "gameoflife/" "Dopple/" "Screen Shot 2018-03-08 at 12.43.45 PM.png" "CoolGraphics/" "BlockRevealers-master/" "plag-detect-frontend/" "powercycleplotting/" "quantile_bars.py" "flowtest/" "web_dev/" "PythonSummer17/" "macbookcrash02122018" "PlagarismDetection/" "gps-boron/" "psfdi/" "blog/" "CouponCartAppFramework/" "who-logged-in/" "imtest.py" "RNN:LSTM Reading/" "Scrapy/" "haskell/" "going_somewhere/" "intro-to-datascience-master/" "Jumbl/" "_openbits_backup/" "League/" "Backend/" "feed.py" "googleapitest/" "go_get_em/" "league-time/" "stethoscope-app/" "Website/" "id_rsa.pub" "test.cpp" "Go-Logo/" "projects/" "Captcha Tests/" "Learning Python/" "quantile_reg.py" "References/" "prettyping" "DeepLearning/" "Python/" "CCserver/" "mc-light-simulation/" "dotfiles/" "gtrends.py" "FFTCircuitsProject/" ".DS_Store" "crash_reports/" "CouponCartAlpha/" "PlagDetect/" "GoodGraphics/" "go-brand-book-v1.0.2.pdf" "CouponCartDev/" "Screen Shot 2017-10-17 at 12.18.34 PM.png" "ComputerScienceOne.pdf" "ultralight-sdk-0.9-mac-x64/" "openbits/" "Misc/" "vim/" "MongoTest/" "Reading/" "Xcode/" "Machine Learning/" "../" "./")
+ ("/Users/Zach/Desktop/DEV/scheming/" (23586 42182 0 0) ".git/" ".gitignore" "README.md" "little-schemer/" "cellular-automata/" "../" "./")
 
- ("/Users/Zach/Desktop/DEV/scheming/" (23585 44893 596201 52000) ".git/" ".gitignore" "README.md" "little-schemer/" "cellular-automata/" "../" "./")
+ ("/Users/Zach/Desktop/DEV/" (23586 42148 0 0) "CTCI/" "scheming/" "Websites/" "Ng_MLY02.pdf" "crash100118.txt" "Electron/" "zerver/" "Screen Shot 2018-02-19 at 8.49.05 PM.png" "parse-dev/" "Screen Shot 2018-06-28 at 8.23.59 PM.png" "OU-Student-Reviews-DB/" "plotly_stuff/" ".ipynb_checkpoints/" "bashful/" "Paxton_DEV/" "justice/" "FloydHub/" "Temp-gauge/" "gameoflife/" "Dopple/" "Screen Shot 2018-03-08 at 12.43.45 PM.png" "CoolGraphics/" "BlockRevealers-master/" "plag-detect-frontend/" "powercycleplotting/" "quantile_bars.py" "flowtest/" "web_dev/" "PythonSummer17/" "macbookcrash02122018" "PlagarismDetection/" "gps-boron/" "psfdi/" "blog/" "CouponCartAppFramework/" "who-logged-in/" "imtest.py" "RNN:LSTM Reading/" "Scrapy/" "haskell/" "going_somewhere/" "intro-to-datascience-master/" "Jumbl/" "_openbits_backup/" "League/" "Backend/" "feed.py" "googleapitest/" "go_get_em/" "league-time/" "stethoscope-app/" "Website/" "id_rsa.pub" "test.cpp" "Go-Logo/" "projects/" "Captcha Tests/" "Learning Python/" "quantile_reg.py" "References/" "prettyping" "DeepLearning/" "Python/" "emacs-learning/" "CCserver/" "mc-light-simulation/" "dotfiles/" "gtrends.py" "FFTCircuitsProject/" ".DS_Store" "crash_reports/" "CouponCartAlpha/" "PlagDetect/" "GoodGraphics/" "go-brand-book-v1.0.2.pdf" "CouponCartDev/" "Screen Shot 2017-10-17 at 12.18.34 PM.png" "ComputerScienceOne.pdf" "ultralight-sdk-0.9-mac-x64/" "openbits/" "Misc/" "vim/" "MongoTest/" "Reading/" "Xcode/" "Machine Learning/" "../" "./")
 
- ("/Users/Zach/Desktop/DEV/scheming/little-schemer/" (23585 27929 0 0) "1-toys/" "0-hello/" "../" "./")
+ ("/Users/Zach/Desktop/" (23586 42148 0 0) "College/" "DEV/" ".localized" "Spring_2019/" ".DS_Store" "Misc/" "../" "./")
 
- ("/Users/Zach/Desktop/DEV/scheming/little-schemer/1-toys/" (23585 24376 0 0) "playground.lisp" "Makefile" "playground.scm" "../" "./")
+ ("/Users/Zach/.emacs.d/" (23585 47949 155000 573000) "conf/" "elpa/" "recentf" "init.el" "auto-save-list/" "plugins/" "ido.last" "../" "./")
 
  ("/Users/" (23465 10747 594363 443000) "Zach/" "Shared/" ".localized" "../" "./")
 
