@@ -2,6 +2,7 @@
 
 # updates the dotfiles from local dir
 
-cp -r ~/.emacs.d .
+cp -R ~/.emacs.d .
+cp ~/.emacs .
 cp ~/.vimrc .
 cp ~/.tmux.conf .
