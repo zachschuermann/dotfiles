@@ -8,12 +8,126 @@
 ;;         ("http" . "company.com:8080")
 ;;         ("https" . "company.com:8080")))
 
+;; Old way of loading evil mode - when the git repo was cloned in the emacs.d folder
+;(add-to-list 'load-path "~/.emacs.d/evil")
+;(require 'evil)
+;(evil-mode 1)
 
-(add-to-list 'load-path "~/.emacs.d/evil")
-(require 'evil)
-(evil-mode 1)
+;;;
+; Installed packages
+; magit
+; projectile
+; neotree
+;;;
 
+;; change the size of initial frame
+(add-to-list 'default-frame-alist '(height . 60))
+(add-to-list 'default-frame-alist '(width . 150))
 
+;; load package manager, add the Melpa package registry
+(require 'package)
+(add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/") t)
+(package-initialize)
+
+(unless (package-installed-p 'projectile)
+  (package-install 'projectile))
+
+;; neotree theme
+(setq neo-theme (if (display-graphic-p) 'nerd))
+
+;; bootstrap use-package
+(unless (package-installed-p 'use-package)
+  (package-refresh-contents)
+  (package-install 'use-package))
+(require 'use-package)
+
+(use-package evil
+  :ensure t
+  :defer .1 ;; don't block emacs when starting, load evil immediately after startup
+  :init
+  (setq evil-want-integration nil) ;; required by evil-collection
+  (setq evil-search-module 'evil-search)
+  (setq evil-ex-complete-emacs-commands nil)
+  (setq evil-vsplit-window-right t) ;; like vim's 'splitright'
+  (setq evil-split-window-below t) ;; like vim's 'splitbelow'
+  (setq evil-shift-round nil)
+  (setq evil-want-C-u-scroll t)
+  :config
+  (evil-mode)
+
+  ;; vim-like keybindings everywhere in emacs
+  (use-package evil-collection
+    :after evil
+    :ensure t
+    :config
+    (evil-collection-init))
+
+  ;; gl and gL operators, like vim-lion
+  (use-package evil-lion
+    :ensure t
+    :bind (:map evil-normal-state-map
+                ("g l " . evil-lion-left)
+                ("g L " . evil-lion-right)
+                :map evil-visual-state-map
+                ("g l " . evil-lion-left)
+                ("g L " . evil-lion-right)))
+
+  ;; gc operator, like vim-commentary
+  (use-package evil-commentary
+    :ensure t
+    :bind (:map evil-normal-state-map
+                ("gc" . evil-commentary)))
+
+  ;; gx operator, like vim-exchange
+  ;; NOTE using cx like vim-exchange is possible but not as straightforward
+  (use-package evil-exchange
+    :ensure t
+    :bind (:map evil-normal-state-map
+                ("gx" . evil-exchange)
+                ("gX" . evil-exchange-cancel)))
+
+  ;; gr operator, like vim's ReplaceWithRegister
+  (use-package evil-replace-with-register
+    :ensure t
+    :bind (:map evil-normal-state-map
+                ("gr" . evil-replace-with-register)
+                :map evil-visual-state-map
+                ("gr" . evil-replace-with-register)))
+
+  ;; * operator in vusual mode
+  (use-package evil-visualstar
+    :ensure t
+    :bind (:map evil-visual-state-map
+                ("*" . evil-visualstar/begin-search-forward)
+                ("#" . evil-visualstar/begin-search-backward)))
+
+  ;; ex commands, which a vim user is likely to be familiar with
+  (use-package evil-expat
+    :ensure t
+    :defer t)
+
+  ;; visual hints while editing
+  (use-package evil-goggles
+    :ensure t
+    :config
+    (evil-goggles-use-diff-faces)
+    (evil-goggles-mode))
+
+  ;; like vim-surround
+  (use-package evil-surround
+    :ensure t
+    :commands
+    (evil-surround-edit
+     evil-Surround-edit
+     evil-surround-region
+     evil-Surround-region)
+    :init
+    (evil-define-key 'operator global-map "s" 'evil-surround-edit)
+    (evil-define-key 'operator global-map "S" 'evil-Surround-edit)
+    (evil-define-key 'visual global-map "S" 'evil-surround-region)
+    (evil-define-key 'visual global-map "gS" 'evil-Surround-region))
+
+  (message "Loading evil-mode...done"))
 
 ;; -------------------------------------------------------------------------------------
 ;; ----------------------------    THEME     -------------------------------------------
@@ -31,7 +145,17 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(default ((t (:inherit nil :stipple nil :background "#242424" :foreground "#f6f3e8" :inverse-video nil :box nil :strike-through nil :overline nil :underline nil :slant normal :weight normal :height 113 :width normal :foundry "APPL" :family "Monaco"))))
+ '(evil-goggles-change-face ((t (:inherit diff-removed))))
+ '(evil-goggles-delete-face ((t (:inherit diff-removed))))
+ '(evil-goggles-paste-face ((t (:inherit diff-added))))
+ '(evil-goggles-undo-redo-add-face ((t (:inherit diff-added))))
+ '(evil-goggles-undo-redo-change-face ((t (:inherit diff-changed))))
+ '(evil-goggles-undo-redo-remove-face ((t (:inherit diff-removed))))
+ '(evil-goggles-yank-face ((t (:inherit diff-changed))))
  '(fringe ((t (:background "#242424"))))
+ '(ido-first-match ((t (:inherit 'font-lock-comment-face))))
+ '(ido-only-match ((t (:inherit 'font-lock-comment-face))))
+ '(ido-subdir ((t (:inherit 'font-lock-keyword-face))))
  '(linum ((t (:inherit (shadow default) :background "#191919" :foreground "#505050")))))
 
 
@@ -154,10 +278,7 @@
 (add-to-list 'ido-ignore-buffers "*NeoTree*")
 (add-to-list 'ido-ignore-buffers "*Completions*")
 (add-to-list 'ido-ignore-buffers "*Help*")
-(custom-set-faces
- '(ido-subdir ((t (:inherit 'font-lock-keyword-face))))
- '(ido-first-match ((t (:inherit 'font-lock-comment-face))))
- '(ido-only-match ((t (:inherit 'font-lock-comment-face)))))
+
 
 
 ;; line wrap
@@ -172,15 +293,19 @@
 (global-set-key (kbd "C-h C-s") 'info-apropos)
 
 ;; ARTIST MODE
-(eval-after-load "artist" '(define-key artist-mode-map [(down-mouse-3)] 'artist-mouse-choose-operation))
+;(eval-after-load "artist" '(define-key artist-mode-map [(down-mouse-3)] 'artist-mouse-choose-operation))
 
 ;; EWW - emacs web browser
-(setq eww-search-prefix "https://www.google.com.au/search?q=")
-(setq shr-color-visible-luminance-min 78) ;; improve readability (especially for google search)
-(setq url-user-agent "User-Agent: Mozilla/5.0 (iPhone; U; CPU iPhone OS 4_0 like Mac OS X; en-us) AppleWebKit/532.9 (KHTML, like Gecko) Version/4.0.5 Mobile/8A293 Safari/6531.22.7\n")
-(global-set-key (kbd "C-c b") 'eww)
+;(setq eww-search-prefix "https://www.google.com.au/search?q=")
+;(setq shr-color-visible-luminance-min 78) ;; improve readability (especially for google search)
+;(setq url-user-agent "User-Agent: Mozilla/5.0 (iPhone; U; CPU iPhone OS 4_0 like Mac OS X; en-us) AppleWebKit/532.9 (KHTML, like Gecko) Version/4.0.5 Mobile/8A293 Safari/6531.22.7\n")
+;(global-set-key (kbd "C-c b") 'eww)
 
+
+;; I think this is redundant... need to fix
+;; -------------------------
 ;; Setup the package manager
+;; -------------------------
 (defun load-package-manager ()
   (package-initialize)
   (require 'package)
@@ -213,3 +338,10 @@
  (condition-case nil
      (directory-files "~/.emacs.d/conf/" t "\.el$")
    (error (make-directory "~/.emacs.d/conf/"))))
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(package-selected-packages
+   '(neotree projectile magit evil-surround evil-goggles evil-expat evil-visualstar evil-replace-with-register evil-exchange evil-commentary evil-lion evil-collection evil use-package)))
