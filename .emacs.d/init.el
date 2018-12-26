@@ -30,6 +30,12 @@
 ;; neotree theme
 (setq neo-theme (if (display-graphic-p) 'nerd))
 
+
+(require 'package)
+(setq package-enable-at-startup nil)
+(add-to-list 'package-archives
+             '("melpa" . "https://melpa.org/packages/"))
+(package-initialize)
 ;; bootstrap use-package
 (unless (package-installed-p 'use-package)
   (package-refresh-contents)
