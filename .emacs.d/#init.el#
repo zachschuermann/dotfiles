@@ -40,11 +40,11 @@
   (package-install 'projectile))
 
 (use-package evil
+  (setq evil-want-keybinding nil) ;; also required by evil-collection
   :ensure t
   :defer .1 ;; don't block emacs when starting, load evil immediately after startup
   :init
   (setq evil-want-integration nil) ;; required by evil-collection
-  (setq evil-want-keybinding nil) ;; also required by evil-collection
   (setq evil-search-module 'evil-search)
   (setq evil-ex-complete-emacs-commands nil)
   (setq evil-vsplit-window-right t) ;; like vim's 'splitright'
@@ -132,20 +132,7 @@
 ;; ----------------------------    THEME     -------------------------------------------
 ;; -------------------------------------------------------------------------------------
 
-;(load-theme 'wombat)
-(load-theme 'wombat t t)
-(add-hook 'buffer-list-update-hook
-          (lambda ()
-            (cond
-             ((and (eq major-mode 'scheme-mode)
-                   (not (memq 'wombat custom-enabled-themes)))
-              ;(disable-theme 'tango)
-              (enable-theme 'wombat))
-             ((and (eq major-mode 'haskell-mode)
-                   (not (memq 'tango custom-enabled-themes)))
-              (disable-theme 'wombat)
-             ; (enable-theme 'tango)))))
-             ))))
+(load-theme 'wombat)
 ;; a great font: https://www.fontyukle.net/en/Monaco.ttf
 (condition-case nil
     (set-default-font "Monaco")
@@ -356,4 +343,4 @@
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
-   '(haskell-mode neotree projectile magit evil-surround evil-goggles evil-expat evil-visualstar evil-replace-with-register evil-exchange evil-commentary evil-lion evil-collection evil use-package)))
+   '(neotree projectile magit evil-surround evil-goggles evil-expat evil-visualstar evil-replace-with-register evil-exchange evil-commentary evil-lion evil-collection evil use-package)))

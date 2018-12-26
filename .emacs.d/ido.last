@@ -2,15 +2,18 @@
 
 ;; ----- ido-last-directory-list -----
 (
+ ("/Users/Zach/Desktop/Dev/haskell/" . "graph/")
+ ("/Users/Zach/Desktop/Dev/" . "haskell/")
  ("/Users/Zach/Desktop/DEV/scheming/little-schemer/" . "1-toys/")
  ("/Users/Zach/Desktop/DEV/scheming/" . "little-schemer/")
  ("/Users/Zach/Desktop/DEV/" . "scheming/")
- ("/Users/Zach/Desktop/" . "DEV/")
+ ("/Users/Zach/Desktop/" . "Dev/")
  ("/Users/Zach/" . "Desktop/")
 )
 
 ;; ----- ido-work-directory-list -----
 (
+ "/Users/Zach/Desktop/Dev/haskell/graph/"
  "/Users/Zach/Desktop/DEV/scheming/little-schemer/1-toys/"
  "/Users/Zach/.emacs.d/"
  "/Users/Zach/Desktop/"
@@ -18,6 +21,7 @@
 
 ;; ----- ido-work-file-list -----
 (
+ "main.hs"
  "notes.org"
  "playground.scm"
  "init.el"
@@ -26,6 +30,18 @@
 
 ;; ----- ido-dir-file-cache -----
 (
+ ("/Users/Zach/Desktop/Dev/haskell/graph/" (23587 57333 0 0) "main" "main.hs" "../" "./")
+
+ ("/Users/Zach/Desktop/Dev/haskell/" (23587 57334 0 0) ".git/" "stack-test/" ".gitignore" "README.md" "algo/" "graph/" "Haskell.pdf" "test/" "../" "./")
+
+ ("/Users/Zach/Desktop/Dev/CTCI/" (23587 57327 0 0) ".git/" "cpp/" ".gitignore" "README.md" "haskell/" "python/" "../" "./")
+
+ ("/Users/Zach/Desktop/Dev/" (23587 57970 0 0) "CTCI/" "scheming/" "haskell/" ".DS_Store" "../" "./")
+
+ ("/Users/Zach/Desktop/" (23587 57970 0 0) "Dev/" ".localized" "Spring_2019/" ".DS_Store" "Misc/" "../" "./")
+
+ ("/Users/Zach/" (23587 10387 984198 638000) "AnacondaProjects/" ".httpie/" "git/" ".viminfo" ".bash_history" ".putty/" "xi-mac/" "C/" ".gitconfig" ".aws/" ".inputrc" "Particle/" ".cache/" ".python_history" "Downloads/" ".gem/" ".bash_profile" ".vscode/" ".mono/" ".babel.json" ".wakatime.log" ".atom-old/" "Documents/" ".npm/" ".itmstransporter/" ".credentials/" ".datadog-agent/" ".keras/" ".gitflow_export" "IdeaProjects/" ".Trash/" ".Rapp.history" "Dropbox/" ".anaconda_backup/" ".ghc/" ".profile" "Applications/" ".vimrc" "Movies/" ".ssh/" ".rustup/" "CLionProjects/" "nodejs-docs-samples/" ".cisco/" ".eaglerc" ".kube/" "notes/" ".code-push.config" ".dropbox/" "Public/" "PycharmProjects/" ".matlab/" "Google Drive/" ".bash_sessions/" ".cups/" ".gitignore_global" "VS_Projects/" ".android/" ".cargo/" ".node_repl_history" ".emacs.d/" ".minikube/" ".bash_profile.pysave" ".IdentityService/" "google-cloud-sdk/" ".gdbinit" ".emacs.d_backup.d/" ".oracle_jre_usage/" ".electron/" ".matplotlib/" "eclipse-workspace/" "Library/" "Desktop/" ".p2/" ".boto" ".rncache/" ".nuget/" "algorithms/" ".old-(space)macs.d/" ".bundle/" "node_modules/" ".atom/" "DigitalOcean/" ".multirust/" ".pylint.d/" "Pictures/" "OneDrive - University of Oklahoma/" "Creative Cloud Files/" ".psql_history" ".wakatime.db" ".particle/" ".local/" ".plotly/" ".vim-emacs" ".templateengine/" ".adobe/" ".ServiceHub/" "JS/" "arm-cs-tools/" ".bash_profile~" ".luna/" ".jssc/" ".subversion/" ".cabal/" ".cordova/" "Python/" "bin/" ".tooling/" ".wget-hsts" ".hgignore_global" ".old-spacemacs" ".CFUserTextEncoding" ".yarnrc" "VirtualBox VMs/" ".tmux.conf" ".gnupg/" "nltk_data/" "eclipse/" ".DS_Store" "go/" ".vim/" ".anyconnect" ".node-gyp/" ".emacs.d_old.d/" ".gnupg_pre_2.1/" ".emacs.d-vim/" ".gsutil/" ".docker/" "firmware/" ".floydconfig" ".gitkraken/" ".kaggle/" ".expo/" ".julia/" ".bash_profile-anaconda.bak" ".wakatime.cfg" "Music/" "CouponCart/" ".config/" ".eclipse/" ".stack/" "../" "./")
+
  ("/Users/Zach/Desktop/DEV/scheming/little-schemer/1-toys/" (23585 56968 0 0) "playground.lisp" "Makefile" "notes.org" "playground.scm" "../" "./")
 
  ("/Users/Zach/Desktop/DEV/scheming/little-schemer/" (23585 57234 0 0) "1-toys/" "0-hello/" "../" "./")
@@ -34,13 +50,9 @@
 
  ("/Users/Zach/Desktop/DEV/" (23586 42148 0 0) "CTCI/" "scheming/" "Websites/" "Ng_MLY02.pdf" "crash100118.txt" "Electron/" "zerver/" "Screen Shot 2018-02-19 at 8.49.05 PM.png" "parse-dev/" "Screen Shot 2018-06-28 at 8.23.59 PM.png" "OU-Student-Reviews-DB/" "plotly_stuff/" ".ipynb_checkpoints/" "bashful/" "Paxton_DEV/" "justice/" "FloydHub/" "Temp-gauge/" "gameoflife/" "Dopple/" "Screen Shot 2018-03-08 at 12.43.45 PM.png" "CoolGraphics/" "BlockRevealers-master/" "plag-detect-frontend/" "powercycleplotting/" "quantile_bars.py" "flowtest/" "web_dev/" "PythonSummer17/" "macbookcrash02122018" "PlagarismDetection/" "gps-boron/" "psfdi/" "blog/" "CouponCartAppFramework/" "who-logged-in/" "imtest.py" "RNN:LSTM Reading/" "Scrapy/" "haskell/" "going_somewhere/" "intro-to-datascience-master/" "Jumbl/" "_openbits_backup/" "League/" "Backend/" "feed.py" "googleapitest/" "go_get_em/" "league-time/" "stethoscope-app/" "Website/" "id_rsa.pub" "test.cpp" "Go-Logo/" "projects/" "Captcha Tests/" "Learning Python/" "quantile_reg.py" "References/" "prettyping" "DeepLearning/" "Python/" "emacs-learning/" "CCserver/" "mc-light-simulation/" "dotfiles/" "gtrends.py" "FFTCircuitsProject/" ".DS_Store" "crash_reports/" "CouponCartAlpha/" "PlagDetect/" "GoodGraphics/" "go-brand-book-v1.0.2.pdf" "CouponCartDev/" "Screen Shot 2017-10-17 at 12.18.34 PM.png" "ComputerScienceOne.pdf" "ultralight-sdk-0.9-mac-x64/" "openbits/" "Misc/" "vim/" "MongoTest/" "Reading/" "Xcode/" "Machine Learning/" "../" "./")
 
- ("/Users/Zach/Desktop/" (23586 42148 0 0) "College/" "DEV/" ".localized" "Spring_2019/" ".DS_Store" "Misc/" "../" "./")
-
  ("/Users/Zach/.emacs.d/" (23585 47949 155000 573000) "conf/" "elpa/" "recentf" "init.el" "auto-save-list/" "plugins/" "ido.last" "../" "./")
 
  ("/Users/" (23465 10747 594363 443000) "Zach/" "Shared/" ".localized" "../" "./")
-
- ("/Users/Zach/" (23585 38360 991689 281000) "AnacondaProjects/" ".httpie/" "git/" ".viminfo" ".bash_history" ".putty/" "xi-mac/" "C/" ".gitconfig" ".aws/" ".inputrc" "Particle/" ".cache/" ".python_history" "Downloads/" ".gem/" ".bash_profile" ".vscode/" ".mono/" ".babel.json" ".wakatime.log" ".atom-old/" "Documents/" ".npm/" ".itmstransporter/" ".credentials/" ".datadog-agent/" ".keras/" ".gitflow_export" "IdeaProjects/" ".Trash/" ".Rapp.history" "Dropbox/" ".anaconda_backup/" ".ghc/" ".profile" "Applications/" ".vimrc" "Movies/" ".ssh/" ".rustup/" "CLionProjects/" "nodejs-docs-samples/" ".cisco/" ".eaglerc" ".kube/" "notes/" ".code-push.config" ".dropbox/" "Public/" "PycharmProjects/" ".matlab/" "Google Drive/" ".bash_sessions/" ".cups/" ".gitignore_global" "VS_Projects/" ".android/" ".cargo/" ".node_repl_history" ".emacs.d/" ".minikube/" ".bash_profile.pysave" ".IdentityService/" "google-cloud-sdk/" ".gdbinit" ".emacs.d_backup.d/" ".oracle_jre_usage/" ".electron/" ".matplotlib/" "eclipse-workspace/" "Library/" "Desktop/" ".p2/" ".boto" ".rncache/" ".nuget/" "algorithms/" ".old-(space)macs.d/" ".bundle/" "node_modules/" ".atom/" "DigitalOcean/" ".multirust/" ".pylint.d/" "Pictures/" "OneDrive - University of Oklahoma/" "Creative Cloud Files/" ".psql_history" ".wakatime.db" ".particle/" ".local/" ".plotly/" ".vim-emacs" ".templateengine/" ".adobe/" ".ServiceHub/" "JS/" "arm-cs-tools/" ".bash_profile~" ".luna/" ".jssc/" ".subversion/" ".cabal/" ".cordova/" "Python/" "bin/" ".tooling/" ".wget-hsts" ".hgignore_global" ".old-spacemacs" ".CFUserTextEncoding" ".yarnrc" "VirtualBox VMs/" ".tmux.conf" ".gnupg/" "nltk_data/" "eclipse/" ".DS_Store" "go/" ".vim/" ".anyconnect" ".node-gyp/" ".emacs.d_old.d/" ".gnupg_pre_2.1/" ".emacs.d-vim/" ".gsutil/" ".docker/" "firmware/" ".floydconfig" ".gitkraken/" ".kaggle/" ".expo/" ".julia/" ".bash_profile-anaconda.bak" ".wakatime.cfg" "Music/" "CouponCart/" ".config/" ".eclipse/" ".stack/" "../" "./")
 )
 
 ;; ----- ido-unc-hosts-cache -----
