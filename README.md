@@ -1,6 +1,6 @@
 # .files
 Includes vim, tmux, and emacs config.  
-Vim: NERDtree and Lightline
+Vim: NERDtree and Lightline  
 Emacs: Powerline, Neotree, etc.  
 
 ## Updating
