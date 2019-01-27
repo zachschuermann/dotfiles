@@ -5,7 +5,7 @@ Emacs: EViL Mode, Powerline, Neotree, Magit, Projectile, and Melpa (and language
 Tmux: prefix key rebind to `C-a` and switch key rebind to `^A`
 Emacs/Vim Theme: Dracula    
 
-TODO: 
+**TODO:**
 - [ ] Add git submodules inside `.vim`  
 
 ## Updating/Deploying
