@@ -3,4 +3,4 @@
 cp -R .emacs.d/ ~/
 cp .vimrc ~/
 cp -R .vim/ ~/
-cp .tmuxrc ~/
+cp .tmux.conf ~/

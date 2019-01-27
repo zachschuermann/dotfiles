@@ -11,7 +11,7 @@
  ("/Users/Zach/Desktop/Spring_2019/" . "digital_design_lab/")
  ("/Users/Zach/Desktop/Dev/OU-Student-Reviews-DB/" . "backend/")
  ("/Users/Zach/Desktop/Dev/haskell/learn-you-a-haskell/" . "4-function-syntax/")
- ("/Users/Zach/Desktop/Dev/scheming/little-schemer/" . "3-cons-magnificent/")
+ ("/Users/Zach/Desktop/Dev/scheming/little-schemer/" . "0-hello/")
  ("/Users/Zach/Desktop/Dev/scheming/" . "little-schemer/")
  ("/Users/Zach/Desktop/Dev/haskell/" . "learn-you-a-haskell/")
  ("/Users/Zach/Desktop/Dev/" . "scheming/")
@@ -24,6 +24,10 @@
 
 ;; ----- ido-work-directory-list -----
 (
+ "/Users/Zach/Desktop/Dev/scheming/"
+ "/Users/Zach/Desktop/Dev/scheming/little-schemer/0-hello/"
+ "/"
+ "/Users/Zach/Desktop/Dev/whisper/"
  "/Users/Zach/Desktop/Dev/scheming/little-schemer/4-number-games/"
  "/Users/Zach/Desktop/"
  "/Users/Zach/Desktop/Dev/scheming/little-schemer/"
@@ -34,8 +38,6 @@
  "/Users/Zach/Desktop/Spring_2019/signals_and_systems/signals-and-systems/python/"
  "/Users/Zach/Desktop/Spring_2019/signals_and_systems/signals-and-systems/julia/hello-world/"
  "/Users/Zach/Desktop/Spring_2019/signals_and_systems/signals-and-systems/julia/"
- "/"
- "/Users/Zach/Desktop/Dev/whisper/"
  "/Users/Zach/Desktop/Spring_2019/digital_design_lab/digital-design-lab/"
  "/Users/Zach/Desktop/Spring_2019/constitutional_law/"
  "/Users/Zach/Desktop/Dev/go-league/"
@@ -61,23 +63,39 @@
 
 ;; ----- ido-work-file-list -----
 (
+ "README.md"
+ "hello.scm"
+ "hello_world.scm"
+ "!"
+ "server.go"
  "playground.scm"
  "facebook1.py"
- "README.md"
  "prereqs.scm"
  "cellular-automata.lisp"
  "notes.org"
- "assignment1.tex"
- "assignment1.py"
- "plot_test.jl"
- "!"
 )
 
 ;; ----- ido-dir-file-cache -----
 (
- ("/Users/Zach/Desktop/Dev/scheming/little-schemer/2-do-it/" (23626 41716 0 0) "playground.scm" "../" "./")
+ ("/Users/Zach/Desktop/Dev/scheming/" (23629 17444 0 0) "little-typer/" ".git/" "seasoned-schemer/" ".gitignore" "README.md" "little-schemer/" "cellular-automata/" ".DS_Store" "../" "./")
 
- ("/Users/Zach/.emacs.d/" (23627 56433 158658 664000) "conf/" "elpa/" "recentf" "init.el" "auto-save-list/" "plugins/" "ido.last" "../" "./")
+ ("/Users/Zach/Desktop/Dev/scheming/little-schemer/" (23629 17151 0 0) "10-value-of-all-this/" "2-do-it/" "7-friends-and-relations/" "1-toys/" "8-lambda-the-ultimate/" "6-Shadows/" "5-full-of-stars/" "0-hello/" "README.md" "4-number-games/" "9-and-again-and-again/" "3-cons-magnificent/" ".DS_Store" "prereqs.scm" "../" "./")
+
+ ("/Users/Zach/Desktop/Dev/scheming/little-schemer/0-hello/" (23629 17300 0 0) "hello_world.scm" "hello_world.lisp" "Makefile" "hello.scm" "../" "./")
+
+ ("/Users/Zach/Desktop/Dev/" (23629 12877 0 0) "OCW/" "whisper/" "scheming/" "ou-reviews/" "OU-Student-Reviews-DB/" "go-league/" "landing-page/" "algos/" "haskell/" "dotfiles/" ".DS_Store" "../" "./")
+
+ ("/Users/Zach/Desktop/" (23629 12877 0 0) "Dev/" ".localized" "Spring_2019/" ".DS_Store" "../" "./")
+
+ ("/Users/Zach/.emacs.d/" (23629 11030 705698 839000) "conf/" "elpa/" "recentf" "init.el" "auto-save-list/" "plugins/" "ido.last" "../" "./")
+
+ ("/Users/Zach/Desktop/Dev/scheming/little-schemer/3-cons-magnificent/" (23629 10570 383584 85000) "playground.scm" "../" "./")
+
+ ("/Users/Zach/Desktop/Dev/scheming/little-schemer/4-number-games/" (23629 10710 0 0) "playground.scm" "../" "./")
+
+ ("/Users/Zach/" (23629 12438 349421 867000) "AnacondaProjects/" ".conda/" ".httpie/" "git/" ".viminfo" ".bash_history" ".putty/" "xi-mac/" "C/" ".gitconfig" ".aws/" ".inputrc" "Particle/" ".cache/" ".python_history" "Downloads/" ".gem/" ".bash_profile" ".vscode/" ".mono/" ".babel.json" ".wakatime.log" ".atom-old/" "Documents/" ".npm/" ".itmstransporter/" ".credentials/" ".datadog-agent/" ".keras/" ".jupyter/" ".gitflow_export" "IdeaProjects/" ".Trash/" ".Rapp.history" "Dropbox/" ".anaconda_backup/" ".ghc/" ".profile" "Applications/" ".vimrc" "Movies/" ".ssh/" ".rustup/" "CLionProjects/" "matlab_crash_dump.87691-1" ".jlassetregistry.json" "nodejs-docs-samples/" ".cisco/" ".eaglerc" ".kube/" "notes/" ".code-push.config" ".dropbox/" "Public/" "PycharmProjects/" ".matlab/" "Google Drive/" ".bash_sessions/" ".cups/" ".gitignore_global" "VS_Projects/" ".android/" ".cargo/" ".node_repl_history" ".emacs.d/" ".minikube/" ".bash_profile.pysave" ".IdentityService/" "google-cloud-sdk/" ".gdbinit" ".emacs.d_backup.d/" ".oracle_jre_usage/" ".electron/" ".matplotlib/" "eclipse-workspace/" "Library/" "Desktop/" ".p2/" ".boto" "mcuxpresso/" ".rncache/" ".nuget/" "algorithms/" ".old-(space)macs.d/" ".bundle/" "node_modules/" ".atom/" "DigitalOcean/" ".multirust/" ".pylint.d/" "Pictures/" "OneDrive - University of Oklahoma/" "Creative Cloud Files/" ".psql_history" ".wakatime.db" ".particle/" ".local/" ".plotly/" ".vim-emacs" ".templateengine/" ".adobe/" ".ServiceHub/" "JS/" "arm-cs-tools/" ".bash_profile~" ".luna/" ".jssc/" ".subversion/" ".cabal/" ".cordova/" "Python/" ".nxp/" "bin/" ".tooling/" ".wget-hsts" ".hgignore_global" ".old-spacemacs" ".CFUserTextEncoding" ".yarnrc" "VirtualBox VMs/" ".tmux.conf" ".gnupg/" "nltk_data/" "eclipse/" ".DS_Store" "go/" ".vim/" ".anyconnect" ".node-gyp/" ".emacs.d_old.d/" ".gnupg_pre_2.1/" ".emacs.d-vim/" ".gsutil/" ".docker/" "firmware/" ".floydconfig" ".gitkraken/" ".kaggle/" ".expo/" ".julia/" ".bash_profile-anaconda.bak" ".wakatime.cfg" "Music/" "CouponCart/" ".config/" ".eclipse/" ".stack/" "../" "./")
+
+ ("/Users/Zach/Desktop/Dev/scheming/little-schemer/2-do-it/" (23626 41716 0 0) "playground.scm" "../" "./")
 
  ("/Users/Zach/Desktop/Dev/OU-Student-Reviews-DB/backend/tests/" (23625 19242 0 0) "test.py" "__pycache__/" "../" "./")
 
@@ -98,20 +116,6 @@
  ("/Users/Zach/Desktop/Spring_2019/digital_design_lab/digital-design-lab/assignment1/report/" (23627 55045 0 0) "_minted-assignment1/" "assignment1.aux" "assignment1.log" "SCRN0140.png" "assignment1.pdf" "SCRN0140.BMP" "SCRN0140-1.png" "SCRN0140-0.png" "SCRN0141.BMP" "assignment1.tex" "SCRN0143.BMP" "SCRN0140-2.png" "SCRN0140-3.png" "SCRN0142.BMP" "SCRN0146.BMP" "SCRN0140-4.png" "SCRN0144.BMP" "SCRN0140-5.png" "../" "./")
 
  ("/Users/Zach/Desktop/Spring_2019/digital_design_lab/digital-design-lab/assignment1/" (23627 55045 0 0) "src/" "Debug/" ".cproject" "report/" ".project" ".settings/" ".gitignore" "notes.org" ".DS_Store" "assignment1 LinkServer Debug.launch" "../" "./")
-
- ("/Users/Zach/Desktop/Dev/scheming/little-schemer/3-cons-magnificent/" (23627 60827 0 0) "playground.scm" "../" "./")
-
- ("/Users/Zach/Desktop/Dev/scheming/little-schemer/" (23627 60775 0 0) "2-do-it/" "1-toys/" "0-hello/" "README.md" "4-number-games/" "3-cons-magnificent/" ".DS_Store" "prereqs.scm" "../" "./")
-
- ("/Users/Zach/Desktop/" (23627 60775 0 0) "Dev/" ".localized" "Spring_2019/" ".DS_Store" "../" "./")
-
- ("/Users/Zach/Desktop/Dev/scheming/little-schemer/4-number-games/" (23627 60870 0 0) "../" "./")
-
- ("/Users/Zach/Desktop/Dev/" (23627 27686 0 0) "OCW/" "whisper/" "scheming/" "ou-reviews/" "OU-Student-Reviews-DB/" "go-league/" "landing-page/" "algos/" "haskell/" "dotfiles/" ".DS_Store" "../" "./")
-
- ("/Users/Zach/Desktop/Dev/scheming/" (23627 24883 0 0) ".git/" ".gitignore" "README.md" "little-schemer/" "cellular-automata/" ".DS_Store" "../" "./")
-
- ("/Users/Zach/" (23626 38702 622038 668000) "AnacondaProjects/" ".conda/" ".httpie/" "git/" ".viminfo" ".bash_history" ".putty/" "xi-mac/" "C/" ".gitconfig" ".aws/" ".inputrc" "Particle/" ".cache/" ".python_history" "Downloads/" ".gem/" ".bash_profile" ".vscode/" ".mono/" ".babel.json" ".wakatime.log" ".atom-old/" "Documents/" ".npm/" ".itmstransporter/" ".credentials/" ".datadog-agent/" ".keras/" ".jupyter/" ".gitflow_export" "IdeaProjects/" ".Trash/" ".Rapp.history" "Dropbox/" ".anaconda_backup/" ".ghc/" ".profile" "Applications/" ".vimrc" "Movies/" ".ssh/" ".rustup/" "CLionProjects/" "matlab_crash_dump.87691-1" ".jlassetregistry.json" "nodejs-docs-samples/" ".cisco/" ".eaglerc" ".kube/" "notes/" ".code-push.config" ".dropbox/" "Public/" "PycharmProjects/" ".matlab/" "Google Drive/" ".bash_sessions/" ".cups/" ".gitignore_global" "VS_Projects/" ".android/" ".cargo/" ".node_repl_history" ".emacs.d/" ".minikube/" ".bash_profile.pysave" ".IdentityService/" "google-cloud-sdk/" ".gdbinit" ".emacs.d_backup.d/" ".oracle_jre_usage/" ".electron/" ".matplotlib/" "eclipse-workspace/" "Library/" "Desktop/" ".p2/" ".boto" "mcuxpresso/" ".rncache/" ".nuget/" "algorithms/" ".old-(space)macs.d/" ".bundle/" "node_modules/" ".atom/" "DigitalOcean/" ".multirust/" ".pylint.d/" "Pictures/" "OneDrive - University of Oklahoma/" "Creative Cloud Files/" ".psql_history" ".wakatime.db" ".particle/" ".local/" ".plotly/" ".vim-emacs" ".templateengine/" ".adobe/" ".ServiceHub/" "JS/" "arm-cs-tools/" ".bash_profile~" ".luna/" ".jssc/" ".subversion/" ".cabal/" ".cordova/" "Python/" ".nxp/" "bin/" ".tooling/" ".wget-hsts" ".hgignore_global" ".old-spacemacs" ".CFUserTextEncoding" ".yarnrc" "VirtualBox VMs/" ".tmux.conf" ".gnupg/" "nltk_data/" "eclipse/" ".DS_Store" "go/" ".vim/" ".anyconnect" ".node-gyp/" ".emacs.d_old.d/" ".gnupg_pre_2.1/" ".emacs.d-vim/" ".gsutil/" ".docker/" "firmware/" ".floydconfig" ".gitkraken/" ".kaggle/" ".expo/" ".julia/" ".bash_profile-anaconda.bak" ".wakatime.cfg" "Music/" "CouponCart/" ".config/" ".eclipse/" ".stack/" "../" "./")
 
  ("/Users/Zach/Desktop/Dev/scheming/cellular-automata/" (23587 57179 0 0) "cellular-automata.lisp" "../" "./")
 

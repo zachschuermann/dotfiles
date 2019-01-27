@@ -32,7 +32,7 @@
  '(haskell-process-log t)
  '(haskell-process-suggest-remove-import-lines t)
  '(package-selected-packages
-   '(julia-mode go-mode dockerfile-mode yaml-mode markdown-mode dracula-theme material-theme monokai-theme haskell-mode neotree projectile magit evil-surround evil-goggles evil-expat evil-visualstar evil-replace-with-register evil-exchange evil-commentary evil-lion evil-collection evil use-package)))
+   '(evil-magit julia-mode go-mode dockerfile-mode yaml-mode markdown-mode dracula-theme material-theme monokai-theme haskell-mode neotree projectile magit evil-surround evil-goggles evil-expat evil-visualstar evil-replace-with-register evil-exchange evil-commentary evil-lion evil-collection evil use-package)))
 
 ;(setq tab-width 4)
 
