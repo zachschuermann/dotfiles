@@ -6,7 +6,8 @@ set number
 set expandtab
 set tabstop=4
 set shiftwidth=4
-colorscheme peachpuff
+" colorscheme peachpuff
+color dracula
 
 set autoindent
 set nocindent

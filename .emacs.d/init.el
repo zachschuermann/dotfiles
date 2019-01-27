@@ -21,7 +21,23 @@
 ; powerline
 ;;;
 
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(custom-safe-themes
+   '("a24c5b3c12d147da6cef80938dca1223b7c7f70f2f382b26308eba014dc4833a" "bd7b7c5df1174796deefce5debc2d976b264585d51852c962362be83932873d9" default))
+ '(haskell-process-auto-import-loaded-modules t)
+ '(haskell-process-log t)
+ '(haskell-process-suggest-remove-import-lines t)
+ '(package-selected-packages
+   '(julia-mode go-mode dockerfile-mode yaml-mode markdown-mode dracula-theme material-theme monokai-theme haskell-mode neotree projectile magit evil-surround evil-goggles evil-expat evil-visualstar evil-replace-with-register evil-exchange evil-commentary evil-lion evil-collection evil use-package)))
+
+;(setq tab-width 4)
+
 (global-set-key (kbd "C-x g") 'magit-status)
+(global-set-key (kbd "C-o")  'mode-line-other-buffer)
 
 ;; change the size of initial frame
 (add-to-list 'default-frame-alist '(height . 60))
@@ -30,6 +46,7 @@
 ;; neotree theme
 (setq neo-theme (if (display-graphic-p) 'nerd))
 
+(setq global-linum-mode t)
 
 (require 'package)
 (setq package-enable-at-startup nil)
@@ -140,17 +157,20 @@
 
 ;(load-theme 'wombat)
 (load-theme 'wombat t t)
+(load-theme 'dracula t)
+;(enable-theme 'dracula)
 (add-hook 'buffer-list-update-hook
           (lambda ()
             (cond
              ((and (eq major-mode 'scheme-mode)
                    (not (memq 'wombat custom-enabled-themes)))
-              ;(disable-theme 'tango)
+              (disable-theme 'dracula)
               (enable-theme 'wombat))
              ((and (eq major-mode 'haskell-mode)
                    (not (memq 'tango custom-enabled-themes)))
               (disable-theme 'wombat)
              ; (enable-theme 'tango)))))
+              (enable-theme 'dracula t)
              ))))
 ;; a great font: https://www.fontyukle.net/en/Monaco.ttf
 (condition-case nil
@@ -301,7 +321,7 @@
 
 ;; line wrap
 (setq linum-format "%d ")
-;;(global-linum-mode 1)
+(global-linum-mode 1)
 
 ;; usefull shortcuts
 (global-set-key [f3] 'comment-region)
@@ -356,10 +376,42 @@
  (condition-case nil
      (directory-files "~/.emacs.d/conf/" t "\.el$")
    (error (make-directory "~/.emacs.d/conf/"))))
-(custom-set-variables
- ;; custom-set-variables was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- '(package-selected-packages
-   '(haskell-mode neotree projectile magit evil-surround evil-goggles evil-expat evil-visualstar evil-replace-with-register evil-exchange evil-commentary evil-lion evil-collection evil use-package)))
+
+
+
+
+
+;; -------------------------------------------------------------------------------------
+;; ---------------------      HASKELL          -----------------------------------------
+;; -------------------------------------------------------------------------------------
+
+(require 'haskell-interactive-mode)
+(require 'haskell-process)
+(add-hook 'haskell-mode-hook 'interactive-haskell-mode)
+
+;; Get Haskell indentation which mirrors what I'm used to from Vim
+(defun haskell-setup ()
+  "Setup variables for editing Haskell files."
+  (make-local-variable 'tab-stop-list)
+  (setq tab-stop-list (number-sequence 0 120 4))
+  (setq indent-line-function 'tab-to-tab-stop)
+
+  (setq haskell-indent-spaces 4)
+
+  ; Backspace: delete spaces up until a tab stop
+  (defvar my-offset 4 "My indentation offset. ")
+  (defun backspace-whitespace-to-tab-stop ()
+    "Delete whitespace backwards to the next tab-stop, otherwise delete one character."
+    (interactive)
+      (let ((movement (% (current-column) my-offset))
+            (p (point)))
+        (when (= movement 0) (setq movement my-offset))
+        ;; Account for edge case near beginning of buffer
+        (setq movement (min (- p 1) movement))
+        (save-match-data
+          (if (string-match "[^\t ]*\\([\t ]+\\)$" (buffer-substring-no-properties (- p movement) p))
+              (backward-delete-char (- (match-end 1) (match-beginning 1)))
+            (call-interactively 'backward-delete-char)))))
+
+  (local-set-key (kbd "DEL") 'backspace-whitespace-to-tab-stop))
+(add-hook 'haskell-mode-hook 'haskell-setup)
