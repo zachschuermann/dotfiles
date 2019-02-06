@@ -7,6 +7,9 @@ Emacs/Vim Theme: Dracula
 
 **TODO:**
 - [ ] Add git submodules inside `.vim`  
+- [ ] Symlinks with GNU Stow
+- [ ] Add macOS configs
+- [ ] Add other dotfiles - alacritty, etc. 
 
 ## Updating/Deploying
 `$ bash update.sh`
@@ -16,4 +19,8 @@ Emacs/Vim Theme: Dracula
 ![Emacs](/emacs.png)  
 
 ## Vim
-![Vim](/vimdemo.png)  
+![Vim](/vimdemo.png) 
+
+## Resources
+[Github dotfiles](http://dotfiles.github.io/)
+
