@@ -1,0 +1,320 @@
+;;; -*- coding: utf-8 -*-
+
+;; ----- ido-last-directory-list -----
+(
+ ("/Users/Zach/Desktop/Dev/secret-algos/python/folderF/" . "again/")
+ ("/Users/Zach/Desktop/Spring_2019/signals_and_systems/signals-and-systems/python/" . "assignment2/")
+ ("/Users/Zach/Desktop/Dev/OU-Student-Reviews-DB/frontend/src/" . "components/")
+ ("/Users/Zach/Desktop/Dev/OU-Student-Reviews-DB/frontend/" . "src/")
+ ("/Users/Zach/Desktop/Spring_2019/digital_design_lab/digital-design-lab/assignment3/" . "report/")
+ ("/Users/Zach/Desktop/Spring_2019/embedded_real_time_sys/embedded-real-time-systems/mid_fan/" . "pwm_fan.cpp/")
+ ("/Users/Zach/Desktop/Spring_2019/embedded_real_time_sys/embedded-real-time-systems/" . "mid_fan/")
+ ("/Users/Zach/Desktop/Spring_2019/embedded_real_time_sys/" . "embedded-real-time-systems/")
+ ("/Users/Zach/Desktop/Dev/plag-detect/plagdetect/" . "haskell/")
+ ("/Users/Zach/Desktop/Dev/plag-detect/" . "plagdetect/")
+ ("/Users/Zach/Desktop/Spring_2019/research/" . "binder/")
+ ("/Users/Zach/Desktop/Dev/zerver/" . "rust/")
+ ("/Users/Zach/Desktop/Spring_2019/digital_design_lab/digital-design-lab/assignment2/" . "src/")
+ ("/Users/Zach/Desktop/Dev/sudoku-solver/" . "sudoku_solve/")
+ ("/Users/Zach/Desktop/Dev/secret-algos/python/" . "folderF/")
+ ("/Users/Zach/Desktop/Dev/secret-algos/" . "python/")
+ ("/Users/Zach/Documents/jobs/google/" . "onsite/")
+ ("/Users/Zach/Documents/jobs/" . "google/")
+ ("/Users/Zach/Documents/" . "Resume/")
+ ("/ssh:server:" . "algos/")
+ ("/Users/Zach/Desktop/Dev/algos/python/CTCI/" . "chapter2/")
+ ("/Users/Zach/Desktop/Dev/algos/python/" . "CTCI/")
+ ("/Users/Zach/Desktop/Dev/algos/" . "python/")
+ ("/Users/Zach/CouponCart/" . "CouponCart/")
+ ("/Users/Zach/Desktop/Spring_2019/digital_design_lab/digital-design-lab/assignment1/" . "report/")
+ ("/Users/Zach/Desktop/Spring_2019/digital_design_lab/digital-design-lab/" . "assignment3/")
+ ("/Users/Zach/Desktop/Spring_2019/signals_and_systems/signals-and-systems/" . "python/")
+ ("/Users/Zach/Desktop/Spring_2019/signals_and_systems/" . "signals-and-systems/")
+ ("/Users/Zach/Desktop/Spring_2019/digital_design_lab/" . "digital-design-lab/")
+ ("/Users/Zach/Desktop/Spring_2019/" . "signals_and_systems/")
+ ("/Users/Zach/Desktop/Dev/OU-Student-Reviews-DB/" . "frontend/")
+ ("/Users/Zach/Desktop/Dev/haskell/learn-you-a-haskell/" . "4-function-syntax/")
+ ("/Users/Zach/Desktop/Dev/scheming/little-schemer/" . "0-hello/")
+ ("/Users/Zach/Desktop/Dev/scheming/" . "little-schemer/")
+ ("/Users/Zach/Desktop/Dev/haskell/" . "learn-you-a-haskell/")
+ ("/Users/Zach/Desktop/Dev/" . "secret-algos/")
+ ("/Users/Zach/Desktop/DEV/scheming/little-schemer/" . "1-toys/")
+ ("/Users/Zach/Desktop/DEV/scheming/" . "little-schemer/")
+ ("/Users/Zach/Desktop/DEV/" . "scheming/")
+ ("/Users/Zach/Desktop/" . "Dev/")
+ ("/Users/Zach/" . "Desktop/")
+)
+
+;; ----- ido-work-directory-list -----
+(
+ "/Users/Zach/Desktop/Dev/web-queue/webqueue/queueapp/"
+ "/Users/Zach/Desktop/"
+ "/Users/Zach/Desktop/Dev/algos/python/CTCI/chapter4/"
+ "/Users/Zach/Desktop/Dev/secret-algos/python/folderF/again/"
+ "/Users/Zach/Desktop/Dev/secret-algos/python/folderF/"
+ "/Users/Zach/Desktop/Dev/algos/python/DataStructures/"
+ "/Users/Zach/Desktop/Dev/algos/python/CTCI/chapter3/"
+ "/Users/Zach/Desktop/Dev/algos/python/CTCI/chapter2/"
+ "/Users/Zach/Desktop/Dev/algos/python/CTCI/chapter1/"
+ "/Users/Zach/Desktop/Dev/OU-Student-Reviews-DB/frontend/src/"
+ "/Users/Zach/Desktop/Dev/OU-Student-Reviews-DB/frontend/src/components/"
+ "/Users/Zach/"
+ "/Users/Zach/Desktop/Spring_2019/signals_and_systems/signals-and-systems/python/assignment2/"
+ "/Users/Zach/Desktop/Dev/OU-Student-Reviews-DB/frontend/src/reducers/"
+ "/Users/Zach/Desktop/Dev/OU-Student-Reviews-DB/frontend/src/actions/"
+ "/Users/Zach/Desktop/Dev/OU-Student-Reviews-DB/frontend/"
+ "/Users/Zach/Desktop/Spring_2019/digital_design_lab/digital-design-lab/assignment3/report/"
+ "/Users/Zach/Desktop/Spring_2019/embedded_real_time_sys/embedded-real-time-systems/notes/"
+ "/Users/Zach/Desktop/Spring_2019/research/binder/"
+ "/Users/Zach/Desktop/Spring_2019/embedded_real_time_sys/embedded-real-time-systems/mid_fan/pwm_fan.cpp/"
+ "/Users/Zach/Desktop/Spring_2019/embedded_real_time_sys/embedded-real-time-systems/mid_fan/pwm_sweep.cpp/"
+ "/Users/Zach/Desktop/Dev/plag-detect/plagdetect/haskell/"
+ "/Users/Zach/Desktop/Dev/plag-detect/"
+ "/Users/Zach/Documents/Resume/"
+ "/Users/Zach/Desktop/Spring_2019/research/"
+ "/Users/Zach/Desktop/Dev/zerver/rust/"
+ "/Users/Zach/Desktop/Dev/"
+ "/Users/Zach/Desktop/Dev/secret-algos/python/folder0/"
+ "/Users/Zach/Desktop/Dev/secret-algos/python/"
+ "/Users/Zach/Desktop/Spring_2019/digital_design_lab/digital-design-lab/assignment2/src/"
+ "/Users/Zach/Desktop/Spring_2019/digital_design_lab/digital-design-lab/assignment2/report/"
+ "/Users/Zach/Desktop/Spring_2019/digital_design_lab/digital-design-lab/"
+ "/Users/Zach/Desktop/Dev/sudoku-solver/"
+ "/Users/Zach/Desktop/Dev/sudoku-solver/sudoku_solve/"
+ "/Users/Zach/Desktop/Dev/algos/python/"
+ "/Users/Zach/Desktop/Dev/secret-algos/scheme/"
+ "/Users/Zach/Documents/jobs/google/onsite/"
+ "/Users/Zach/Desktop/Dev/algos/python/sorting/"
+ "/ssh:server:/home/zach/binder/"
+ "/ssh:server:algos/"
+ "/Users/Zach/Desktop/Dev/nyab/"
+ "/Users/Zach/Desktop/Dev/projects/"
+ "/Users/Zach/Desktop/Dev/landing-page/"
+ "/Users/Zach/Desktop/Dev/go-league/"
+ "/Users/Zach/Desktop/Dev/scheming/"
+ "/Users/Zach/Desktop/Dev/scheming/little-schemer/0-hello/"
+ "/"
+ "/Users/Zach/Desktop/Dev/whisper/"
+ "/Users/Zach/Desktop/Dev/scheming/little-schemer/4-number-games/"
+ "/Users/Zach/Desktop/Dev/scheming/little-schemer/"
+)
+
+;; ----- ido-work-file-list -----
+(
+ "urls.py"
+ "amazonquestions.py"
+ "q2.py"
+ "q1.py"
+ "findY.py"
+ "binsum.py"
+ "cd.py"
+ "Graph.py"
+ "route.py"
+ "dfs.py"
+)
+
+;; ----- ido-dir-file-cache -----
+(
+ ("/Users/Zach/Desktop/Dev/web-queue/webqueue/queueapp/" (23689 53848 634562 736000) "views.py" "tests.py" "admin.py" "apps.py" "__init__.py" "models.py" "migrations/" "../" "./")
+
+ ("/Users/Zach/Desktop/Dev/scheming/little-schemer/" (23686 51085 0 0) "10-value-of-all-this/" "2-do-it/" "7-friends-and-relations/" "1-toys/" "8-lambda-the-ultimate/" "6-Shadows/" "5-full-of-stars/" "0-hello/" "README.md" "4-number-games/" "9-and-again-and-again/" "3-cons-magnificent/" ".DS_Store" "prereqs.scm" "../" "./")
+
+ ("/Users/Zach/Desktop/Dev/scheming/" (23686 51085 0 0) "little-typer/" ".git/" "seasoned-schemer/" ".gitignore" "README.md" "little-schemer/" "cellular-automata/" "racket/" ".DS_Store" "../" "./")
+
+ ("/Users/Zach/Desktop/Dev/algos/python/" (23687 11367 0 0) "CTCI/" "min_dist.py" "pairs_sum/" "sorting/" ".gitignore" "functional.py" "README.md" "hashmap/" "__pycache__/" "__init__.py" "DataStructures/" "requirements.txt" ".DS_Store" "graycode/" "lru/" "../" "./")
+
+ ("/Users/Zach/Desktop/Dev/sudoku-solver/" (23688 15686 0 0) ".travis.yml" "sudoku_solver_schuermannator.egg-info/" ".git/" "build/" "test.txt" ".gitignore" "setup.py" "sudoku_solve/" "env/" "README.md" "__pycache__/" ".coveragerc" "sudoku_solve.egg-info/" ".coverage" "dist/" "requirements.txt" "LICENSE" "sudoku_solver.egg-info/" "../" "./")
+
+ ("/Users/Zach/Desktop/Spring_2019/digital_design_lab/digital-design-lab/" (23685 2472 0 0) ".git/" "assignment4/" "assignment3/" "assignment2/" ".gitignore" "README.md" "hello-world/" "workspace/" "notes.org" "notes.c" ".DS_Store" "assignment1/" "../" "./")
+
+ ("/Users/Zach/Desktop/Dev/secret-algos/python/" (23686 62241 0 0) "folder0/" "folderF/" "folder1/" ".DS_Store" "../" "./")
+
+ ("/Users/Zach/Desktop/Spring_2019/research/" (23685 58029 0 0) "honors_research_form.pdf" "data/" "BindiAnalyzer.zip" "Honors-Research-ZachSchuermann-SP19.pdf" "Screen Shot 2019-02-16 at 3.25.54 PM.png" "Facial Blends Motor II - Cortex 2019.pdf" "binder/" ".DS_Store" "misc/" "reading/" "Screen Shot 2019-02-16 at 4.03.39 PM.png" "../" "./")
+
+ ("/Users/Zach/Desktop/Dev/plag-detect/" (23688 15723 0 0) ".travis.yml" ".git/" ".gitignore" "env/" "README.md" "Makefile" ".coverage" "Dockerfile" "requirements.txt" "data.hdf5" ".DS_Store" "plagdetect/" "research/" "../" "./")
+
+ ("/Users/Zach/Desktop/Dev/secret-algos/python/folderF/" (23686 62241 0 0) "cd.py" "one_away.py" "two_colors.py" "again/" "../" "./")
+
+ ("/Users/Zach/Desktop/Dev/secret-algos/python/folderF/again/" (23686 62241 0 0) "binsum.py" "findY.py" "../" "./")
+
+ ("/Users/Zach/Desktop/Dev/algos/python/CTCI/chapter4/" (23687 11367 0 0) "dfs.py" "q2.py" "trees.py" "array_tree.py" "bfs.py" "route.py" "heap.py" "q1.py" "tree.py" "../" "./")
+
+ ("/Users/Zach/Desktop/" (23688 36599 910211 826000) "Dev/" ".localized" "Spring_2019/" ".DS_Store" "../" "./")
+
+ ("/Users/Zach/" (23688 36598 142874 43000) "AnacondaProjects/" ".conda/" ".httpie/" "git/" ".viminfo" ".bash_history" ".putty/" "xi-mac/" "C/" ".gitconfig" ".aws/" ".inputrc" "Particle/" ".cache/" ".python_history" "Downloads/" ".gem/" ".bash_profile" ".vscode/" ".mono/" ".babel.json" ".wakatime.log" ".atom-old/" "Documents/" ".npm/" ".itmstransporter/" ".credentials/" ".datadog-agent/" ".keras/" ".jupyter/" ".gitflow_export" "IdeaProjects/" ".Trash/" ".Rapp.history" "Dropbox/" ".anaconda_backup/" ".ghc/" ".profile" "Applications/" ".vimrc" "Movies/" ".ssh/" ".rustup/" "CLionProjects/" "matlab_crash_dump.87691-1" ".jlassetregistry.json" "nodejs-docs-samples/" ".cisco/" ".eaglerc" ".kube/" "notes/" ".code-push.config" ".dropbox/" "Public/" "PycharmProjects/" ".matlab/" "Google Drive/" ".bash_sessions/" ".cups/" ".gitignore_global" "VS_Projects/" ".android/" ".cargo/" ".node_repl_history" ".emacs.d/" ".minikube/" ".bash_profile.pysave" ".IdentityService/" "google-cloud-sdk/" ".gdbinit" ".emacs.d_backup.d/" ".oracle_jre_usage/" ".electron/" ".matplotlib/" "eclipse-workspace/" "Library/" "Desktop/" ".ipython/" ".p2/" ".boto" "mcuxpresso/" ".rncache/" ".nuget/" "algorithms/" ".old-(space)macs.d/" ".bundle/" ".xvimrc2" "node_modules/" ".atom/" "DigitalOcean/" ".multirust/" ".pylint.d/" "Pictures/" "OneDrive - University of Oklahoma/" "Creative Cloud Files/" ".psql_history" ".wakatime.db" ".particle/" ".local/" ".plotly/" ".vim-emacs" ".templateengine/" ".adobe/" ".ServiceHub/" "JS/" "arm-cs-tools/" ".bash_profile~" ".luna/" ".jssc/" ".subversion/" "XVim2/" ".cabal/" ".cordova/" "Python/" ".nxp/" "bin/" ".tooling/" ".wget-hsts" ".hgignore_global" ".old-spacemacs" ".CFUserTextEncoding" ".yarnrc" ".lldb/" "VirtualBox VMs/" ".tmux.conf" ".gnupg/" "nltk_data/" "eclipse/" ".DS_Store" "go/" ".vim/" ".anyconnect" ".node-gyp/" ".emacs.d_old.d/" ".gnupg_pre_2.1/" ".emacs.d-vim/" ".gsutil/" ".docker/" "firmware/" ".floydconfig" ".gitkraken/" ".kaggle/" ".expo/" ".julia/" ".bash_profile-anaconda.bak" ".wakatime.cfg" "Music/" "CouponCart/" ".config/" ".eclipse/" ".stack/" "../" "./")
+
+ ("/Users/Zach/Desktop/Spring_2019/research/binder/" (23685 58031 0 0) "notebooks/" "data/" ".git/" "binder.py" ".ipynb_checkpoints/" ".gitignore" "env/" "README.md" "__pycache__/" "test.csv" "notes.org" "util.py" "track.py" "test/" "requirements.txt" ".DS_Store" "mask.py" "../" "./")
+
+ ("/Users/Zach/Desktop/Dev/algos/python/CTCI/chapter2/" (23685 28401 0 0) "sum_list.py" "remove_dups.py" "intersect.py" "loops.py" "__pycache__/" "__init__.py" "kthtolast.py" "#remove_dups.py#" "del_mid.py" "partition.py" "palindrome.py" "../" "./")
+
+ ("/Users/Zach/Desktop/Dev/algos/python/DataStructures/" (23685 38673 0 0) "HashMap.py" "__pycache__/" "__init__.py" "Graph.py" "LinkedList.py" "Tree.py" "../" "./")
+
+ ("/Users/Zach/Desktop/Dev/secret-algos/" (23686 33336 0 0) ".git/" "README.md" ".gitmodules" "algos/" "python/" ".DS_Store" "scheme/" "../" "./")
+
+ ("/Users/Zach/Desktop/Dev/algos/python/CTCI/chapter3/" (23685 32534 0 0) "queue_from_stacks.py" "sort_stack.py" "../" "./")
+
+ ("/Users/Zach/Desktop/Dev/OU-Student-Reviews-DB/frontend/" (23685 15432 0 0) "src/" "package.json" "package-lock.json" ".gitignore" "public/" "yarn.lock" "README.md" "node_modules/" "Makefile" "Dockerfile" ".DS_Store" "research/" "../" "./")
+
+ ("/Users/Zach/Desktop/Spring_2019/signals_and_systems/signals-and-systems/python/assignment2/" (23680 7591 0 0) ".ipynb_checkpoints/" "Matlab Homework 2-1 (1).pdf" "README.md" "assignment2.pdf" "ft.py" ".DS_Store" "a2.ipynb" "../" "./")
+
+ ("/Users/Zach/Desktop/Dev/algos/python/CTCI/chapter1/" (23684 22708 0 0) "one_away2.py" "one_away.py" "string_rotation.py" "is_unique.py" "__pycache__/" "palindrome_permutation.py" "__init__.py" "check_permutation.py" "urlify.py" "zero_matrix.py" "rotate_matrix.py" "string_compression.py" "../" "./")
+
+ ("/Users/Zach/Desktop/Dev/algos/python/CTCI/" (23684 33361 0 0) "chapter4/" "chapter3/" "chapter2/" "__pycache__/" "__init__.py" "chapter1/" "../" "./")
+
+ ("/Users/Zach/Desktop/Dev/algos/" (23684 33324 0 0) ".travis.yml" ".git/" "cpp/" ".gitignore" "README.md" "python/" "LICENSE" ".DS_Store" "go/" ".pylintrc" "../" "./")
+
+ ("/Users/Zach/Desktop/Dev/" (23684 46757 0 0) "OCW/" "whisper/" "scheming/" "wifi-bug/" "ou-reviews/" "sudoku-solver/" "zerver/" "OU-Student-Reviews-DB/" "cv/" "go-league/" "landing-page/" "plag-detect/" "algos/" "getting-swifty/" "haskell/" "server/" "nyab/" "tor_ssh.sh" "projects/" "secret-algos/" "dotfiles/" ".DS_Store" "openbits/" "Misc/" "../" "./")
+
+ ("/Users/Zach/Desktop/Dev/OU-Student-Reviews-DB/frontend/src/actions/" (23676 47765 0 0) "index.js" "../" "./")
+
+ ("/Users/Zach/Desktop/Dev/OU-Student-Reviews-DB/frontend/src/reducers/" (23676 47765 0 0) "index.js" "reducer.js" "../" "./")
+
+ ("/Users/Zach/Desktop/Dev/OU-Student-Reviews-DB/frontend/src/components/" (23676 47709 0 0) "Footer.js" "figure1_table.js" "DataView.js" "figure3_timeseries.js" "Header.js" "figure2_chart.js" "SearchForm.js" "landing.js" "../" "./")
+
+ ("/Users/Zach/Desktop/Dev/OU-Student-Reviews-DB/frontend/src/" (23676 47709 0 0) "App.js" "reducers/" "serviceWorker.js" "actions/" "App.test.js" "components/" "img/" "index.css" "index.js" "App.css" ".DS_Store" "constants.js" "../" "./")
+
+ ("/Users/Zach/Desktop/Spring_2019/" (23672 22165 0 0) "signals_and_systems/" "Screen Shot 2019-02-01 at 3.11.56 PM.png" "capstone/" "constitutional_law/" "embedded_real_time_sys/" "1098-T_2018.pdf" "Dr.Akhora_presentation.md" ".DS_Store" "digital_design_lab/" "misc/" "research/" "../" "./")
+
+ ("/Users/Zach/Desktop/Spring_2019/signals_and_systems/" (23672 22165 0 0) "lectures/" "havlicek-notes/" "homeworks/" "solutions/" "signals-and-systems/" ".DS_Store" "../" "./")
+
+ ("/Users/Zach/Desktop/Spring_2019/signals_and_systems/signals-and-systems/" (23672 22165 0 0) ".git/" "julia/" ".gitignore" "README.md" "python/" ".DS_Store" "../" "./")
+
+ ("/Users/Zach/Desktop/Spring_2019/signals_and_systems/signals-and-systems/python/" (23672 22165 0 0) "assignment2/" ".gitignore" "env/" "README.md" "requirements.txt" ".DS_Store" "assignment1/" "../" "./")
+
+ ("/Users/Zach/Desktop/Spring_2019/digital_design_lab/digital-design-lab/assignment1/" (23667 29726 0 0) "src/" "Debug/" "assignment1 LinkServer Debug (1).launch" ".cproject" "report/" ".project" ".settings/" ".gitignore" "notes.org" ".DS_Store" "assignment1 LinkServer Debug.launch" "../" "./")
+
+ ("/Users/Zach/Desktop/Spring_2019/embedded_real_time_sys/embedded-real-time-systems/mid_fan/pwm_fan.cpp/" (23661 57976 0 0) "pwm_sweep.cpp" "test.h" "pwm_sweep/" "../" "./")
+
+ ("/Users/Zach/Desktop/Spring_2019/embedded_real_time_sys/embedded-real-time-systems/notes/" (23662 52774 0 0) "a.out" "notes.org" "notes.c" "../" "./")
+
+ ("/Users/Zach/Desktop/Spring_2019/digital_design_lab/digital-design-lab/assignment3/report/" (23669 34476 0 0) "SCRN0174.BMP" "SCRN0173.BMP" "SCRN0165.BMP" "schematic.png" "pierce.png" "assignment3.log" "assignment3.aux" "old-img/" "assignment3.pdf" "_minted-assignment3/" "SCRN0169.BMP" "assignment3.tex" ".DS_Store" "../" "./")
+
+ ("/Users/Zach/Desktop/Dev/OU-Student-Reviews-DB/" (23668 49810 0 0) "notebooks/" ".travis.yml" ".git/" ".gitignore" "README.md" "backend/" "sam_goals.md" "frontend/" ".DS_Store" ".pylintrc" "../" "./")
+
+ ("/Users/Zach/Desktop/Spring_2019/digital_design_lab/" (23664 31556 0 0) "lcd/" "datasheets/" "lectures-docs/" ".DS_Store" "assignments/" "misc/" "digital-design-lab/" "../" "./")
+
+ ("/Users/Zach/Desktop/Spring_2019/digital_design_lab/digital-design-lab/assignment3/" (23664 31556 0 0) "src/" "Debug/" "assignment3 LinkServer Debug.launch" ".cproject" "report/" ".project" ".settings/" ".DS_Store" "../" "./")
+
+ ("/Users/Zach/Desktop/Dev/projects/" (23658 19879 0 0) ".git/" "static/" "index.sass" "index.css.map" "README.md" "index.css" ".DS_Store" "index.html" "favicon.ico" "../" "./")
+
+ ("/Users/Zach/Desktop/Dev/zerver/rust/" (23656 24040 0 0) "zerver/" "README.md" "../" "./")
+
+ ("/Users/Zach/Documents/Resume/" (23658 19268 0 0) ".git/" "Resume.log" "Resume.aux" "Resume 2.pdf" ".gitignore" "README.md" "old/" "Resume.pdf" "Resume.out" "Zachary_Schuermann_Resume.pdf" ".DS_Store" "Resume.tex" "../" "./")
+
+ ("/Users/Zach/Desktop/Dev/plag-detect/plagdetect/haskell/" (23660 52028 0 0) "main" "main.hs" "Makefile" "../" "./")
+
+ ("/Users/Zach/Desktop/Spring_2019/embedded_real_time_sys/embedded-real-time-systems/mid_fan/" (23661 45121 0 0) "pwm_fan.cpp/" ".DS_Store" "../" "./")
+
+ ("/Users/Zach/Desktop/Spring_2019/embedded_real_time_sys/embedded-real-time-systems/" (23661 45121 0 0) ".git/" "header_test/" "project3/" "mid_fan/" "README.md" "blink.cpp" ".DS_Store" "../" "./")
+
+ ("/Users/Zach/Desktop/Spring_2019/embedded_real_time_sys/" (23661 45121 0 0) "HW-SM003DUL-V2-SkyWalker-20150512.pdf" "embedded-real-time-systems/" "Note Apr 24, 2018 Quiz 7.pdf" "TA-paperwork/" "EquipmentLoanAgreement.pdf" ".DS_Store" "../" "./")
+
+ ("/Users/Zach/Desktop/Spring_2019/embedded_real_time_sys/embedded-real-time-systems/mid_fan/pwm_sweep.cpp/" (23660 30718 0 0) "pwm_sweep.cpp.ino" "test.h.ino" "../" "./")
+
+ ("/Users/Zach/Desktop/Dev/plag-detect/plagdetect/" (23660 51217 0 0) "data/" "preprocessing/" "haskell/" "__pycache__/" "__init__.py" "learning/" ".coverage" "test/" ".DS_Store" "runner.py" "../" "./")
+
+ ("/Users/Zach/Desktop/Dev/plag-detect/plagdetect/tests/" (23659 8015 0 0) "test_preprocessing.py" "__pycache__/" "#test_preprocessing.py#" "__init__.py" ".#test_preprocessing.py" "../" "./")
+
+ ("/Users/Zach/Documents/" (23655 34608 0 0) "College/" "jobs/" "Wolfram Mathematica/" "CDSS_presentations/" "Logitech Gaming Software/" "Spring 2018/" "DEV/" "MATLAB/" "Arduino/" "Adobe/" "MCUXpressoIDE_10.3.0/" "osx-config-check/" "Qu/" "Adventure/" "Fall 2018/" "eagle/" ".tmp.drivedownload/" "Resume/" ".localized" "markdown_notes/" "League of Legends/" ".DS_Store" "qu-capital/" "Misc/" "Reading/" "../" "./")
+
+ ("/Users/Zach/Desktop/Dev/haskell/" (23653 46338 0 0) ".git/" "learn-you-a-haskell/" "real-world-haskell/" "stack-test/" ".gitignore" "README.md" "algo/" "graph/" "Haskell.pdf" "test/" ".DS_Store" "../" "./")
+
+ ("/Users/Zach/.emacs.d/" (23656 23246 698484 236000) "conf/" "elpa/" "recentf" "init.el" "auto-save-list/" "tramp" "plugins/" "ido.last" "../" "./")
+
+ ("/Users/Zach/Desktop/Dev/zerver/" (23651 32026 0 0) "c/" ".git/" ".gitignore" "README.md" "rust/" "LICENSE" "../" "./")
+
+ ("/Users/Zach/Desktop/Dev/OU-Student-Reviews-DB/backend/" (23651 44178 0 0) "data/" "env/" "README.md" "course_figure_data.py" "__pycache__/" "api_schema.py" "__init__.py" "tests/" "data_loader.py" "mappings.yaml" "Makefile" "Dockerfile" "mongo.py" "requirements.txt" ".DS_Store" "server.py" "data_aggregation.py" "../" "./")
+
+ ("/Users/Zach/Desktop/Spring_2019/constitutional_law/" (23653 41271 0 0) "Honors+Con+Law+I+2019.docx" "notes.org" "week1/" ".DS_Store" "../" "./")
+
+ ("/Users/Zach/Desktop/Spring_2019/digital_design_lab/digital-design-lab/assignment2/report/" (23646 25114 0 0) "schematic.png" "assignment2.aux" "assignment2.log" "assignment2.pdf" "_minted-assignment2/" "assignment2.tex" "../" "./")
+
+ ("/Users/Zach/Desktop/Spring_2019/digital_design_lab/digital-design-lab/assignment2/" (23646 15710 0 0) "src/" "Debug/" ".cproject" "report/" ".project" ".settings/" ".gitignore" "assignment2 LinkServer Debug.launch" ".DS_Store" "../" "./")
+
+ ("/Users/Zach/Desktop/Spring_2019/digital_design_lab/digital-design-lab/assignment2/src/" (23645 2388 0 0) "#assignment2.c#" "crp.c" "assignment2.c" "cr_startup_lpc175x_6x.c" "../" "./")
+
+ ("/Users/Zach/Desktop/Dev/sudoku-solver/sudoku_solve/" (23644 32955 899655 545000) "sudoku.py" "__pycache__/" "__init__.py" "../" "./")
+
+ ("/Users/Zach/Desktop/Dev/sudoku-solver/__pycache__/" (23643 45963 0 0) "sudoku.cpython-37.pyc" "../" "./")
+
+ ("/Users/Zach/Desktop/Dev/secret-algos/scheme/" (23636 64373 0 0) "substr.scm" "../" "./")
+
+ ("/Users/Zach/Desktop/Dev/secret-algos/python/folder0/" (23641 2336 0 0) "mountains.py" "rand_gen.py" "clean_tree.py" "gen_substring.py" "../" "./")
+
+ ("/Users/Zach/algorithms/" (23507 63741 587605 890000) "src/" ".travis.yml" ".git/" "build/" ".gitignore" "README.md" "include/" "Makefile" "LICENSE" "CMakeLists.txt" "../" "./")
+
+ ("/Users/Zach/Documents/jobs/google/swe-fall18/" (23636 54253 0 0) "Screen Shot 2019-01-06 at 6.58.44 PM.png" "Screen Shot 2019-01-06 at 6.58.39 PM.png" "Screen Shot 2019-01-06 at 6.58.27 PM.png" "answers.txt" "Screen Shot 2019-01-06 at 6.58.33 PM.png" "Screen Shot 2019-01-06 at 4.26.58 PM.png" "Screen Shot 2019-01-06 at 4.32.08 PM.png" "Screen Shot 2019-01-06 at 4.31.56 PM.png" "Screen Shot 2019-01-06 at 6.58.57 PM.png" "Copy of  Google Software Engineering Prep Document.pdf" "Screen Shot 2019-01-06 at 4.32.18 PM.png" "Screen Shot 2019-01-06 at 6.58.51 PM.png" "Screen Shot 2019-01-06 at 7.02.12 PM.png" "Online Survey Software _ Qualtrics Survey Solutions4.pdf" "Screen Shot 2019-01-06 at 4.32.02 PM.png" "Online Survey Software _ Qualtrics Survey Solutions3.pdf" "Online Survey Software _ Qualtrics Survey Solutions.pdf" "Online Survey Software _ Qualtrics Survey Solutions2.pdf" "../" "./")
+
+ ("/Users/Zach/Desktop/Dev/algos/python/sorting/" (23635 60837 0 0) "mergesort.py" "quicksort.py" "misc.py" "../" "./")
+
+ ("/Users/Zach/Documents/jobs/google/onsite/" (23636 60109 0 0) "mountains.py" "rand_gen.py" "clean_tree.py" "gen_substring.py" "../" "./")
+
+ ("/Users/Zach/Documents/jobs/google/" (23636 54254 0 0) "onsite/" "seti/" "1702.01715.pdf" ".DS_Store" "swe-fall18/" "../" "./")
+
+ ("/Users/Zach/Documents/jobs/" (23636 54254 0 0) "boeing/" "facebook/" "tesla/" "google/" "amazon/" ".DS_Store" "../" "./")
+
+ ("/Users/Zach/Desktop/Dev/go-league/" (23632 28341 0 0) ".git/" "templates/" "go-league" "static/" "league-deploy.yaml" "README.md" "server-deploy.yaml" "Dockerfile" "LICENSE" "scraper.go" "server.go" "../" "./")
+
+ ("/Users/Zach/Desktop/Dev/algos/python/__pycache__/" (23616 5355 0 0) "__init__.cpython-37.pyc" "min_dist.cpython-37.pyc" "../" "./")
+
+ ("/Users/Zach/Desktop/Dev/nyab/" (23634 835 0 0) ".git/" "README.md" "LICENSE" "../" "./")
+
+ ("/Users/Zach/Desktop/Dev/whisper/" (23631 21613 0 0) "whisper" "main.go" ".git/" ".gitignore" "README.md" "notes.org" "crypt.go" "LICENSE" "server.go" "../" "./")
+
+ ("/Users/Zach/Desktop/Dev/haskell/learn-you-a-haskell/2-getting-started/" (23630 35404 75715 493000) "intro.hs" "../" "./")
+
+ ("/Users/Zach/Desktop/Dev/landing-page/" (23630 27852 0 0) "site-service.yaml" ".git/" "nginx.conf" "buttons.css" "gpg.pub" "default.conf" "index.sass" "index.css.map" "README.md" "golife.js" "index.css" "dive.log" "Dockerfile" "site-deployment.yaml" "ingress.yaml" "id_ed25519.pub" "index.html" "favicon.ico" "../" "./")
+
+ ("/Users/Zach/Desktop/Dev/scheming/little-schemer/0-hello/" (23629 17300 0 0) "hello_world.scm" "hello_world.lisp" "Makefile" "hello.scm" "../" "./")
+
+ ("/Users/Zach/Desktop/Dev/scheming/little-schemer/3-cons-magnificent/" (23629 10570 383584 85000) "playground.scm" "../" "./")
+
+ ("/Users/Zach/Desktop/Dev/scheming/little-schemer/4-number-games/" (23629 10710 0 0) "playground.scm" "../" "./")
+
+ ("/Users/Zach/Desktop/Dev/scheming/little-schemer/2-do-it/" (23626 41716 0 0) "playground.scm" "../" "./")
+
+ ("/Users/Zach/Desktop/Dev/OU-Student-Reviews-DB/backend/tests/" (23625 19242 0 0) "test.py" "__pycache__/" "../" "./")
+
+ ("/Users/Zach/Desktop/Spring_2019/signals_and_systems/signals-and-systems/julia/" (23626 2245 0 0) "Project.toml" "README.md" "hello-world/" "Manifest.toml" ".DS_Store" "../" "./")
+
+ ("/Users/Zach/Desktop/Spring_2019/signals_and_systems/signals-and-systems/julia/hello-world/" (23626 2245 0 0) "hello.jl" "runner.jl" "hello-julia.ipynb" "images/" "plot_test.jl" ".DS_Store" "../" "./")
+
+ ("/Users/Zach/Desktop/Spring_2019/digital_design_lab/digital-design-lab/assignment1/report/" (23627 55045 0 0) "_minted-assignment1/" "assignment1.aux" "assignment1.log" "SCRN0140.png" "assignment1.pdf" "SCRN0140.BMP" "SCRN0140-1.png" "SCRN0140-0.png" "SCRN0141.BMP" "assignment1.tex" "SCRN0143.BMP" "SCRN0140-2.png" "SCRN0140-3.png" "SCRN0142.BMP" "SCRN0146.BMP" "SCRN0140-4.png" "SCRN0144.BMP" "SCRN0140-5.png" "../" "./")
+
+ ("/Users/Zach/Desktop/Dev/scheming/cellular-automata/" (23587 57179 0 0) "cellular-automata.lisp" "../" "./")
+
+ ("/Users/Zach/CouponCart/CouponCart/" (23037 10231 796993 513000) ".git/" ".flowconfig" ".gitattributes" "android/" ".watchmanconfig" ".buckconfig" "package.json" "package-lock.json" ".gitignore" "__tests__/" "img/" "README.md" "codescraps.txt" "ios/" "index.ios.js" "node_modules/" "index.android.js" "js/" "app.json" ".DS_Store" ".solidarity" ".babelrc" "native-base-theme/" "../" "./")
+
+ ("/Users/Zach/CouponCart/" (23037 18340 804508 697000) "CouponCart-Local/" "Coupon Cart Drive " "React_Starter/" "CouponCartDevelopmentHours.xlsx" "AWS/" "React_Full_Project/" "INDOOR_NAVIGATION_Meng_Wang.pdf" ".DS_Store" "CouponCart/" "../" "./")
+
+ ("/Users/Zach/VS_Projects/" (22686 28082 0 0) "Test/" ".DS_Store" "../" "./")
+
+ ("/Users/Zach/Desktop/Spring_2019/digital_design_lab/digital-design-lab/assignment1/src/" (23623 27949 0 0) "assignment1.c" "crp.c" "cr_startup_lpc175x_6x.c" "../" "./")
+
+ ("/Users/Zach/AnacondaProjects/" (22815 463 0 0) "../" "./")
+
+ ("/Users/Zach/Desktop/Dev/algos/src/" (23616 3383 0 0) "main.cpp" "../" "./")
+
+ ("/Users/Zach/Desktop/Dev/algorithms/" (23613 11151 0 0) "src/" ".travis.yml" ".git/" ".gitignore" "README.md" "include/" "Makefile" "LICENSE" "CMakeLists.txt" "misc/" "../" "./")
+
+ ("/Users/Zach/Desktop/Dev/haskell/learn-you-a-haskell/4-function-syntax/" (23601 13314 0 0) "pattern.hs" "../" "./")
+
+ ("/Users/Zach/Desktop/Dev/haskell/learn-you-a-haskell/" (23598 27073 0 0) "11-functors-applicative-monoids/" "5-recursion/" "3-types-typeclasses/" "2-getting-started/" "13-more-monads/" "8-creating-types-typeclasses/" "4-function-syntax/" "14-zippers/" "6-higher-order-functions/" "9-io/" "12-fistful-monads/" ".DS_Store" "7-modules/" "10-functional-prob-solving/" "1-intro/" "../" "./")
+
+ ("/Users/Zach/Desktop/Dev/haskell/learn-you-a-haskell/3-types-typeclasses/" (23597 43858 0 0) "types.hs" "../" "./")
+
+ ("/Users/Zach/Desktop/Dev/haskell/learn-you-a-haskell/1-intro/" (23589 13262 0 0) "README.md" "../" "./")
+
+ ("/Users/Zach/Desktop/DEV/scheming/little-schemer/1-toys/" (23589 7310 0 0) "playground.lisp" "Makefile" "notes.org" "playground.scm" "../" "./")
+
+ ("/Users/Zach/Desktop/Dev/scheming/little-schemer/1-toys/" (23589 7310 0 0) "playground.lisp" "Makefile" "notes.org" "playground.scm" "../" "./")
+
+ ("/Users/Zach/Desktop/Dev/haskell/graph/" (23589 12838 0 0) "main" "#main.hs#" "main.hs" "../" "./")
+
+ ("/Users/Zach/Desktop/Dev/CTCI/" (23587 57327 0 0) ".git/" "cpp/" ".gitignore" "README.md" "haskell/" "python/" "../" "./")
+
+ ("/Users/Zach/Desktop/DEV/scheming/little-schemer/" (23585 57234 0 0) "1-toys/" "0-hello/" "../" "./")
+)
+
+;; ----- ido-unc-hosts-cache -----
+t
