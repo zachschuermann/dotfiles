@@ -1,0 +1,9 @@
+[submodule "emacs/.emacs.d"]
+	path = emacs/.emacs.d
+	url = https://github.com/hlissner/doom-emacs
+[submodule "vim/.vim/bundle/nerdtree"]
+	path = vim/.vim/bundle/nerdtree
+	url = https://github.com/scrooloose/nerdtree.git
+[submodule "vim/.vim/bundle/lightline.vim"]
+	path = vim/.vim/bundle/lightline.vim
+	url = https://github.com/itchyny/lightline.vim
