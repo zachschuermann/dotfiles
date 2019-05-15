@@ -1,23 +1,19 @@
 # .files
 Includes vim, tmux, and emacs config.  
 Vim: Pathogen, NERDtree, and Lightline  
-Emacs: Modified version of DOOM: EViL Mode, Powerline?, Neotree?, Magit, Projectile, and Melpa (and languages)
+Emacs: EViL Mode, Powerline, Neotree, Magit, Projectile, and Melpa (and languages)
 Tmux: prefix key rebind to `C-a` and switch key rebind to `^A`
-Emacs/Vim Theme: Custom Doom/Dracula    
+Emacs/Vim Theme: Dracula    
 
 **TODO:**
-- [x] Symlinks with GNU Stow
 - [ ] Add git submodules inside `.vim`  
+- [ ] Symlinks with GNU Stow
 - [ ] Add macOS configs
 - [ ] Add other dotfiles - alacritty, etc. 
-- [ ] Add software installation scripts for GNU/Linux and macOS
 
-## Deploying
-
-``` bash
-$ stow <dirname>
-$ stow emacs # to install emacs configs
-```
+## Updating/Deploying
+`$ bash update.sh`
+`$ bash deploy.sh`
 
 ## Emacs
 ![Emacs](/emacs.png)  
