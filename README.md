@@ -15,6 +15,7 @@ Emacs/Vim Theme: Custom Doom/Dracula
 ## Installation
 ```bash
 $ git pull --recurse-submodules # or clone with submodules
+$ git submodule update --init --recursive
 ```
 
 Install GNU Stow, Emacs 26.2+, Vim 8+  
