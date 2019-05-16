@@ -16,7 +16,10 @@ Emacs/Vim Theme: Custom Doom/Dracula
 ```bash
 $ git pull --recurse-submodules # or clone with submodules
 $ git submodule update --init --recursive
+$ emacs/.emacs.d/bin/doom refresh
 ```
+
+Inside emacs: M-x all-the-icons-install-fonts  
 
 Install GNU Stow, Emacs 26.2+, Vim 8+  
 
