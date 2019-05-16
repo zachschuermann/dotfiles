@@ -12,6 +12,15 @@ Emacs/Vim Theme: Custom Doom/Dracula
 - [ ] Add other dotfiles - alacritty, etc. 
 - [ ] Add software installation scripts for GNU/Linux and macOS
 
+## Installation
+```bash
+$ git pull --recurse-submodules # or clone with submodules
+```
+
+Install GNU Stow, Emacs 26.2+, Vim 8+  
+
+Profit.
+
 ## Deploying
 
 ``` bash
