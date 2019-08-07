@@ -2,6 +2,14 @@
 
 ;; Zach Schuermann's private configuration here
 
+;; auto line-wrapping
+;; set to 80
+(setq-default auto-fill-function 'do-auto-fill)
+(setq fill-column 99)
+
+;; default for remote editing --> ssh
+(setq tramp-default-method "ssh")
+
 ;; slower scroll speed
 (setq mouse-wheel-scroll-amount '(1 ((shift) . 1) ((control) . nil)))
 
