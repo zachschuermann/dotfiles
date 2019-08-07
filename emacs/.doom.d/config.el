@@ -2,6 +2,10 @@
 
 ;; Zach Schuermann's private configuration here
 
+;; macos config for mapping command to meta
+(setq mac-option-modifier 'super)
+(setq mac-command-modifier 'meta)
+
 ;; auto line-wrapping
 ;; set to 80
 (setq-default auto-fill-function 'do-auto-fill)
