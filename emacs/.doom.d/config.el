@@ -6,6 +6,12 @@
 (setq mac-option-modifier 'super)
 (setq mac-command-modifier 'meta)
 
+;; use j/k for org mode up/down
+(after! org
+  (map! :org-mode-map
+        :n "M-j" #'org-metadown
+        :n "M-k" #'org-metaup))
+
 ;; auto line-wrapping
 ;; set to 80
 (setq-default auto-fill-function 'do-auto-fill)
