@@ -8,7 +8,7 @@
 
 ;; use j/k for org mode up/down
 (after! org
-  (map! :org-mode-map
+  (map! :map org-mode-map
         :n "M-j" #'org-metadown
         :n "M-k" #'org-metaup))
 
