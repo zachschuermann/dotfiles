@@ -2,6 +2,11 @@
 
 ;; Zach Schuermann's private configuration here
 
+;; set notes dir
+(require 'org)
+(setq org-directory "~/Documents/home-base")
+(setq org-default-notes-file (concat org-directory "/notes.org"))
+
 ;; macos config for mapping command to meta
 (setq mac-option-modifier 'super)
 (setq mac-command-modifier 'meta)
