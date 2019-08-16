@@ -6,6 +6,9 @@
 (setq mac-option-modifier 'super)
 (setq mac-command-modifier 'meta)
 
+;; macos python -> python3 interpreter for babel
+(setq org-babel-python-command "python3")
+
 ;; use j/k for org mode up/down
 (after! org
   (map! :map org-mode-map
