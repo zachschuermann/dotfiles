@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<obprofiles xmlns="http://www.logitech.com/Cassandra/2013.1/OnboardProfile">
+  <profile name="Profile 1">
+    <device color="#ff0000" buttoncount="10" model="Logitech.Gaming.Mouse.G9X" reportrate="500" anglesnapping="0">
+      <dpitable defaultindex="2" currentindex="2">
+        <dpi x="1500" y="1500"/>
+        <dpi x="1600" y="1600"/>
+        <dpi x="2000" y="2000"/>
+        <dpi x="2400" y="2400"/>
+        <dpi x="2800" y="2800"/>
+      </dpitable>
+    </device>
+    <buttons>
+      <button number="1" name="Left Click">
+        <mousefunction xmlns="http://www.logitech.com/Cassandra/2010.1/Macros/MouseFunction">
+          <do task="leftclick"/>
+        </mousefunction>
+      </button>
+      <button number="2" name="Right Click">
+        <mousefunction xmlns="http://www.logitech.com/Cassandra/2010.1/Macros/MouseFunction">
+          <do task="rightclick"/>
+        </mousefunction>
+      </button>
+      <button number="3" name="Middle Click">
+        <mousefunction xmlns="http://www.logitech.com/Cassandra/2010.1/Macros/MouseFunction">
+          <do task="middleclick"/>
+        </mousefunction>
+      </button>
+      <button number="4" name="Ctrl + Up">
+        <keystroke xmlns="http://www.logitech.com/Cassandra/2010.1/Macros/Keystroke">
+          <key value="UP"/>
+          <modifier value="LCTRL"/>
+        </keystroke>
+      </button>
+      <button number="5" name="F11">
+        <keystroke xmlns="http://www.logitech.com/Cassandra/2010.1/Macros/Keystroke">
+          <key value="F11"/>
+        </keystroke>
+      </button>
+      <button number="7" name="Scroll Left">
+        <mousefunction xmlns="http://www.logitech.com/Cassandra/2010.1/Macros/MouseFunction">
+          <do task="scrollleft"/>
+        </mousefunction>
+      </button>
+      <button number="8" name="Scroll Right">
+        <mousefunction xmlns="http://www.logitech.com/Cassandra/2010.1/Macros/MouseFunction">
+          <do task="scrollright"/>
+        </mousefunction>
+      </button>
+      <button number="9" name="DPI Up">
+        <mousefunction xmlns="http://www.logitech.com/Cassandra/2010.1/Macros/MouseFunction">
+          <do task="dpiup"/>
+        </mousefunction>
+      </button>
+      <button number="10" name="DPI Down">
+        <mousefunction xmlns="http://www.logitech.com/Cassandra/2010.1/Macros/MouseFunction">
+          <do task="dpidown"/>
+        </mousefunction>
+      </button>
+    </buttons>
+  </profile>
+</obprofiles>
