@@ -2,6 +2,9 @@
 
 ;; Zach Schuermann's private configuration here
 
+;; gopath hacks
+(setenv "GOPATH" "/Users/Zach/go:/Users/Zach/Desktop/fall19/class/distributed-systems/4113")
+
 ;; set notes dir
 (require 'org)
 (setq org-directory "~/Documents/home-base")
@@ -41,7 +44,8 @@
   '(default ((t (:foreground "#f7f8f9")))))
 
 ;; full-screen window size on startup
-(add-to-list 'default-frame-alist '(fullscreen . maximized))
+;; DEPRECATED
+;; (add-to-list 'default-frame-alist '(fullscreen . maximized))
 
 ;; handle underscores as word character
 (defadvice evil-inner-word (around underscore-as-word activate)
