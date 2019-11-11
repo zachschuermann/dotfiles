@@ -1,6 +1,9 @@
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
+export GOPATH=$HOME/go
+export PATH=$PATH:$GOPATH/bin
+
 # Path to your oh-my-zsh installation.
 export ZSH="/home/zach/.oh-my-zsh"
 if [ "$(uname 2> /dev/null)" != "Linux" ]; then
@@ -115,7 +118,7 @@ bindkey -M menuselect '^j' vi-down-line-or-history
 
 # User configuration
 alias ls='exa'
-alias cat='bat'
+# alias cat='bat'
 
 # overwrite vi-mode for reverse-inc-search
 bindkey "^R" history-incremental-search-backward

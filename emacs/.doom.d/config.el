@@ -3,7 +3,7 @@
 ;; Zach Schuermann's private configuration here
 
 ;; gopath hacks
-(setenv "GOPATH" "/Users/Zach/go:/Users/Zach/Desktop/fall19/class/distributed-systems/4113")
+(setenv "GOPATH" "/Users/Zach/go:/Users/Zach/Desktop/fall19/class/distributed-systems/4113:/home/zach/dev/assignments-schuermannator/")
 
 ;; set notes dir
 (require 'org)
