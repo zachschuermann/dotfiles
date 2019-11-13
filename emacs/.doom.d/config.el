@@ -5,6 +5,9 @@
 ;; gopath hacks
 (setenv "GOPATH" "/Users/Zach/go:/Users/Zach/Desktop/fall19/class/distributed-systems/4113:/home/zach/dev/assignments-schuermannator/")
 
+;; lul this is wrong
+;; (setenv "PATH" "$PATH:$GOPATH/bin")
+
 ;; set notes dir
 (require 'org)
 (setq org-directory "~/Documents/home-base")
