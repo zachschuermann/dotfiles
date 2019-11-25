@@ -1,7 +1,8 @@
-execute pathogen#infect()
 syntax on
+
 filetype plugin indent on
-:set laststatus=2
+
+set laststatus=2
 set number
 set expandtab
 set tabstop=4
