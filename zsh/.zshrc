@@ -86,24 +86,24 @@ ZSH_THEME="nox"
     # celery
     # django
     # docker-compose
+    # cargo
+    # command-not-found
+    # docker
+    # gcloud
+    # httpie
+    # pip
+    # stack
+    # sublime
+    # ufw
+    # vagrant-prompt
+    # vagrant
 plugins=(
-    cargo
-    command-not-found
-    docker
     fd
-    gcloud
     golang
-    httpie
-    pip
     ripgrep
     rust
     safe-paste
-    stack
-    sublime
     tmux
-    ufw
-    vagrant-prompt
-    vagrant
     vi-mode
     z
 )

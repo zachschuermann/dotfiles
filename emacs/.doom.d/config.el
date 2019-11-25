@@ -3,15 +3,20 @@
 ;; Zach Schuermann's private configuration here
 
 ;; gopath hacks
-(setenv "GOPATH" "/Users/Zach/go:/Users/Zach/Desktop/fall19/class/distributed-systems/4113:/home/zach/dev/assignments-schuermannator/")
+;;(setenv "GOPATH" "/Users/Zach/go:/Users/Zach/Desktop/fall19/class/distributed-systems/4113:/home/zach/dev/assignments-schuermannator/")
 
 ;; lul this is wrong
 ;; (setenv "PATH" "$PATH:$GOPATH/bin")
 
 ;; set notes dir
-(require 'org)
-(setq org-directory "~/Documents/home-base")
-(setq org-default-notes-file (concat org-directory "/notes.org"))
+;;(require 'org)
+;;(setq org-directory "~/Documents/home-base")
+;;(setq org-default-notes-file (concat org-directory "/notes.org"))
+(setq doom-theme 'doom-dracula)
+
+;; speed up company
+(setq company-dabbrev-downcase 0)
+(setq company-idle-delay 0)
 
 ;; macos config for mapping command to meta
 (setq mac-option-modifier 'super)
