@@ -1,8 +1,10 @@
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
-export GOPATH=$HOME/go
-export PATH=$PATH:$GOPATH/bin
+#export GOPATH=$HOME/go
+#Dont do this lul
+#export PATH=$PATH:$GOPATH/bin
+
 
 export VISUAL=vim
 export EDITOR="$VISUAL"
@@ -10,14 +12,15 @@ export EDITOR="$VISUAL"
 # Path to your oh-my-zsh installation.
 export ZSH="/home/zach/.oh-my-zsh"
 if [ "$(uname 2> /dev/null)" != "Linux" ]; then
-    export ZSH="/Users/Zach/.oh-my-zsh"
+    export ZSH="/Users/zach/.oh-my-zsh"
+    path+=('/Users/zach/.emacs.d/bin')
 fi
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
-ZSH_THEME="nox"
+#ZSH_THEME="nox"
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
@@ -97,11 +100,13 @@ ZSH_THEME="nox"
     # ufw
     # vagrant-prompt
     # vagrant
+    #
+    # golang
+    # rust
+    #
 plugins=(
     fd
-    golang
     ripgrep
-    rust
     safe-paste
     tmux
     vi-mode
@@ -122,6 +127,10 @@ bindkey -M menuselect '^j' vi-down-line-or-history
 # User configuration
 alias ls='exa'
 alias cat='bat'
+
+# how to access originals
+alias ll='/bin/ls'
+alias ct='/bin/cat'
 
 # overwrite vi-mode for reverse-inc-search
 bindkey "^R" history-incremental-search-backward
