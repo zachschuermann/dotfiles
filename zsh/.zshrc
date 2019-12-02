@@ -1,9 +1,8 @@
 # If you come from bash you might have to change your $PATH.
-# export PATH=$HOME/bin:/usr/local/bin:$PATH
 
-#export GOPATH=$HOME/go
-#Dont do this lul
-#export PATH=$PATH:$GOPATH/bin
+export GOPATH=$HOME/go:/Users/zach/Documents/fall19/class/distributed-systems/4113
+#path+=('$GOPATH/bin')
+export PATH=$GOPATH/bin:$PATH
 
 
 export VISUAL=vim

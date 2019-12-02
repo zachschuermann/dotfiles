@@ -3,10 +3,16 @@
 ;; Zach Schuermann's private configuration here
 
 ;; gopath hacks
-;;(setenv "GOPATH" "/Users/Zach/go:/Users/Zach/Desktop/fall19/class/distributed-systems/4113:/home/zach/dev/assignments-schuermannator/")
-
-;; lul this is wrong
-;; (setenv "PATH" "$PATH:$GOPATH/bin")
+(defvar gopathroot "/Users/zach/go" "default gopath")
+(setenv "GOPATH"
+        (concat gopathroot
+         ":/Users/zach/Documents/fall19/class/distributed-systems/4113"))
+(setenv "PATH"
+        (concat
+         gopathroot "/bin:"
+         (getenv "PATH")))
+(add-to-list 'exec-path "/Users/zach/go/bin")
+;; (setq exec-path (append '(concat gopathroot "/bin:") exec-path))
 
 ;; set notes dir
 ;;(require 'org)
