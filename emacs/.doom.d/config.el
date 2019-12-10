@@ -2,16 +2,33 @@
 
 ;; Zach Schuermann's private configuration here
 
+;; TODO make install list
+;; Stack installed hlint
+;; Home-brew: shellcheck, hlint, glslang, sbcl, pandoc,
+;; cabal-install, gtk+, gtk-mac-integration
+;;
+;; Brew cask install racket
+;;
+;; Cargo: rust racer, toolchain, src, etc.
+
+;; TODO change haskell keybindings: C-c C-j jump to def, etc
+
 ;; gopath hacks
 (defvar gopathroot "/Users/zach/go" "default gopath")
 (setenv "GOPATH"
         (concat gopathroot
-         ":/Users/zach/Documents/fall19/class/distributed-systems/4113"))
+                ":/Users/zach/Documents/fall19/class/distributed-systems/4113"))
+
+;; path hacks
 (setenv "PATH"
         (concat
          gopathroot "/bin:"
+         "/usr/local/bin/:"
          (getenv "PATH")))
 (add-to-list 'exec-path "/Users/zach/go/bin")
+(add-to-list 'exec-path "/usr/local/bin/")
+
+(setq haskell-interactive-popup-errors 'nil)
 ;; (setq exec-path (append '(concat gopathroot "/bin:") exec-path))
 
 ;; set notes dir
