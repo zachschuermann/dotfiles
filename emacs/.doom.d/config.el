@@ -37,6 +37,9 @@
 ;;(setq org-default-notes-file (concat org-directory "/notes.org"))
 (setq doom-theme 'doom-dracula)
 
+;; set dictionary to GNU aspell
+(setq ispell-program-name "aspell")
+
 ;; speed up company
 (setq company-dabbrev-downcase 0)
 (setq company-idle-delay 0)

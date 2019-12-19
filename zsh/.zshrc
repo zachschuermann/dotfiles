@@ -4,15 +4,25 @@ export GOPATH=$HOME/go:/Users/zach/Documents/fall19/class/distributed-systems/41
 #path+=('$GOPATH/bin')
 export PATH=$GOPATH/bin:$PATH
 
+TIMEFMT='%J'$'\n'\
+'%U  user %S system %P cpu %*E total'$'\n'\
+'avg shared (code):         %X KB'$'\n'\
+'avg unshared (data/stack): %D KB'$'\n'\
+'total (sum):               %K KB'$'\n'\
+'max memory:                %M KB'$'\n'\
+'page faults from disk:     %F'$'\n'\
+'other page faults:         %R'
 
 export VISUAL=vim
 export EDITOR="$VISUAL"
 
 # Path to your oh-my-zsh installation.
+# also stack path
 export ZSH="/home/zach/.oh-my-zsh"
 if [ "$(uname 2> /dev/null)" != "Linux" ]; then
     export ZSH="/Users/zach/.oh-my-zsh"
     path+=('/Users/zach/.emacs.d/bin')
+    path+=('/Users/zach/.local/bin')
 fi
 
 # Set name of the theme to load --- if set to "random", it will
