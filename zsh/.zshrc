@@ -141,6 +141,9 @@ alias cat='bat'
 alias ll='/bin/ls'
 alias ct='/bin/cat'
 
+alias emacs='emacs -nw'
+alias emax='emacs'
+
 # overwrite vi-mode for reverse-inc-search
 bindkey "^R" history-incremental-search-backward
 

@@ -32,11 +32,11 @@
 ;; (setq exec-path (append '(concat gopathroot "/bin:") exec-path))
 
 ;; set notes dir
-;;(require 'org)
-;; (if (eq system-type 'darwin)
-;;     (setq org-directory "~/Documents/home-base")
-;;   (setq org-directory "~/dev/home-base"))
-;; (setq org-default-notes-file (concat org-directory "/notes.org"))
+(require 'org)
+(if (eq system-type 'darwin)
+    (setq org-directory "~/Documents/home-base")
+  (setq org-directory "~/dev/home-base"))
+(setq org-default-notes-file (concat org-directory "/notes.org"))
 
 ;; theme
 (setq doom-theme 'doom-dracula)
