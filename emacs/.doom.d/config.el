@@ -62,9 +62,9 @@
         :n "M-k" #'org-metaup))
 
 ;; auto line-wrapping
-;; set to 80
+;; set to 120 (half-screen)
 (setq-default auto-fill-function 'do-auto-fill)
-(setq fill-column 99)
+(setq fill-column 120)
 
 ;; default for remote editing --> ssh
 (setq tramp-default-method "ssh")
@@ -81,9 +81,9 @@
 (custom-set-faces
   '(default ((t (:foreground "#f7f8f9")))))
 
-;; full-screen window size on startup
-;; DEPRECATED
-;; (add-to-list 'default-frame-alist '(fullscreen . maximized))
+;; full-height, half-width window size on startup
+(add-to-list 'initial-frame-alist '(fullscreen . fullheight))
+(add-to-list 'initial-frame-alist '(width . 126))
 
 ;; handle underscores as word character
 (defadvice evil-inner-word (around underscore-as-word activate)
