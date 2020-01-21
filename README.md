@@ -7,7 +7,7 @@ Emacs/Vim Theme: Custom Doom/Dracula
 
 **TODO:**
 - [x] Symlinks with GNU Stow
-- [ ] Add git submodules inside `.vim`  
+- [x] Add git submodules inside `.vim`  
 - [ ] Add macOS configs
 - [ ] Add other dotfiles - alacritty, etc. 
 - [ ] Add software installation scripts for GNU/Linux and macOS
