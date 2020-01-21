@@ -67,6 +67,7 @@
 (setq fill-column 120)
 
 ;; default for remote editing --> ssh
+;; faster than scp (default)
 (setq tramp-default-method "ssh")
 
 ;; slower scroll speed
