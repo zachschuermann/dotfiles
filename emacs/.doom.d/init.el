@@ -30,16 +30,16 @@
        nav-flash         ; blink the current line after jumping
        neotree           ; a project drawer, like NERDTree for vim
        ophints           ; highlight the region an operation acts on
-       ;;(popup            ; tame sudden yet inevitable temporary windows
-       ;; +all             ; catch all popups that start with an asterix
-       ;; +defaults)       ; default popup rules
+       (popup            ; tame sudden yet inevitable temporary windows
+        +all             ; catch all popups that start with an asterix
+        +defaults)       ; default popup rules
        ;;pretty-code       ; replace bits of code with pretty symbols
-       ;;tabbar            ; FIXME an (incomplete) tab bar for Emacs
+       ;;tabs            ; an tab bar for Emacs
        ;;treemacs          ; a project drawer, like neotree but cooler [prefer
                           ;;neotree over this]
        ;;unicode           ; extended unicode support for various languages
        vc-gutter         ; vcs diff in the fringe
-       ;;vi-tilde-fringe   ; fringe tildes to mark beyond EOB
+       vi-tilde-fringe   ; fringe tildes to mark beyond EOB
        window-select     ; visually switch windows
        workspaces        ; tab emulation, persistence & separate workspaces
 
@@ -55,15 +55,26 @@
        ;;snippets          ; my elves. They type so I don't have to
 
        :emacs
-       (dired            ; making dired pretty [functional]
-       +ranger         ; bringing the goodness of ranger to dired
-       +icons          ; colorful icons for dired-mode
-        )
-       ;;electric          ; smarter, keyword-based electric-indent
+       ;;(dired            ; making dired pretty [functional]
+       ;;+ranger         ; bringing the goodness of ranger to dired
+       ;;+icons          ; colorful icons for dired-mode
+       ;; )
+       dired
+       electric          ; smarter, keyword-based electric-indent
+
+       :term
        ;;eshell            ; a consistent, cross-platform shell (WIP)
+       ;;shell
+       ;;term
+       ;;vterm
+
        ;;imenu             ; an imenu sidebar and searchable code index
-       ;;term              ; terminals in Emacs
        ;;vc                ; version-control and Emacs, sitting in a tree
+
+       :checkers
+       syntax
+       ;;spell
+       ;;grammar
 
        :tools
        ;;ansible
@@ -72,7 +83,7 @@
        ;;docker
        ;;editorconfig      ; let someone else argue about tabs vs spaces
        ;;ein               ; tame Jupyter notebooks with emacs
-       eval              ; run code, run (also, repls)
+       (eval +overlay)             ; run code, run (also, repls)
        flycheck          ; tasing you for every semicolon you forget
        flyspell          ; tasing you for misspelling mispelling
        ;;gist              ; interacting with github gists
@@ -97,7 +108,7 @@
        ;;assembly          ; assembly for fun or debugging
        cc                ; C/C++/Obj-C madness
        ;;clojure           ; java with a lisp
-       common-lisp       ; if you've seen one lisp, you've seen them all
+       ;;common-lisp       ; if you've seen one lisp, you've seen them all
        ;;coq               ; proofs-as-programs
        ;;crystal           ; ruby at the speed of c
        ;;csharp            ; unity, .NET, and mono shenanigans
@@ -129,7 +140,8 @@
         +export          ; Exporting org to whatever you want
         +habit           ; Keep track of your habits
         +present         ; Emacs for presentations
-        +protocol)       ; Support for org-protocol:// links
+        +protocol        ; Support for org-protocol:// links
+        +jupyter)
        ;;perl              ; write code no one else can comprehend
        ;;php               ; perl's insecure younger brother
        ;;plantuml          ; diagrams for confusing people more
