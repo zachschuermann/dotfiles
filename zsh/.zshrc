@@ -140,7 +140,8 @@ alias ls='exa'
 alias cat='bat'
 
 # how to access originals
-alias ll='/bin/ls'
+alias ll='exa -la'
+alias lls='/bin/ls'
 alias ct='/bin/cat'
 
 alias emacs='emacs -nw'
@@ -172,3 +173,4 @@ bindkey "^R" history-incremental-search-backward
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+export PATH="/usr/local/opt/libpq/bin:$PATH"

@@ -13,6 +13,13 @@
 
 ;; TODO change haskell keybindings: C-c C-j jump to def, etc
 
+;; cscope
+(after! xcscope
+  (define-key cscope-minor-mode-keymap cscope-keymap-prefix nil)
+  (setq cscope-keymap-prefix (kbd "C-\\"))
+  (define-key cscope-minor-mode-keymap cscope-keymap-prefix
+    cscope-command-map))
+
 ;; gopath hacks
 (defvar gopathroot "/Users/zach/go" "default gopath")
 (setenv "GOPATH"
