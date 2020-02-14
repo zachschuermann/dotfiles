@@ -135,6 +135,8 @@ bindkey -M menuselect '^k' vi-up-line-or-history
 bindkey -M menuselect '^l' vi-forward-char
 bindkey -M menuselect '^j' vi-down-line-or-history
 
+# undo aliases (to run original 'cat') by running \cat
+
 # User configuration
 alias ls='exa'
 alias cat='bat'
@@ -149,6 +151,19 @@ alias emax='emacs'
 
 # overwrite vi-mode for reverse-inc-search
 bindkey "^R" history-incremental-search-backward
+
+alias vmstart='VBoxManage startvm --type headless'  # starts VM headlessly
+function vmpower() {
+    VBoxManage controlvm $1 poweroff                # force shutdown
+}
+function vmacpi() {
+    VBoxManage controlvm $1 acpipowerbutton         # send ACPI power button
+}
+alias vmls='VBoxManage list vms'                    # list all VMs
+alias vmlson='VBoxManage list runningvms'           # list running VMs
+vmrestart() {
+    vmpower $1 && vmstart $1                        # restart VM
+}
 
 # export MANPATH="/usr/local/man:$MANPATH"
 
@@ -174,3 +189,7 @@ bindkey "^R" history-incremental-search-backward
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 export PATH="/usr/local/opt/libpq/bin:$PATH"
+
+# broot stuff
+source /Users/zach/Library/Preferences/org.dystroy.broot/launcher/bash/br
+alias tree='br'
