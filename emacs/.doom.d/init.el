@@ -72,8 +72,10 @@
        ;;vc                ; version-control and Emacs, sitting in a tree
 
        :checkers
-       syntax
-       ;;spell
+
+
+       syntax ;flycheck          ; tasing you for every semicolon you forget
+       spell  ;flyspell          ; tasing you for misspelling mispelling
        ;;grammar
 
        :tools
@@ -84,12 +86,10 @@
        ;;editorconfig      ; let someone else argue about tabs vs spaces
        ;;ein               ; tame Jupyter notebooks with emacs
        (eval +overlay)             ; run code, run (also, repls)
-       flycheck          ; tasing you for every semicolon you forget
-       flyspell          ; tasing you for misspelling mispelling
        ;;gist              ; interacting with github gists
        ;;(lookup           ; helps you navigate your code and documentation
         ;;+docsets)        ; ...or in Dash docsets locally
-       ;;lsp
+       lsp
        macos             ; MacOS-specific commands
        magit             ; a git porcelain for Emacs
        make              ; run make tasks from Emacs
@@ -104,7 +104,7 @@
        ;;vterm             ; another terminals in Emacs
 
        :lang
-       ;;agda              ; types of types of types of types...
+       agda              ; types of types of types of types...
        ;;assembly          ; assembly for fun or debugging
        cc                ; C/C++/Obj-C madness
        ;;clojure           ; java with a lisp
@@ -151,8 +151,9 @@
        racket            ; a DSL for DSLs
        ;;rest              ; Emacs as a REST client
        ;;ruby              ; 1.step {|i| p "Ruby is #{i.even? ? 'love' : 'life'}"}
-       rust              ; Fe2O3.unwrap().unwrap().unwrap().unwrap()
-       ;;scala             ; java, but good
+       (rust              ; Fe2O3.unwrap().unwrap().unwrap().unwrap()
+        +lsp)
+       scala             ; java, but good
        sh                  ; she sells (ba|z|fi)sh shells on the C xor
        ;;solidity          ; do you need a blockchain? No.
        swift             ; who asked for emoji variables?
