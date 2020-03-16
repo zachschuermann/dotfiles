@@ -13,7 +13,7 @@ TIMEFMT='%J'$'\n'\
 'page faults from disk:     %F'$'\n'\
 'other page faults:         %R'
 
-export VISUAL=vim
+export VISUAL=nvim
 export EDITOR="$VISUAL"
 
 # Path to your oh-my-zsh installation.
@@ -149,6 +149,9 @@ alias ct='/bin/cat'
 alias emacs='emacs -nw'
 alias emax='emacs'
 
+alias vim='nvim'
+alias vi='vim'
+
 # overwrite vi-mode for reverse-inc-search
 bindkey "^R" history-incremental-search-backward
 
@@ -193,3 +196,5 @@ export PATH="/usr/local/opt/libpq/bin:$PATH"
 # broot stuff
 source /Users/zach/Library/Preferences/org.dystroy.broot/launcher/bash/br
 alias tree='br'
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh

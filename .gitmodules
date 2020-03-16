@@ -19,3 +19,12 @@
 [submodule "vim/.vim/pack/zach/start/vim-airline"]
 	path = vim/.vim/pack/zach/start/vim-airline
 	url = https://github.com/vim-airline/vim-airline
+[submodule "vim/.vim/pack/zach/start/vim-surround"]
+	path = vim/.vim/pack/zach/start/vim-surround
+	url = git@github.com:tpope/vim-surround.git
+[submodule "vim/.vim/pack/zach/start/fzf.vim"]
+	path = vim/.vim/pack/zach/start/fzf.vim
+	url = git@github.com:junegunn/fzf.vim.git
+[submodule "vim/.vim/pack/zach/start/rust.vim"]
+	path = vim/.vim/pack/zach/start/rust.vim
+	url = git@github.com:rust-lang/rust.vim.git

@@ -5,7 +5,6 @@ set number
 set expandtab
 set tabstop=4
 set shiftwidth=4
-" colorscheme peachpuff
 color dracula
 
 set autoindent
@@ -16,8 +15,19 @@ set guifont=Monospace\ 12
 set autoindent
 set nocindent
 
-" set guioptions-=T  " remove menu bar
+if has('nvim')
+    "set guicursor=n-v-c:block-Cursor/lCursor-blinkon0,i-ci:ver25-Cursor/lCursor,r-cr:hor20-Cursor/lCursor
+    set guicursor=
+    set inccommand=nosplit
+end
 
+" If installed using Homebrew
+" need to make this more portable
+set rtp+=/usr/local/opt/fzf
+
+""" old/unused
+" set guioptions-=T  " remove menu bar
+" colorscheme peachpuff
 " keybindings
 "noremap \f :FSHere<CR>
 "noremap \t :tabnew<CR>
@@ -35,6 +45,81 @@ set nocindent
 "
 " Sets how many lines of history VIM has to remember
 set history=1000
+
+" deal with colors
+if !has('gui_running')
+  set t_Co=256
+endif
+if (match($TERM, "-256color") != -1) && (match($TERM, "screen-256color") == -1)
+  " screen does not (yet) support truecolor
+  set termguicolors
+endif
+
+if executable('rg')
+	set grepprg=rg\ --no-heading\ --vimgrep
+	set grepformat=%f:%l:%c:%m
+endif
+
+" Permanent undo
+set undodir=~/.vimdid
+set undofile
+
+" Very magic by default
+nnoremap ? ?\v
+nnoremap / /\v
+cnoremap %s/ %sm/
+
+nnoremap <C-g> <Esc>
+inoremap <C-g> <Esc>
+vnoremap <C-g> <Esc>
+snoremap <C-g> <Esc>
+xnoremap <C-g> <Esc>
+cnoremap <C-g> <Esc>
+onoremap <C-g> <Esc>
+lnoremap <C-g> <Esc>
+tnoremap <C-g> <Esc>
+
+map <C-h> ^
+map <C-l> $
+
+" Completion
+set cmdheight=2
+set updatetime=300
+" Use `C-j` and `C-k` to navigate diagnostics
+inoremap <silent> <C-k> <Plug>(coc-diagnostic-prev)
+inoremap <silent> <C-j> <Plug>(coc-diagnostic-next)
+
+" Use tab for trigger completion with characters ahead and navigate.
+" Use command ':verbose imap <tab>' to make sure tab is not mapped by other plugin.
+inoremap <silent><expr> <TAB>
+      \ pumvisible() ? "\<C-n>" :
+      \ <SID>check_back_space() ? "\<TAB>" :
+      \ coc#refresh()
+inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
+function! s:check_back_space() abort
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1]  =~# '\s'
+endfunction
+" Use <c-.> to trigger completion.
+inoremap <silent><expr> <c-.> coc#refresh()
+" Use <cr> to confirm completion, `<C-g>u` means break undo chain at current position.
+" Coc only does snippet and additional edit on confirm.
+" inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
+" Or use `complete_info` if your vim support it, like:
+inoremap <expr> <cr> complete_info()["selected"] != "-1" ? "\<C-y>" : "\<C-g>u\<CR>"
+
+" <leader>s for Rg search
+noremap <leader>s :Rg
+let g:fzf_layout = { 'down': '~20%' }
+command! -bang -nargs=* Rg
+  \ call fzf#vim#grep(
+  \   'rg --column --line-number --no-heading --color=always '.shellescape(<q-args>), 1,
+  \   <bang>0 ? fzf#vim#with_preview('up:60%')
+  \           : fzf#vim#with_preview('right:50%:hidden', '?'),
+  \   <bang>0)
+
+" Golang
+let g:go_bin_path = expand("~/dev/go/bin")
 
 " Enable filetype plugins
 filetype plugin on
@@ -66,11 +151,31 @@ nmap <leader>q :bp <BAR> bd #<CR>
 " Show all open buffers and their status
 nmap <leader>bl :ls<CR>
 
+nnoremap <leader>. :Files<CR>
+nnoremap <leader>, :Buffers<CR>
+
+" No arrow keys 
+nnoremap <up> <nop>
+nnoremap <down> <nop>
+inoremap <up> <nop>
+inoremap <down> <nop>
+inoremap <left> <nop>
+inoremap <right> <nop>
+
 " Use arrow keys to navigate window splits
-nnoremap <silent> <Right> :wincmd l <CR> 
-nnoremap <silent> <Left> :wincmd h <CR>
-noremap <silent> <Up> :wincmd k <CR>
-noremap <silent> <Down> :wincmd j <CR>
+"nnoremap <silent> <Right> :wincmd l <CR> 
+"nnoremap <silent> <Left> :wincmd h <CR>
+"noremap <silent> <Up> :wincmd k <CR>
+"noremap <silent> <Down> :wincmd j <CR>
+nnoremap <left> :bp<CR>
+nnoremap <right> :bn<CR>
+
+nnoremap <leader><leader> <c-^>
+nnoremap <leader>q g<c-g>
+
+" don't need F1 help. F1 --> esc
+map <F1> <Esc>
+imap <F1> <Esc>
 
 " ctrl-p
 let g:ctrlp_custom_ignore = {
