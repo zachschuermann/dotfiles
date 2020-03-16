@@ -13,9 +13,6 @@ set nocindent
 
 set guifont=Monospace\ 12
 
-set autoindent
-set nocindent
-
 if has('nvim')
     "set guicursor=n-v-c:block-Cursor/lCursor-blinkon0,i-ci:ver25-Cursor/lCursor,r-cr:hor20-Cursor/lCursor
     set guicursor=
@@ -87,8 +84,8 @@ map <C-l> $
 set cmdheight=2
 set updatetime=300
 " Use `C-j` and `C-k` to navigate diagnostics
-inoremap <silent> <C-k> <Plug>(coc-diagnostic-prev)
-inoremap <silent> <C-j> <Plug>(coc-diagnostic-next)
+inoremap <expr> <C-j> pumvisible() ? "\<C-n>" : "\<C-j>"
+inoremap <expr> <C-k> pumvisible() ? "\<C-p>" : "\<C-k>"
 
 " Use tab for trigger completion with characters ahead and navigate.
 " Use command ':verbose imap <tab>' to make sure tab is not mapped by other plugin.
@@ -109,9 +106,7 @@ inoremap <silent><expr> <c-.> coc#refresh()
 " Or use `complete_info` if your vim support it, like:
 inoremap <expr> <cr> complete_info()["selected"] != "-1" ? "\<C-y>" : "\<C-g>u\<CR>"
 
-" <leader>s for Rg search
-noremap <leader>s :Rg
-let g:fzf_layout = { 'down': '~20%' }
+let g:fzf_layout = { 'down': '~30%' }
 command! -bang -nargs=* Rg
   \ call fzf#vim#grep(
   \   'rg --column --line-number --no-heading --color=always '.shellescape(<q-args>), 1,
@@ -131,6 +126,9 @@ filetype plugin indent on
 
 let mapleader ="\<Space>"      
 let g:mapleader ="\<Space>"    
+
+" <leader>s for Rg search
+nnoremap <leader>s :Rg<CR>
 
 " Airline
 let g:airline#extensions#tabline#enabled = 1 " Enable the list of buffers
