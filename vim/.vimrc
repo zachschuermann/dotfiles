@@ -6,6 +6,7 @@ set expandtab
 set tabstop=4
 set shiftwidth=4
 color dracula
+"colorscheme base16-gruvbox-dark-medium
 
 set autoindent
 set nocindent
