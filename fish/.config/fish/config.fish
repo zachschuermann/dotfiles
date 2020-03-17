@@ -1,6 +1,6 @@
-#if status --is-interactive
-	#tmux ^ /dev/null; and exec true
-#end
+if status --is-interactive
+	tmux ^ /dev/null; and exec true
+end
 
 set PATH /Users/zach/.cargo/bin/ $PATH
 
