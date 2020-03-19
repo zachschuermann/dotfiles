@@ -25,6 +25,7 @@ end
 " If installed using Homebrew
 " need to make this more portable
 set rtp+=/usr/local/opt/fzf
+set rtp+=/usr/bin/fzf
 
 """ old/unused
 " set guioptions-=T  " remove menu bar
