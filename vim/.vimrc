@@ -11,6 +11,8 @@ color dracula
 set autoindent
 set nocindent
 
+set mouse=a
+
 set guifont=Monospace\ 12
 
 if has('nvim')
