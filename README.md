@@ -1,10 +1,13 @@
 # .files
-Includes vim, tmux, and emacs config.  
-Vim: Required Vim 8+/Neovim
+Requires GNU Stow.
+Vim: Requires Vim 8+/Neovim 0.3+
+Emacs: Requires GNU Emacs 26.2+
 - installs:
 Emacs: Modified version of DOOM
 Tmux: prefix key rebind to `C-a` and switch key rebind to `^A`
 Emacs/Vim Theme: Custom Doom/Dracula    
+shells: bash/zsh/fish
+terminal: alacritty
 
 **TODO:**
 - [x] Symlinks with GNU Stow
@@ -16,6 +19,7 @@ Emacs/Vim Theme: Custom Doom/Dracula
 - [ ] Bootstrap scripts
 - [ ] Better docs
 - [ ] Add completion stuff with vim keybind j/k up down
+- [ ] Nix for predictable bootstrapping
 
 ## Installation
 ```bash
@@ -25,31 +29,33 @@ or for a normal clone:
 ```bash
 $ git pull --recurse-submodules 
 $ git submodule update --init --recursive
-$ emacs/.emacs.d/bin/doom refresh
+```
+then,
+``` bash
+$ stow vim
+$ stow fish
+etc.
 ```
 
+### Vim
 Neovim/COC requires: node/python3
 ```
-npm install -g neovim
-python3 -m pip install --user --upgrade pynvim
+$ npm install -g neovim
+$ python3 -m pip install --user --upgrade pynvim
 ```
 
-Inside emacs: M-x all-the-icons-install-fonts  
-
-Install GNU Stow, Emacs 26.2+, Vim 8+  
-
-## Deploying
-
-``` bash
-$ stow <dirname>
-$ stow emacs # to install emacs configs
+### Emacs
 ```
+$ emacs/.emacs.d/bin/doom refresh
+```
+Inside emacs: `M-x all-the-icons-install-fonts`
 
-## Vim
+
+## Screenshot
 ![Vim](/vimdemo.png) 
 
 ## Resources
 [Github dotfiles](http://dotfiles.github.io/)
 [Jon Gjengset Configs](https://github.com/jonhoo/configs)
-
+[How to boost your Vim productivity](https://sheerun.net/2014/03/21/how-to-boost-your-vim-productivity/)
 
