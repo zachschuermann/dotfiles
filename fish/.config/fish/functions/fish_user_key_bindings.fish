@@ -3,4 +3,5 @@ function fish_user_key_bindings
     fzf_key_bindings
     bind -M insert \cf accept-autosuggestion
     bind \cf accept-autosuggestion
+    bind \cj down-line
 end
