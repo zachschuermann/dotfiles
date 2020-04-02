@@ -7,7 +7,7 @@ set PATH /Users/zach/.cargo/bin/ $PATH
 set fish_greeting
 
 # use ripgrep for fzf
-set -gx FZF_DEFAULT_COMMAND  'rg --files --no-ignore-vcs --hidden'
+set -gx FZF_DEFAULT_COMMAND  'rg --files --no-ignore --hidden --follow --glob "!.git/*"'
 
 if command -v exa > /dev/null
 	alias l 'exa'

@@ -131,10 +131,13 @@ filetype plugin indent on
 " set autoread                 
 
 let mapleader ="\<Space>"      
-let g:mapleader ="\<Space>"    
+let g:maplxeader ="\<Space>"    
 
 " <leader>s for Rg search
 nnoremap <leader>s :Rg<CR>
+
+" Open new file adjacent to current file
+nnoremap <leader>e :e <C-R>=expand("%:p:h") . "/" <CR>
 
 " Airline
 let g:airline#extensions#tabline#enabled = 1 " Enable the list of buffers
@@ -176,7 +179,7 @@ nnoremap <left> :bp<CR>
 nnoremap <right> :bn<CR>
 
 nnoremap <leader><leader> <c-^>
-nnoremap <leader>q g<c-g>
+nnoremap <leader>b g<c-g>
 
 " don't need F1 help. F1 --> esc
 map <F1> <Esc>
