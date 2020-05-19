@@ -135,6 +135,7 @@ let g:maplxeader ="\<Space>"
 
 " <leader>s for Rg search
 nnoremap <leader>s :Rg<CR>
+" nnoremap <leader>f :Rg! 
 
 " Open new file adjacent to current file
 nnoremap <leader>e :e <C-R>=expand("%:p:h") . "/" <CR>
@@ -159,7 +160,7 @@ nmap <leader>q :bp <BAR> bd #<CR>
 " Show all open buffers and their status
 nmap <leader>bl :ls<CR>
 
-nnoremap <leader>. :Files<CR>
+nnoremap <leader>. :GFiles<CR>
 nnoremap <leader>, :Buffers<CR>
 
 " No arrow keys 
