@@ -12,6 +12,7 @@ abbr -a e nvim
 abbr -a m make
 abbr -a g git
 abbr -a f fg
+abbr -a c clear
 abbr -a vimdiff 'nvim -d'
 abbr -a vim nvim
 abbr -a find fd
