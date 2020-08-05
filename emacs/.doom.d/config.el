@@ -35,6 +35,7 @@
 (add-to-list 'exec-path "/Users/zach/go/bin")
 (add-to-list 'exec-path "/usr/local/bin/")
 (add-to-list 'exec-path "/Users/zach/.cargo/bin/")
+(add-to-list 'exec-path "/Users/zach/.opam/default/bin/")
 
 (setq haskell-interactive-popup-errors 'nil)
 ;; (setq exec-path (append '(concat gopathroot "/bin:") exec-path))
