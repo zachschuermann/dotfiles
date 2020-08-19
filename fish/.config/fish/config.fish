@@ -17,6 +17,7 @@ abbr -a vimdiff 'nvim -d'
 abbr -a vim nvim
 abbr -a find fd
 abbr -a du dust
+abbr -a br broot
 
 if command -v bat > /dev/null
 	alias cat 'bat'
