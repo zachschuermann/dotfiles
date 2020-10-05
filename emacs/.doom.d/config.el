@@ -26,6 +26,12 @@
         (concat gopathroot
                 ":/Users/zach/Documents/fall19/class/distributed-systems/4113"))
 
+;; messing around
+;; (setq doom-font (font-spec :family "JetBrains Mono" :size 24)
+;;       doom-big-font (font-spec :family "JetBrains Mono" :size 36)
+;;       doom-variable-pitch-font (font-spec :family "Overpass" :size 24)
+;;       doom-serif-font (font-spec :family "IBM Plex Mono" :weight 'light))
+
 ;; path hacks
 (setenv "PATH"
         (concat
@@ -35,6 +41,7 @@
 (add-to-list 'exec-path "/Users/zach/go/bin")
 (add-to-list 'exec-path "/usr/local/bin/")
 (add-to-list 'exec-path "/Users/zach/.cargo/bin/")
+(add-to-list 'exec-path "/Users/zach/.opam/default/bin/")
 
 (setq haskell-interactive-popup-errors 'nil)
 ;; (setq exec-path (append '(concat gopathroot "/bin:") exec-path))

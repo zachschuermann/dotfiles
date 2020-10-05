@@ -1,3 +1,52 @@
 [user]
-	name = Zach Schuermann
-	email = zachary.zvs@gmail.com
+    name = Zach Schuermann
+    email = zachary.zvs@gmail.com
+    signingkey = 2879748B5985A72B
+
+[ui "color"]
+    ui = always
+
+[color]
+    ui = true
+
+[mergetool]
+    keepBackup = true
+
+[merge]
+    tool = nvim -d
+
+[alias]
+    c = commit
+    s = status
+    st = status
+    last = log -1 HEAD
+    p = push
+    # https://stackoverflow.com/a/11688523/472927
+    ss = "!f() { git stash show stash^{/$*} -p; }; f"
+    sa = "!f() { git stash apply stash^{/$*}; }; f"
+    sl = stash list
+    lg1 = log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold green)(%ar)%C(reset) %C(white)%s%C(reset) %C(dim white)- %an%C(reset)%C(bold yellow)%d%C(reset)' --all
+    lg2 = log --graph --abbrev-commit --decorate --format=format:'%C(bold blue)%h%C(reset) - %C(bold cyan)%aD%C(reset) %C(bold green)(%ar)%C(reset)%C(bold yellow)%d%C(reset)%n''          %C(white)%s%C(reset) %C(dim white)- %an%C(reset)' --all
+    lg = !"git lg1"
+
+[core]
+    autocrlf = false
+    excludesfile = ~/.gitignore_global
+
+[push]
+    default = simple
+
+[pull]
+    ff = only
+
+[commit]
+    gpgsign = true
+
+[help]
+    autocorrect = 1
+
+[github]
+    user = schuermannator
+
+[protocol]
+    version = 2

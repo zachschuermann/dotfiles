@@ -59,6 +59,9 @@ if (match($TERM, "-256color") != -1)
   set termguicolors
 endif
 
+let mapleader ="\<Space>"      
+let g:maplxeader ="\<Space>"    
+
 if executable('rg')
 	set grepprg=rg\ --no-heading\ --vimgrep
 	set grepformat=%f:%l:%c:%m
@@ -120,8 +123,31 @@ command! -bang -nargs=* Rg
   \           : fzf#vim#with_preview('right:50%:hidden', '?'),
   \   <bang>0)
 
+" LSP
+"nnoremap <leader> :LSClientShowHover<CR>
+nmap <silent> <leader>d <Plug>(coc-definition)
+nmap <silent> <leader>y <Plug>(coc-type-definition)
+nmap <silent> <leader>i <Plug>(coc-implementation)
+nmap <silent> <leader>o <Plug>(coc-references)
+nmap <silent> <leader>k :call <SID>show_documentation()<CR>
+nmap <silent> <leader>r <Plug>(coc-rename)
+
+function! s:show_documentation()
+  if (index(['vim','help'], &filetype) >= 0)
+    execute 'h '.expand('<cword>')
+  else
+    call CocAction('doHover')
+  endif
+endfunction
+
+"nnoremap <silent> <F7> :LSClientFindReferences<CR>
+"nnoremap <silent> <F6> :LSClientRename<CR>
+
 " Golang
 let g:go_bin_path = expand("~/dev/go/bin")
+
+" Rust
+nnoremap <leader>f :RustFmt<CR>
 
 " Enable filetype plugins
 filetype plugin on
@@ -129,9 +155,6 @@ filetype plugin indent on
 
 " (unused) Set to auto read when a file is changed from the outside
 " set autoread                 
-
-let mapleader ="\<Space>"      
-let g:maplxeader ="\<Space>"    
 
 " <leader>s for Rg search
 nnoremap <leader>s :Rg<CR>
@@ -159,7 +182,7 @@ nmap <leader>q :bp <BAR> bd #<CR>
 " Show all open buffers and their status
 nmap <leader>bl :ls<CR>
 
-nnoremap <leader>. :Files<CR>
+nnoremap <leader>. :GFiles<CR>
 nnoremap <leader>, :Buffers<CR>
 
 " No arrow keys 

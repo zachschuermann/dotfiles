@@ -1,16 +1,13 @@
-#! /bin/bash
+#!/usr/bin/env bash
 
-echo "get submodules"
-git submodule init
-git pull --recurse-submodules
+source cecho.sh
+source install.sh
 
-echo "install prereqs"
-sudo apt install stow
-sudo apt install fish
+if [[ "$OSTYPE" == "linux-gnu"* ]]; then
+    install_linux
+elif [[ "$OSTYPE" == "darwin"* ]]; then
+    install_mac
+else
+    echo "Unsupported OS"
+fi
 
-echo "stow git"
-stow git
-echo "stow vim"
-stow vim
-echo "stow fish"
-stow fish

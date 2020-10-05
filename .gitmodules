@@ -31,3 +31,6 @@
 [submodule "vim/.vim/pack/zach/start/vim-go"]
 	path = vim/.vim/pack/zach/start/vim-go
 	url = git@github.com:fatih/vim-go.git
+[submodule "vim/.vim/pack/zach/start/vim-orgmode"]
+	path = vim/.vim/pack/zach/start/vim-orgmode
+	url = https://github.com/jceb/vim-orgmode
