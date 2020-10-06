@@ -13,9 +13,6 @@
 [submodule "xcode/.xvim2"]
 	path = xcode/.xvim2
 	url = https://github.com/XVimProject/XVim2.git
-[submodule "vim/.vim/pack/zach/start/ctrlp.vim"]
-	path = vim/.vim/pack/zach/start/ctrlp.vim
-	url = https://github.com/ctrlpvim/ctrlp.vim
 [submodule "vim/.vim/pack/zach/start/vim-airline"]
 	path = vim/.vim/pack/zach/start/vim-airline
 	url = https://github.com/vim-airline/vim-airline
