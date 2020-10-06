@@ -48,6 +48,10 @@ set wildignore=.hg,.svn,*~,*.png,*.jpg,*.gif,*.settings,Thumbs.db,*.min.js,*.swp
 " Fish doesn't play all that well with others
 set shell=/bin/bash
 
+" leader is spacebar
+let mapleader ="\<Space>"
+let g:maplxeader ="\<Space>"
+
 " =============================================================================
 " # COLORS
 " =============================================================================
@@ -152,6 +156,8 @@ nnoremap <leader>s :Rg<CR>
 " -------------------------------------
 " ## NERDTREE
 " -------------------------------------
+" show hidden files by default
+let g:NERDTreeShowHidden=1
 " open and close file tree
 map <C-n> :NERDTreeToggle<CR>
 " open current buffer in file tree
@@ -173,8 +179,6 @@ nmap <leader>n :NERDTreeFind<CR>
 
 " Better display for messages
 set cmdheight=2
-" You will have bad experience for diagnostic messages when it's default 4000.
-set updatetime=300
 
 " Set completeopt to have a better completion experience
 " :help completeopt
@@ -197,14 +201,18 @@ local nvim_lsp = require'nvim_lsp'
 -- function to attach completion and diagnostics
 -- when setting up lsp
 local on_attach = function(client)
-require'completion'.on_attach(client)
-require'diagnostic'.on_attach(client)
+    require'completion'.on_attach(client)
+    require'diagnostic'.on_attach(client)
 end
 
 -- Enable rust_analyzer
 nvim_lsp.rust_analyzer.setup({ on_attach=on_attach })
 
 EOF
+
+" change the E/W to • (colored) for error/warning highlights in the gutter
+call sign_define("LspDiagnosticsErrorSign", {"text" : "•", "texthl" : "LspDiagnosticsError"})
+call sign_define("LspDiagnosticsWarningSign", {"text" : "•", "texthl" : "LspDiagnosticsWarning"})
 
 " Trigger completion with <Tab>
 inoremap <silent><expr> <TAB>
@@ -222,19 +230,20 @@ function! s:check_back_space() abort
 endfunction
 
 " fix left/right shifting when errors are present/absent
+" TODO update to signcolumn=number after update
 set signcolumn=yes
 
-"" TODO
 " Code navigation shortcuts
-nnoremap <silent> <c-]> <cmd>lua vim.lsp.buf.definition()<CR>
-nnoremap <silent> K     <cmd>lua vim.lsp.buf.hover()<CR>
-nnoremap <silent> gD    <cmd>lua vim.lsp.buf.implementation()<CR>
-nnoremap <silent> <c-k> <cmd>lua vim.lsp.buf.signature_help()<CR>
-nnoremap <silent> 1gD   <cmd>lua vim.lsp.buf.type_definition()<CR>
-nnoremap <silent> gr    <cmd>lua vim.lsp.buf.references()<CR>
-nnoremap <silent> g0    <cmd>lua vim.lsp.buf.document_symbol()<CR>
-nnoremap <silent> gW    <cmd>lua vim.lsp.buf.workspace_symbol()<CR>
-nnoremap <silent> gd    <cmd>lua vim.lsp.buf.declaration()<CR>
+nnoremap <silent> <leader>d <cmd>lua vim.lsp.buf.definition()<CR>
+
+" nnoremap <silent> K     <cmd>lua vim.lsp.buf.hover()<CR>
+" nnoremap <silent> gD    <cmd>lua vim.lsp.buf.implementation()<CR>
+" nnoremap <silent> <c-k> <cmd>lua vim.lsp.buf.signature_help()<CR>
+" nnoremap <silent> 1gD   <cmd>lua vim.lsp.buf.type_definition()<CR>
+" nnoremap <silent> gr    <cmd>lua vim.lsp.buf.references()<CR>
+" nnoremap <silent> g0    <cmd>lua vim.lsp.buf.document_symbol()<CR>
+" nnoremap <silent> gW    <cmd>lua vim.lsp.buf.workspace_symbol()<CR>
+" nnoremap <silent> gd    <cmd>lua vim.lsp.buf.declaration()<CR>
 
 " Visualize diagnostics
 let g:diagnostic_enable_virtual_text = 1
@@ -244,6 +253,7 @@ let g:diagnostic_insert_delay = 1
 
 " Set updatetime for CursorHold
 " 300ms of no cursor movement to trigger CursorHold
+" You will have bad experience for diagnostic messages when it's default 4000.
 set updatetime=300
 " Show diagnostic popup on cursor hold
 autocmd CursorHold * lua vim.lsp.util.show_line_diagnostics()
@@ -254,7 +264,10 @@ nnoremap <silent> g] <cmd>NextDiagnosticCycle<cr>
 
 " Enable type inlay hints
 autocmd CursorMoved,InsertLeave,BufEnter,BufWinEnter,TabEnter,BufWritePost *
-            \ lua require'lsp_extensions'.inlay_hints{ prefix = '', highlight = "Comment" }
+    \ lua require'lsp_extensions'.inlay_hints{ prefix = '» ', highlight = "Comment" }
+
+" Use auocmd to force lightline update.
+" autocmd User CocStatusChange,CocDiagnosticChange call lightline#update()
 
 ""
 
@@ -263,10 +276,7 @@ autocmd CursorMoved,InsertLeave,BufEnter,BufWinEnter,TabEnter,BufWritePost *
 " =============================================================================
 " note plugin-specific keybinds are above with the plugin configs
 " and completion keybinds are above with completion configs
-
-" leader is spacebar
-let mapleader ="\<Space>"
-let g:maplxeader ="\<Space>"
+" leader is spacebar (assigned at top)
 
 " don't need F1 help. F1 --> esc
 map <F1> <Esc>
