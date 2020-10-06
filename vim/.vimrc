@@ -1,81 +1,278 @@
+" Zach Schuermann vimconfig
+" =============================================================================
+" # BASIC SETTINGS
+" =============================================================================
+
+" turn on syntax
 syntax on
 
+" Enable filetype plugins
+filetype plugin on
+filetype plugin indent on
+
+" status bar laststatus=2 is always on
 set laststatus=2
+
+" sane defaults
 set number
 set expandtab
 set tabstop=4
 set shiftwidth=4
-color dracula
-"colorscheme base16-gruvbox-dark-medium
-
 set autoindent
 set nocindent
-
-set mouse=a
-
-set guifont=Monospace\ 12
-
-if has('nvim')
-    "set guicursor=n-v-c:block-Cursor/lCursor-blinkon0,i-ci:ver25-Cursor/lCursor,r-cr:hor20-Cursor/lCursor
-    set guicursor=
-    set inccommand=nosplit
-end
-
-" If installed using Homebrew
-" need to make this more portable
-set rtp+=/usr/local/opt/fzf
-set rtp+=/usr/bin/fzf
-
-""" old/unused
-" set guioptions-=T  " remove menu bar
-" colorscheme peachpuff
-" keybindings
-"noremap \f :FSHere<CR>
-"noremap \t :tabnew<CR>
-"noremap \v :vs<CR>
-"noremap \s :sp<CR>
-"noremap \a :tabprevious<CR>
-"noremap \d :tabnext<CR>
-"noremap \q :q<CR>
-"noremap \Q :bd<CR>
-"noremap \m :set mouse=a<CR>
-"noremap \M :set mouse=<CR>
-"noremap \c :e %<.c<CR>
-"noremap \C :e %<.cpp<CR>
-"noremap \h :e %<.h<CR>
-"
+" Sane splits
+set splitright
+set splitbelow
 " Sets how many lines of history VIM has to remember
 set history=1000
-
-" deal with colors
-if !has('gui_running')
-  set t_Co=256
-endif
-
-" used to have this added below: (annoying with tmux so removed)
-" && (match($TERM, "screen-256color") == -1)
-if (match($TERM, "-256color") != -1)
-  " screen does not (yet) support truecolor
-  set termguicolors
-endif
-
-let mapleader ="\<Space>"      
-let g:maplxeader ="\<Space>"    
-
-if executable('rg')
-	set grepprg=rg\ --no-heading\ --vimgrep
-	set grepformat=%f:%l:%c:%m
-endif
-
-" Permanent undo
-set undodir=~/.vimdid
-set undofile
+"" trying these out
+set nowrap
+set nojoinspaces
+""
 
 " Very magic by default
 nnoremap ? ?\v
 nnoremap / /\v
 cnoremap %s/ %sm/
 
+" Permanent undo
+set undodir=~/.vimdid
+set undofile
+
+" Decent wildmenu
+" look into this later
+set wildmenu
+set wildmode=list:longest
+set wildignore=.hg,.svn,*~,*.png,*.jpg,*.gif,*.settings,Thumbs.db,*.min.js,*.swp,publish/*,intermediate/*,*.o,*.hi,Zend,vendor
+
+" Fish doesn't play all that well with others
+set shell=/bin/bash
+
+" =============================================================================
+" # COLORS
+" =============================================================================
+"colorscheme base16-gruvbox-dark-medium
+color dracula
+"autocmd BufEnter * colorscheme default
+"autocmd BufEnter *.hs colorscheme spacecamp
+
+" =============================================================================
+" # GUI
+" =============================================================================
+" its the 21st century, turn on mouse support
+set mouse=a
+set ttyfast
+set nofoldenable
+" remove the thin cursor on insert mode (leave normal block cursor)
+if has('nvim')
+    "set guicursor=n-v-c:block-Cursor/lCursor-blinkon0,i-ci:ver25-Cursor/lCursor,r-cr:hor20-Cursor/lCursor
+    set guicursor=
+    set inccommand=nosplit
+end
+" deal with colors
+if !has('gui_running')
+    set t_Co=256
+endif
+" TODO idk man need to figure out colors
+" used to have this added below: (annoying with tmux so removed)
+" && (match($TERM, "screen-256color") == -1)
+if (match($TERM, "-256color") != -1)
+    " screen does not (yet) support truecolor
+    set termguicolors
+endif
+
+" =============================================================================
+" # FONTS/CHARS
+" =============================================================================
+" Show annoying hidden characters
+set listchars=nbsp:¬,extends:»,precedes:«,trail:•
+set guifont=Monospace\ 12
+
+" =============================================================================
+" # EDITING
+" =============================================================================
+" Wrapping options
+set formatoptions=tc " wrap text and comments using textwidth
+set formatoptions+=r " continue comments when pressing ENTER in I mode
+set formatoptions+=q " enable formatting of comments with gq
+set formatoptions+=n " detect lists for formatting
+set formatoptions+=b " auto-wrap in insert mode, and do not wrap old long lines
+
+" Search results centered
+nnoremap <silent> n nzz
+nnoremap <silent> N Nzz
+nnoremap <silent> * *zz
+nnoremap <silent> # #zz
+nnoremap <silent> g* g*zz
+
+" =============================================================================
+" # PLUGINS
+" =============================================================================
+
+" -------------------------------------
+" ## AIRLINE
+" -------------------------------------
+" Enable the list of buffers
+let g:airline#extensions#tabline#enabled = 1
+" Show just the filename
+let g:airline#extensions#tabline#fnamemod = ':t'
+
+" -------------------------------------
+" ## FZF
+" -------------------------------------
+" If installed using Homebrew
+" need to make this more portable
+set rtp+=/usr/local/opt/fzf
+set rtp+=/usr/bin/fzf
+
+" FZF + rg = <3
+let g:fzf_layout = { 'down': '~30%' }
+command! -bang -nargs=* Rg
+    \ call fzf#vim#grep(
+    \   'rg --column --line-number --no-heading --color=always '.shellescape(<q-args>), 1,
+    \   <bang>0 ? fzf#vim#with_preview('up:60%')
+    \           : fzf#vim#with_preview('right:50%:hidden', '?'),
+    \   <bang>0)
+
+" leader-. does FZF for git files
+" leader-, does FZF for buffers
+" keybinds done below under KEYBINDS > BUFFER MANAGEMENT
+
+" -------------------------------------
+" ## RIPGREP
+" -------------------------------------
+if executable('rg')
+    set grepprg=rg\ --no-heading\ --vimgrep
+    set grepformat=%f:%l:%c:%m
+endif
+
+" <leader>s for Rg search
+nnoremap <leader>s :Rg<CR>
+
+" -------------------------------------
+" ## NERDTREE
+" -------------------------------------
+" open and close file tree
+map <C-n> :NERDTreeToggle<CR>
+" open current buffer in file tree
+nmap <leader>n :NERDTreeFind<CR>
+
+" -------------------------------------
+" ## NVIM-LSPCONFIG
+" -------------------------------------
+" DEPRECATED: moved below under completion
+" lua <<EOF
+" vim.cmd('packadd nvim-lspconfig')  -- If installed as a Vim "package".
+" require'nvim_lsp'.rust_analyzer.setup{}
+" EOF
+
+" =============================================================================
+" # COMPLETION
+" =============================================================================
+" see: https://sharksforarms.dev/posts/neovim-rust/
+
+" Better display for messages
+set cmdheight=2
+" You will have bad experience for diagnostic messages when it's default 4000.
+set updatetime=300
+
+" Set completeopt to have a better completion experience
+" :help completeopt
+" menuone: popup even when there's only one match
+" noinsert: Do not insert text until a selection is made
+" noselect: Do not select, force user to select one from the menu
+set completeopt=menuone,noinsert,noselect
+
+" Avoid showing extra messages when using completion
+set shortmess+=c
+
+" Configure LSP
+" https://github.com/neovim/nvim-lspconfig#rust_analyzer
+lua <<EOF
+
+-- nvim_lsp object
+vim.cmd('packadd nvim-lspconfig')  -- installed as a Vim "package".
+local nvim_lsp = require'nvim_lsp'
+
+-- function to attach completion and diagnostics
+-- when setting up lsp
+local on_attach = function(client)
+require'completion'.on_attach(client)
+require'diagnostic'.on_attach(client)
+end
+
+-- Enable rust_analyzer
+nvim_lsp.rust_analyzer.setup({ on_attach=on_attach })
+
+EOF
+
+" Trigger completion with <Tab>
+inoremap <silent><expr> <TAB>
+    \ pumvisible() ? "\<C-n>" :
+    \ <SID>check_back_space() ? "\<TAB>" :
+    \ completion#trigger_completion()
+
+" Use `C-j` and `C-k` to navigate diagnostics
+inoremap <expr> <C-j> pumvisible() ? "\<C-n>" : "\<C-j>"
+inoremap <expr> <C-k> pumvisible() ? "\<C-p>" : "\<C-k>"
+
+function! s:check_back_space() abort
+    let col = col('.') - 1
+    return !col || getline('.')[col - 1]  =~ '\s'
+endfunction
+
+" fix left/right shifting when errors are present/absent
+set signcolumn=yes
+
+"" TODO
+" Code navigation shortcuts
+nnoremap <silent> <c-]> <cmd>lua vim.lsp.buf.definition()<CR>
+nnoremap <silent> K     <cmd>lua vim.lsp.buf.hover()<CR>
+nnoremap <silent> gD    <cmd>lua vim.lsp.buf.implementation()<CR>
+nnoremap <silent> <c-k> <cmd>lua vim.lsp.buf.signature_help()<CR>
+nnoremap <silent> 1gD   <cmd>lua vim.lsp.buf.type_definition()<CR>
+nnoremap <silent> gr    <cmd>lua vim.lsp.buf.references()<CR>
+nnoremap <silent> g0    <cmd>lua vim.lsp.buf.document_symbol()<CR>
+nnoremap <silent> gW    <cmd>lua vim.lsp.buf.workspace_symbol()<CR>
+nnoremap <silent> gd    <cmd>lua vim.lsp.buf.declaration()<CR>
+
+" Visualize diagnostics
+let g:diagnostic_enable_virtual_text = 1
+let g:diagnostic_trimmed_virtual_text = '40'
+" Don't show diagnostics while in insert mode
+let g:diagnostic_insert_delay = 1
+
+" Set updatetime for CursorHold
+" 300ms of no cursor movement to trigger CursorHold
+set updatetime=300
+" Show diagnostic popup on cursor hold
+autocmd CursorHold * lua vim.lsp.util.show_line_diagnostics()
+
+" Goto previous/next diagnostic warning/error
+nnoremap <silent> g[ <cmd>PrevDiagnosticCycle<cr>
+nnoremap <silent> g] <cmd>NextDiagnosticCycle<cr>
+
+" Enable type inlay hints
+autocmd CursorMoved,InsertLeave,BufEnter,BufWinEnter,TabEnter,BufWritePost *
+            \ lua require'lsp_extensions'.inlay_hints{ prefix = '', highlight = "Comment" }
+
+""
+
+" =============================================================================
+" # KEYBINDS
+" =============================================================================
+" note plugin-specific keybinds are above with the plugin configs
+" and completion keybinds are above with completion configs
+
+" leader is spacebar
+let mapleader ="\<Space>"
+let g:maplxeader ="\<Space>"
+
+" don't need F1 help. F1 --> esc
+map <F1> <Esc>
+imap <F1> <Esc>
+
+" ctrl-g is just esc
 nnoremap <C-g> <Esc>
 inoremap <C-g> <Esc>
 vnoremap <C-g> <Esc>
@@ -85,107 +282,7 @@ cnoremap <C-g> <Esc>
 onoremap <C-g> <Esc>
 lnoremap <C-g> <Esc>
 tnoremap <C-g> <Esc>
-
-map <C-h> ^
-map <C-l> $
-
-" Completion
-set cmdheight=2
-set updatetime=300
-" Use `C-j` and `C-k` to navigate diagnostics
-inoremap <expr> <C-j> pumvisible() ? "\<C-n>" : "\<C-j>"
-inoremap <expr> <C-k> pumvisible() ? "\<C-p>" : "\<C-k>"
-
-" Use tab for trigger completion with characters ahead and navigate.
-" Use command ':verbose imap <tab>' to make sure tab is not mapped by other plugin.
-inoremap <silent><expr> <TAB>
-      \ pumvisible() ? "\<C-n>" :
-      \ <SID>check_back_space() ? "\<TAB>" :
-      \ coc#refresh()
-inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
-function! s:check_back_space() abort
-  let col = col('.') - 1
-  return !col || getline('.')[col - 1]  =~# '\s'
-endfunction
-" Use <c-.> to trigger completion.
-inoremap <silent><expr> <c-.> coc#refresh()
-" Use <cr> to confirm completion, `<C-g>u` means break undo chain at current position.
-" Coc only does snippet and additional edit on confirm.
-" inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
-" Or use `complete_info` if your vim support it, like:
-inoremap <expr> <cr> complete_info()["selected"] != "-1" ? "\<C-y>" : "\<C-g>u\<CR>"
-
-let g:fzf_layout = { 'down': '~30%' }
-command! -bang -nargs=* Rg
-  \ call fzf#vim#grep(
-  \   'rg --column --line-number --no-heading --color=always '.shellescape(<q-args>), 1,
-  \   <bang>0 ? fzf#vim#with_preview('up:60%')
-  \           : fzf#vim#with_preview('right:50%:hidden', '?'),
-  \   <bang>0)
-
-" LSP
-"nnoremap <leader> :LSClientShowHover<CR>
-nmap <silent> <leader>d <Plug>(coc-definition)
-nmap <silent> <leader>y <Plug>(coc-type-definition)
-nmap <silent> <leader>i <Plug>(coc-implementation)
-nmap <silent> <leader>o <Plug>(coc-references)
-nmap <silent> <leader>k :call <SID>show_documentation()<CR>
-nmap <silent> <leader>r <Plug>(coc-rename)
-
-function! s:show_documentation()
-  if (index(['vim','help'], &filetype) >= 0)
-    execute 'h '.expand('<cword>')
-  else
-    call CocAction('doHover')
-  endif
-endfunction
-
-"nnoremap <silent> <F7> :LSClientFindReferences<CR>
-"nnoremap <silent> <F6> :LSClientRename<CR>
-
-" Golang
-let g:go_bin_path = expand("~/dev/go/bin")
-
-" Rust
-nnoremap <leader>f :RustFmt<CR>
-
-" Enable filetype plugins
-filetype plugin on
-filetype plugin indent on
-
-" (unused) Set to auto read when a file is changed from the outside
-" set autoread                 
-
-" <leader>s for Rg search
-nnoremap <leader>s :Rg<CR>
-
-" Open new file adjacent to current file
-nnoremap <leader>e :e <C-R>=expand("%:p:h") . "/" <CR>
-
-" Airline
-let g:airline#extensions#tabline#enabled = 1 " Enable the list of buffers
-let g:airline#extensions#tabline#fnamemod = ':t' " Show just the filename 
-
-" -----------Buffer Management---------------
-set hidden " Allow buffers to be hidden if you've modified a buffer
-
-" Move to the next buffer
-nmap <leader>l :bnext<CR>
-
-" Move to the previous buffer
-nmap <leader>h :bprevious<CR>
-
-" Close the current buffer and move to the previous one
-" This replicates the idea of closing a tab
-nmap <leader>q :bp <BAR> bd #<CR>
-
-" Show all open buffers and their status
-nmap <leader>bl :ls<CR>
-
-nnoremap <leader>. :GFiles<CR>
-nnoremap <leader>, :Buffers<CR>
-
-" No arrow keys 
+" No arrow keys
 nnoremap <up> <nop>
 nnoremap <down> <nop>
 inoremap <up> <nop>
@@ -193,39 +290,59 @@ inoremap <down> <nop>
 inoremap <left> <nop>
 inoremap <right> <nop>
 
-" Use arrow keys to navigate window splits
-"nnoremap <silent> <Right> :wincmd l <CR> 
-"nnoremap <silent> <Left> :wincmd h <CR>
-"noremap <silent> <Up> :wincmd k <CR>
-"noremap <silent> <Down> :wincmd j <CR>
+" ctrl-h/ctrl-l go to start/end of line
+map <C-h> ^
+map <C-l> $
+
+" RustFmt is space-f
+nnoremap <leader>f :RustFmt<CR>
+
+" leader-e
+" Open new file adjacent to current file
+nnoremap <leader>e :e <C-R>=expand("%:p:h") . "/" <CR>
+
+" -------------------------------------
+" ## BUFFER MANAGEMENT
+" -------------------------------------
+set hidden " Allow buffers to be hidden if you've modified a buffer
+
+" leader-leader toggels between buffers
+nnoremap <leader><leader> <c-^>
+
+" Move to the next buffer
+nmap <leader>l :bnext<CR>
+" Move to the previous buffer
+nmap <leader>h :bprevious<CR>
+
+" leader-q: Close the current buffer and move to the previous one
+" This replicates the idea of closing a tab
+nmap <leader>q :bp <BAR> bd #<CR>
+
+" leader-bl (buffer-list):
+" Show all open buffers and their status
+nmap <leader>bl :ls<CR>
+
+" leader-b shows stats
+nnoremap <leader>b g<c-g>
+
+" left/right arrows cycle buffers
 nnoremap <left> :bp<CR>
 nnoremap <right> :bn<CR>
 
-nnoremap <leader><leader> <c-^>
-nnoremap <leader>b g<c-g>
+" leader-. does FZF for git files
+" leader-, does FZF for buffers
+nnoremap <leader>. :GFiles<CR>
+nnoremap <leader>, :Buffers<CR>
 
-" don't need F1 help. F1 --> esc
-map <F1> <Esc>
-imap <F1> <Esc>
+" =============================================================================
+" # MISC
+" =============================================================================
 
-" ctrl-p
-let g:ctrlp_custom_ignore = {
-  \ 'dir':  '\v[\/](\.(git|hg|svn)|\_site)$',
-  \ 'file': '\v\.(exe|so|dll|class|png|jpg|jpeg)$',
-\}
+" Golang path stuff
+let g:go_bin_path = expand("~/dev/go/bin")
 
-" Use the nearest .git|.svn|.hg|.bzr directory as the cwd
-let g:ctrlp_working_path_mode = 'r' 
-" enter file search mode
-nmap <leader>p :CtrlP<cr>
-
-" Nerdtree
-" autocmd vimenter * NERDTree"
-" autocmd StdinReadPre * let s:std_in=1
-" autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
-" autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
-" open and close file tree
-map <C-n> :NERDTreeToggle<CR>
-" open current buffer in file tree
-nmap <leader>n :NERDTreeFind<CR>
-
+""" Try these out?
+" Leave paste mode when leaving insert mode
+" autocmd InsertLeave * set nopaste
+" (unused) Set to auto read when a file is changed from the outside
+" set autoread

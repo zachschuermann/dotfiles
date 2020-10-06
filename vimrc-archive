@@ -1,0 +1,77 @@
+" set guioptions-=T  " remove menu bar
+" colorscheme peachpuff
+" keybindings
+noremap \f :FSHere<CR>
+noremap \t :tabnew<CR>
+noremap \v :vs<CR>
+noremap \s :sp<CR>
+noremap \a :tabprevious<CR>
+noremap \d :tabnext<CR>
+noremap \q :q<CR>
+noremap \Q :bd<CR>
+noremap \m :set mouse=a<CR>
+noremap \M :set mouse=<CR>
+noremap \c :e %<.c<CR>
+noremap \C :e %<.cpp<CR>
+noremap \h :e %<.h<CR>
+"
+" Nerdtree
+autocmd vimenter * NERDTree"
+autocmd StdinReadPre * let s:std_in=1
+autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+"
+""" CTRL_P - DEPRECATED - replaced with FZF
+" ctrl-p
+let g:ctrlp_custom_ignore = {
+  \ 'dir':  '\v[\/](\.(git|hg|svn)|\_site)$',
+  \ 'file': '\v\.(exe|so|dll|class|png|jpg|jpeg)$',
+\}
+" Use the nearest .git|.svn|.hg|.bzr directory as the cwd
+let g:ctrlp_working_path_mode = 'r' 
+" enter file search mode
+nmap <leader>p :CtrlP<cr>
+
+""" OLD COC CONFIG
+" Completion
+set cmdheight=2
+set updatetime=300
+" Use `C-j` and `C-k` to navigate diagnostics
+inoremap <expr> <C-j> pumvisible() ? "\<C-n>" : "\<C-j>"
+inoremap <expr> <C-k> pumvisible() ? "\<C-p>" : "\<C-k>"
+
+" Use tab for trigger completion with characters ahead and navigate.
+" Use command ':verbose imap <tab>' to make sure tab is not mapped by other plugin.
+inoremap <silent><expr> <TAB>
+      \ pumvisible() ? "\<C-n>" :
+      \ <SID>check_back_space() ? "\<TAB>" :
+      \ coc#refresh()
+inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
+function! s:check_back_space() abort
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1]  =~# '\s'
+endfunction
+" Use <c-.> to trigger completion.
+inoremap <silent><expr> <c-.> coc#refresh()
+" Use <cr> to confirm completion, `<C-g>u` means break undo chain at current position.
+" Coc only does snippet and additional edit on confirm.
+" inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
+" Or use `complete_info` if your vim support it, like:
+inoremap <expr> <cr> complete_info()["selected"] != "-1" ? "\<C-y>" : "\<C-g>u\<CR>"
+
+" LSP
+"nnoremap <leader> :LSClientShowHover<CR>
+nmap <silent> <leader>d <Plug>(coc-definition)
+nmap <silent> <leader>y <Plug>(coc-type-definition)
+nmap <silent> <leader>i <Plug>(coc-implementation)
+nmap <silent> <leader>o <Plug>(coc-references)
+nmap <silent> <leader>k :call <SID>show_documentation()<CR>
+nmap <silent> <leader>r <Plug>(coc-rename)
+
+function! s:show_documentation()
+  if (index(['vim','help'], &filetype) >= 0)
+    execute 'h '.expand('<cword>')
+  else
+    call CocAction('doHover')
+  endif
+endfunction
