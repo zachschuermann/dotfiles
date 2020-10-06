@@ -49,3 +49,6 @@
 [submodule "vim/.vim/pack/zach/start/diagnostic-nvim"]
 	path = vim/.vim/pack/zach/start/diagnostic-nvim
 	url = git@github.com:nvim-lua/diagnostic-nvim.git
+[submodule "vim/.vim/pack/zach/start/haskell-vim"]
+	path = vim/.vim/pack/zach/start/haskell-vim
+	url = git@github.com:neovimhaskell/haskell-vim.git
