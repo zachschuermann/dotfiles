@@ -97,7 +97,7 @@ setenv LESS_TERMCAP_us \e'[04;38;5;146m' # begin underline
 set -x PATH $HOME/.cargo/bin $PATH
 # setenv CARGO_INCREMENTAL 1
 # setenv RUST_BACKTRACE 1
-setenv RUSTFLAGS "-C target-cpu=native"
+# setenv RUSTFLAGS "-C target-cpu=native"
 
 # opam configuration
 source /Users/zach/.opam/opam-init/init.fish > /dev/null 2> /dev/null; or true
