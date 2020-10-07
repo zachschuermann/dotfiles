@@ -13,10 +13,10 @@ SETUVAR _fish_abbr_l:exa\x20\x2dF
 SETUVAR _fish_abbr_la:exa\x20\x2daF
 SETUVAR _fish_abbr_ll:exa\x20\x2dalF
 SETUVAR _fish_abbr_lll:exa\x20\x2dl
+SETUVAR _fish_abbr_logout:exit
 SETUVAR _fish_abbr_ls:exa
 SETUVAR _fish_abbr_m:make
 SETUVAR _fish_abbr_ping:prettyping\x20\x2d\x2dnolegend
-# SETUVAR _fish_abbr_ssh:kitty\x20\x2bkitten\x20ssh
 SETUVAR _fish_abbr_vim:nvim
 SETUVAR _fish_abbr_vimdiff:nvim\x20\x2dd
 SETUVAR fish_color_autosuggestion:555\x1ebrblack
