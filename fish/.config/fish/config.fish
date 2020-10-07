@@ -44,10 +44,10 @@ end
 # abbr -a ssh 'kitty +kitten ssh'
 
 # check hostname: if we are on a different machine, set HOSTCHECK to hostname to put in prompt
-if hostname = "zach-macbook-pro.local"
+# uh this is kinda weird, try to get if/else working sometime
+set -g HOSTCHECK " "(hostname)
+if test $HOSTCHECK = " zach-macbook-pro.local"
     set -g HOSTCHECK ""
-else
-    set -g HOSTCHECK " "(hostname)
 end
 
 # no prompt greeting for speed
