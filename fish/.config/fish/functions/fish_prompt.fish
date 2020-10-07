@@ -3,7 +3,11 @@ function fish_prompt
     set -l last_pipestatus $pipestatus
 
     set_color brblack
-    echo -n "["(date "+%H:%M")"$HOSTCHECK] "
+    echo -n "["(date "+%H:%M")"] "
+
+    # ff8700
+    set_color ff8700
+    echo -n $HOSTCHECK
 
     set_color d8fa3b
     echo -n (basename $PWD)
