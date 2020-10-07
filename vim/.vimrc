@@ -15,6 +15,7 @@ set laststatus=2
 
 " sane defaults
 set number
+set relativenumber
 set expandtab
 set tabstop=4
 set shiftwidth=4
@@ -59,7 +60,7 @@ let g:maplxeader ="\<Space>"
 color dracula
 "autocmd BufEnter * colorscheme default
 "autocmd BufEnter *.hs colorscheme spacecamp
-
+highlight CursorLineNr guifg=#6272a4
 " =============================================================================
 " # GUI
 " =============================================================================

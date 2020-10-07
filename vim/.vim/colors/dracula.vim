@@ -49,6 +49,7 @@ let s:orange    = ['#FFB86C', 215]
 let s:pink      = ['#FF79C6', 212]
 let s:purple    = ['#BD93F9', 141]
 let s:red       = ['#FF5555', 203]
+" let s:yellow    = ['#F0D50C', 228]
 let s:yellow    = ['#F1FA8C', 228]
 
 let s:none      = ['NONE', 'NONE']
