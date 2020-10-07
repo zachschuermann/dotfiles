@@ -1,5 +1,17 @@
-if status --is-interactive
-	tmux ^ /dev/null; and exec true
+# OS-specific
+switch (uname)
+    case Linux
+        setenv TZ "America/New_York"
+        set -g PATH /snap/bin $PATH
+    case Darwin
+        if status --is-interactive
+            tmux ^ /dev/null; and exec true
+        end
+        setenv TZ "America/Chicago"
+    case FreeBSD NetBSD DragonFly
+            echo Uh...
+    case '*'
+            echo A wild operating system has appeared!
 end
 
 # set default CLI commands
@@ -19,6 +31,9 @@ abbr -a find fd
 abbr -a du dust
 abbr -a br broot
 
+# add 'logout' command to fish
+abbr -a logout exit
+
 if command -v bat > /dev/null
 	alias cat 'bat'
 else
@@ -27,6 +42,13 @@ end
 
 # by default send terminfo when using remote machine so that colors/bindings work
 # abbr -a ssh 'kitty +kitten ssh'
+
+# check hostname: if we are on a different machine, set HOSTCHECK to hostname to put in prompt
+if hostname = "zach-macbook-pro.local"
+    set -g HOSTCHECK ""
+else
+    set -g HOSTCHECK " "(hostname)
+end
 
 # no prompt greeting for speed
 set fish_greeting
@@ -63,7 +85,6 @@ set -g fish_color_selection      --background=$selection
 setenv EDITOR nvim
 setenv NAME "Zach Schuermann"
 setenv EMAIL "zachary.zvs@gmail.com"
-setenv TZ "America/Chicago"
 
 # make less better
 # X = leave content on-screen
@@ -100,13 +121,13 @@ set -x PATH $HOME/.cargo/bin $PATH
 # setenv RUSTFLAGS "-C target-cpu=native"
 
 # opam configuration
-source /Users/zach/.opam/opam-init/init.fish > /dev/null 2> /dev/null; or true
+source $HOME/.opam/opam-init/init.fish > /dev/null 2> /dev/null; or true
 
 # python (keep at bottom)
 # set PYENV_ROOT $HOME/.pyenv
 # set -x PATH $PYENV_ROOT/bin $PATH
 # `pyenv init - | source` is slow, copied below without `pyenv rehash` (do manually)
 # and `function pyenv` (only for `pyenv shell`)
-# set -gx PATH '/Users/Lucas/.pyenv/shims' $PATH
+# set -gx PATH '$HOME/.pyenv/shims' $PATH
 # set -gx PYENV_SHELL fish
 # source '/usr/local/Cellar/pyenv/1.2.20/libexec/../completions/pyenv.fish'

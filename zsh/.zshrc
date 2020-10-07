@@ -4,6 +4,8 @@ export GOPATH=$HOME/go:/Users/zach/Documents/fall19/class/distributed-systems/41
 #path+=('$GOPATH/bin')
 export PATH=$GOPATH/bin:$PATH
 
+if [ -e /home/zach/.nix-profile/etc/profile.d/nix.sh ]; then source /home/zach/.nix-profile/etc/profile.d/nix.sh; fi
+
 TIMEFMT='%J'$'\n'\
 '%U  user %S system %P cpu %*E total'$'\n'\
 'avg shared (code):         %X KB'$'\n'\
