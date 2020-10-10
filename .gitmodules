@@ -49,3 +49,6 @@
 [submodule "vim/.vim/pack/zach/start/haskell-vim"]
 	path = vim/.vim/pack/zach/start/haskell-vim
 	url = git@github.com:neovimhaskell/haskell-vim.git
+[submodule "vim/.vim/pack/zach/start/lsp-status.nvim"]
+	path = vim/.vim/pack/zach/start/lsp-status.nvim
+	url = git@github.com:nvim-lua/lsp-status.nvim.git

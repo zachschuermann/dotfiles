@@ -109,9 +109,30 @@ install_mac() {
 }
 
 install_linux() {
-    # TODO
-    tell "install prereqs"
-    sudo apt install stow
-    sudo apt install fish
+    tell "install stuff that should be on every machine"
+    sudo apt install -y software-properties-common build-essentials curl
+
+    tell "install basics"
+    sudo apt install -y git
+    sudo apt install -y stow
+    sudo apt install -y fish
+    sudo apt install -y bat
+    sudo apt install -y fd-find
+    sudo apt install -y ripgrep
+    sudo apt install -y htop
+    sudo apt install -y tree
+
+    tell "install neovim"
+    sudo add-apt-repository ppa:neovim-ppa/unstable
+    sudo apt update && sudo apt install -y neovim
+
+    while true; do
+        read -p "automatically stow fish + vim? [Y/n]" yn
+        case $yn in
+            [Yy]* ) stow fish && stow vim; break;;
+            # [Nn]* ) exit;;
+            * ) exit;;
+        esac
+    done
 }
 
