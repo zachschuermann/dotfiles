@@ -120,8 +120,12 @@ install_linux() {
     tell "installing neovim"
     #sudo add-apt-repository ppa:neovim-ppa/unstable
     #sudo apt update && sudo apt install -y neovim
-    curl -LO https://github.com/neovim/neovim/releases/nightly/download/nvim.appimage
-    sudo mv nvim.appimage /usr/bin/nvim && chmod u+x /usr/bin/nvim
+    curl -LO https://github.com/neovim/neovim/releases/download/nightly/nvim-linux64.tar.gz
+    tar -xzf nvim-linux64.tar.gz
+    sudo mv nvim-linux64/bin/nvim /usr/bin/nvim
+    rm nvim-linux64.tar.gz
+    rm -rf nvim-linux64/
+
 
     tell "installing fish"
     # curl -LO "https://download.opensuse.org/repositories/shells:/fish:/release:/3/Debian_10/amd64/fish_3.1.2-1_amd64.deb"

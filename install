@@ -3,6 +3,8 @@
 source cecho.sh
 source install.sh
 
+git submodule init && git pull --recurse-submodule
+
 if [[ "$OSTYPE" == "linux-gnu"* ]]; then
     install_linux
 elif [[ "$OSTYPE" == "darwin"* ]]; then
