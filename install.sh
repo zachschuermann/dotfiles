@@ -109,30 +109,48 @@ install_mac() {
 }
 
 install_linux() {
-    tell "install stuff that should be on every machine"
-    sudo apt install -y software-properties-common build-essentials curl
+    tell "installing basics"
+    sudo apt install -y software-properties-common build-essential curl git stow fd-find ripgrep htop tree exa
 
-    tell "install basics"
-    sudo apt install -y git
-    sudo apt install -y stow
-    sudo apt install -y fish
-    sudo apt install -y bat
-    sudo apt install -y fd-find
-    sudo apt install -y ripgrep
-    sudo apt install -y htop
-    sudo apt install -y tree
+    tell "installing bat"
+    curl -LO "https://github.com/sharkdp/bat/releases/download/v0.16.0/bat_0.16.0_amd64.deb"
+    sudo dpkg -i "bat_0.16.0_amd64.deb"
+    rm "bat_0.16.0_amd64.deb"
 
-    tell "install neovim"
-    sudo add-apt-repository ppa:neovim-ppa/unstable
-    sudo apt update && sudo apt install -y neovim
+    tell "installing neovim"
+    #sudo add-apt-repository ppa:neovim-ppa/unstable
+    #sudo apt update && sudo apt install -y neovim
+    curl -LO https://github.com/neovim/neovim/releases/nightly/download/nvim.appimage
+    sudo mv nvim.appimage /usr/bin/nvim && chmod u+x /usr/bin/nvim
 
-    while true; do
-        read -p "automatically stow fish + vim? [Y/n]" yn
-        case $yn in
-            [Yy]* ) stow fish && stow vim; break;;
+    tell "installing fish"
+    # curl -LO "https://download.opensuse.org/repositories/shells:/fish:/release:/3/Debian_10/amd64/fish_3.1.2-1_amd64.deb"
+    # sudo dpkg -i "fish_3.1.2-1_amd64.deb"
+    # rm "fish_3.1.2-1_amd64.deb"
+
+    echo 'deb http://download.opensuse.org/repositories/shells:/fish:/release:/3/Debian_10/ /' | sudo tee /etc/apt/sources.list.d/shells:fish:release:3.list
+    curl -fsSL https://download.opensuse.org/repositories/shells:fish:release:3/Debian_10/Release.key | gpg --dearmor | sudo tee /etc/apt/trusted.gpg.d/shells:fish:release:3.gpg > /dev/null
+    sudo apt update && sudo apt install -y fish
+
+    #while true; do
+    read -p "stow fish config? [Y/n] " yn
+    case $yn in
+       [Nn]* ) ;;
             # [Nn]* ) exit;;
-            * ) exit;;
-        esac
-    done
+       * ) stow fish;;
+    esac
+    #done
+
+    read -p "stow vim config? [Y/n] " yn
+    case $yn in
+       [Nn]* ) ;;
+       * ) stow vim;;
+    esac
+
+    read -p "change shell to fish? [Y/n] " yn
+    case $yn in
+       [Nn]* ) ;;
+       * ) chsh -s $(which fish);;
+    esac
 }
 
