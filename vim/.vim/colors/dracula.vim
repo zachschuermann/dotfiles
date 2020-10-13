@@ -320,11 +320,11 @@ hi! link Exception DraculaPink
 hi! link PreProc DraculaPink
 hi! link Include DraculaPink
 hi! link Define DraculaPink
-hi! link Macro DraculaPink
+hi! link Macro DraculaOrange
 hi! link PreCondit DraculaPink
 hi! link StorageClass DraculaPink
-hi! link Structure DraculaPink
-hi! link Typedef DraculaPink
+hi! link Structure DraculaPurple
+hi! link Typedef DraculaPurple
 
 hi! link Type DraculaCyanItalic
 
