@@ -177,9 +177,10 @@ font:
   #
   # This is a global setting and will require a log out or restart to take
   # effect.
-  #use_thin_strokes: true
+  use_thin_strokes: true
 
 # If `true`, bold text is drawn using the bright color variants.
+# TODO
 #draw_bold_text_with_bright_colors: true
 
 # Colors (Tomorrow Night Bright)
@@ -354,10 +355,14 @@ colors:
 #   - (macOS) /bin/bash --login
 #   - (Linux/BSD) user login shell
 #   - (Windows) powershell
+# shell:
+#   program: /usr/local/bin/fish
+#   args:
+#     - --login
 shell:
-  program: /usr/local/bin/fish
+  program: /usr/local/bin/bash
   args:
-    - --login
+    - --login #~/dotfiles/tmux-chooser.sh
 
 # Startup directory
 #

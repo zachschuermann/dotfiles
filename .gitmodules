@@ -34,21 +34,21 @@
 [submodule "vim/.vim/pack/zach/start/coc.nvim"]
 	path = vim/.vim/pack/zach/start/coc.nvim
 	url = git@github.com:neoclide/coc.nvim.git
-[submodule "vim/.vim/pack/zach/start/nvim-lspconfig"]
-	path = vim/.vim/pack/zach/start/nvim-lspconfig
-	url = git@github.com:neovim/nvim-lspconfig.git
-[submodule "vim/.vim/pack/zach/start/lsp_extensions.nvim"]
-	path = vim/.vim/pack/zach/start/lsp_extensions.nvim
-	url = git@github.com:nvim-lua/lsp_extensions.nvim.git
-[submodule "vim/.vim/pack/zach/start/completion-nvim"]
-	path = vim/.vim/pack/zach/start/completion-nvim
-	url = git@github.com:nvim-lua/completion-nvim.git
-[submodule "vim/.vim/pack/zach/start/diagnostic-nvim"]
-	path = vim/.vim/pack/zach/start/diagnostic-nvim
-	url = git@github.com:nvim-lua/diagnostic-nvim.git
 [submodule "vim/.vim/pack/zach/start/haskell-vim"]
 	path = vim/.vim/pack/zach/start/haskell-vim
 	url = git@github.com:neovimhaskell/haskell-vim.git
-[submodule "vim/.vim/pack/zach/start/lsp-status.nvim"]
-	path = vim/.vim/pack/zach/start/lsp-status.nvim
+[submodule "vim/.local/share/nvim/site/pack/zach/start/lsp_extensions.nvim"]
+	path = vim/.local/share/nvim/site/pack/zach/start/lsp_extensions.nvim
+	url = git@github.com:nvim-lua/lsp_extensions.nvim.git
+[submodule "vim/.local/share/nvim/site/pack/zach/start/completion-nvim"]
+	path = vim/.local/share/nvim/site/pack/zach/start/completion-nvim
+	url = git@github.com:nvim-lua/completion-nvim.git
+[submodule "vim/.local/share/nvim/site/pack/zach/start/diagnostic-nvim"]
+	path = vim/.local/share/nvim/site/pack/zach/start/diagnostic-nvim
+	url = git@github.com:nvim-lua/diagnostic-nvim.git
+[submodule "vim/.local/share/nvim/site/pack/zach/opt/lsp-status.nvim"]
+	path = vim/.local/share/nvim/site/pack/zach/opt/lsp-status.nvim
 	url = git@github.com:nvim-lua/lsp-status.nvim.git
+[submodule "vim/.local/share/nvim/site/pack/zach/opt/nvim-lspconfig"]
+	path = vim/.local/share/nvim/site/pack/zach/opt/nvim-lspconfig
+	url = git@github.com:neovim/nvim-lspconfig.git

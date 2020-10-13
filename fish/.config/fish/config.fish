@@ -1,3 +1,8 @@
+# if [[ ! -v TMUX && $TERM_PROGRAM != "vscode" ]]; then
+if not set -q TMUX
+    bash dotfiles/fish/.config/fish/tmux_chooser.sh && exit
+end
+
 # OS-specific
 switch (uname)
     case Linux
