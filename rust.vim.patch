@@ -1,0 +1,61 @@
+diff --git a/syntax/rust.vim b/syntax/rust.vim
+index 8407b56..07a7a71 100644
+--- a/syntax/rust.vim
++++ b/syntax/rust.vim
+@@ -6,11 +6,13 @@
+ " Last Change:  Feb 24, 2016
+ " For bugs, patches and license go to https://github.com/rust-lang/rust.vim
+ 
+-if version < 600
+-    syntax clear
+-elseif exists("b:current_syntax")
+-    finish
+-endif
++" LAST MODIFIED 2020 ZACH SCHUERMANN <zachary.schuermann@gmail.com>
++
++"if version < 600
++    "syntax clear
++"elseif exists("b:current_syntax")
++    "finish
++"endif
+ 
+ " Syntax definitions {{{1
+ " Basic keywords {{{2
+@@ -78,6 +80,9 @@ syn keyword   rustReservedKeyword become do priv typeof unsized abstract virtual
+ syn keyword   rustType        isize usize char bool u8 u16 u32 u64 u128 f32
+ syn keyword   rustType        f64 i8 i16 i32 i64 i128 str Self
+ 
++syn match rustUserType "\v[A-Z]\w*"
++syn match rustFieldParam "\v\zs_?\w+\ze:[^:]"
++
+ " Things from the libstd v1 prelude (src/libstd/prelude/v1.rs) {{{2
+ " This section is just straight transformation of the contents of the prelude,
+ " to make it easy to update.
+@@ -333,7 +338,7 @@ hi def link rustUnsafeKeyword Exception
+ hi def link rustReservedKeyword Error
+ hi def link rustRepeat        Conditional
+ hi def link rustConditional   Conditional
+-hi def link rustIdentifier    Identifier
++hi def link rustIdentifier    rustKeyword
+ hi def link rustCapsIdent     rustIdentifier
+ hi def link rustModPath       Include
+ hi def link rustModPathSep    Delimiter
+@@ -356,7 +361,7 @@ hi def link rustMacro         Macro
+ hi def link rustType          Type
+ hi def link rustTodo          Todo
+ hi def link rustAttribute     PreProc
+-hi def link rustDerive        PreProc
++hi def link rustDerive        Macro
+ hi def link rustDefault       StorageClass
+ hi def link rustStorage       StorageClass
+ hi def link rustObsoleteStorage Error
+@@ -371,6 +376,9 @@ hi def link rustAsmDirSpec    rustKeyword
+ hi def link rustAsmSym        rustKeyword
+ hi def link rustAsmOptions    rustKeyword
+ hi def link rustAsmOptionsKey rustAttribute
++" added
++" hi def link rustUserType      Typedef
++" hi def link rustFieldParam    Typedef
+ 
+ " Other Suggestions:
+ " hi rustAttribute ctermfg=cyan
