@@ -255,7 +255,10 @@ Plug 'tpope/vim-markdown',  { 'for': 'markdown' }
                     \ 'c',
                     \ 'cpp',
                     \ 'ocaml',
-                    \ 'haskell'
+                    \ 'haskell',
+                    \ 'rust',
+                    \ 'go',
+                    \ 'json=javascript',
                     \ ]
 Plug 'jtratner/vim-flavored-markdown', { 'for': 'markdown' }
 Plug 'fatih/vim-go',            { 'for': 'go' }
