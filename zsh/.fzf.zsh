@@ -1,16 +1,13 @@
 # Setup fzf
 # ---------
-if [[ ! "$PATH" == */usr/local/opt/fzf/bin* ]]; then
-  export PATH="${PATH:+${PATH}:}/usr/local/opt/fzf/bin"
+if [[ ! "$PATH" == */Users/zach/.fzf/bin* ]]; then
+  export PATH="${PATH:+${PATH}:}/Users/zach/.fzf/bin"
 fi
 
 # Auto-completion
 # ---------------
-[[ $- == *i* ]] && source "/usr/local/opt/fzf/shell/completion.zsh" 2> /dev/null
+[[ $- == *i* ]] && source "/Users/zach/.fzf/shell/completion.zsh" 2> /dev/null
 
 # Key bindings
 # ------------
-source "/usr/local/opt/fzf/shell/key-bindings.zsh"
-
-# use riggrep instead of default system find
-export FZF_DEFAULT_COMMAND='rg --files --no-ignore-vcs --hidden'
+source "/Users/zach/.fzf/shell/key-bindings.zsh"

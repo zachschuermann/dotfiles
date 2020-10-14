@@ -10,11 +10,11 @@ source ~/.vimrc
 " =============================================================================
 
 " remove the thin cursor on insert mode (leave normal block cursor)
-if has('nvim')
-    "set guicursor=n-v-c:block-Cursor/lCursor-blinkon0,i-ci:ver25-Cursor/lCursor,r-cr:hor20-Cursor/lCursor
-    set guicursor=
-    set inccommand=nosplit
-end
+" if has('nvim')
+    " set guicursor=n-v-c:block-Cursor/lCursor-blinkon0,i-ci:ver25-Cursor/lCursor,r-cr:hor20-Cursor/lCursor
+    " set guicursor=
+    " set inccommand=nosplit
+" end
 
 " =============================================================================
 " # FONTS/CHARS
@@ -29,7 +29,7 @@ end
 " =============================================================================
 
 " -------------------------------------
-" ## AIRLINE
+" ## AIRLINE - DEPRECATED (using lightline/tabline instead)
 " -------------------------------------
 " Below is set in .vimrc
 " Enable the list of buffers
@@ -57,7 +57,7 @@ end
 " box next to mode indicator on the far left
 " let g:airline_powerline_fonts = 1
 
-let g:airline#extensions#nvimlsp#enabled = 1
+" let g:airline#extensions#nvimlsp#enabled = 1
 " autocmd VimEnter * let g:airline_section = airline#section#create_right(['lsp_status'])
 
 " -------------------------------------
@@ -65,7 +65,7 @@ let g:airline#extensions#nvimlsp#enabled = 1
 " -------------------------------------
 " DEPRECATED: moved below under completion
 " lua <<EOF
-" vim.cmd('packadd nvim-lspconfig')  -- If installed as a Vim "package".
+" vim.cmd('packadd nvim-lspconfig')  -- If installed as a Vim package.
 " require'nvim_lsp'.rust_analyzer.setup{}
 " EOF
 
@@ -92,8 +92,8 @@ set shortmess+=c
 lua <<EOF
 
 -- nvim_lsp object
-vim.cmd('packadd nvim-lspconfig')  -- installed as a Vim "package".
-vim.cmd('packadd lsp-status.nvim')  -- installed as a Vim "package".
+-- vim.cmd('packadd nvim-lspconfig')  -- installed as a Vim "package".
+-- vim.cmd('packadd lsp-status.nvim')  -- installed as a Vim "package".
 
 local nvim_lsp = require'nvim_lsp'
 local lsp_status = require'lsp-status'
@@ -184,8 +184,8 @@ set updatetime=300
 autocmd CursorHold * lua vim.lsp.util.show_line_diagnostics()
 
 " Goto previous/next diagnostic warning/error
-nnoremap <silent> g[ <cmd>PrevDiagnosticCycle<cr>
-nnoremap <silent> g] <cmd>NextDiagnosticCycle<cr>
+" nnoremap <silent> g[ <cmd>PrevDiagnosticCycle<cr>
+" nnoremap <silent> g] <cmd>NextDiagnosticCycle<cr>
 
 " Enable type inlay hints
 autocmd CursorMoved,InsertLeave,BufEnter,BufWinEnter,TabEnter,BufWritePost *

@@ -112,14 +112,65 @@ nnoremap <silent> g* g*zz
 " # PLUGINS
 " =============================================================================
 
+call plug#begin('~/.vim/plugged')
+
+if has('nvim')
+    " Collection of common configurations for the Nvim LSP client
+    Plug 'neovim/nvim-lspconfig'
+    
+    " Extensions to built-in LSP, for example, providing type inlay hints
+    Plug 'tjdevries/lsp_extensions.nvim'
+    
+    " Autocompletion framework for built-in LSP
+    Plug 'nvim-lua/completion-nvim'
+    
+    " Diagnostic navigation and settings for built-in LSP
+    Plug 'nvim-lua/diagnostic-nvim'
+
+    Plug 'nvim-lua/lsp-status.nvim'
+end
+
+" Unintrusive * preview
+" Plug 'itchyny/vim-cursorword'
+"     let g:cursorword_delay = 369
+"     let b:cursorword = 1
+"     function! ToggleCursorWord()
+"         if b:cursorword
+"             let b:cursorword = 0
+"         else
+"             let b:cursorword = 1
+"         endif
+"     endfunction
+"     cnoreabbrev csw call ToggleCursorWord()
+
 " -------------------------------------
 " ## AIRLINE
 " -------------------------------------
 " Enable the list of buffers
-let g:airline#extensions#tabline#enabled = 1
+" let g:airline#extensions#tabline#enabled = 1
 " Show just the filename
-let g:airline#extensions#tabline#fnamemod = ':t'
+" let g:airline#extensions#tabline#fnamemod = ':t'
 
+Plug 'itchyny/lightline.vim'        " Lightweight status line at bottom
+    let g:lightline = {
+        \ 'colorscheme': 'PaperColor',
+        \ 'active': {
+        \   'left': [
+        \       [ 'mode', 'paste' ],
+        \       [ 'gitbranch', 'readonly', 'relativepath', 'modified' ],
+        \   ],
+        \   'right': [
+        \       [ 'lineinfo' ],
+        \       [ 'percent' ],
+        \       [ 'scrollbar'],
+        \       [ 'fileformat', 'fileencoding', 'filetype' ],
+        \   ],
+        \ },
+    \ }
+
+        "\ 'component': {
+        "\   'scrollbar': '%{ScrollStatus()}',
+        "\ },
 " -------------------------------------
 " ## FZF
 " -------------------------------------
@@ -129,6 +180,18 @@ set rtp+=/usr/local/opt/fzf
 set rtp+=/usr/bin/fzf
 
 " FZF + rg = <3
+Plug 'junegunn/fzf.vim'                                 " Fuzzy finder
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+    let g:fzf_preview_window = 'right:60%'
+    "nnoremap <leader>ff   :Files    <space>
+    "nnoremap <leader>fe   :Files    <CR>
+    "nnoremap <leader>fg   :GFiles   <CR>
+    "nnoremap <leader>fj   :Lines    <CR>
+    "nnoremap <leader>fa   :Ag       <CR>
+    "nnoremap <leader>fb   :Buffers  <CR>
+    "nnoremap <leader>f:   :History: <CR>
+    "nnoremap <leader>f/   :History/ <CR>
+
 let g:fzf_layout = { 'down': '~30%' }
 command! -bang -nargs=* Rg
     \ call fzf#vim#grep(
@@ -161,6 +224,44 @@ let g:NERDTreeShowHidden=1
 map <C-n> :NERDTreeToggle<CR>
 " open current buffer in file tree
 nmap <leader>n :NERDTreeFind<CR>
+
+
+" Plug 'ojroques/vim-scrollstatus'    " Scroll bar on status line
+    " let g:scrollstatus_size = 20
+
+Plug 'ap/vim-buftabline'            " Tab bar at top
+    let g:buftabline_indicators = 1 " Show whether modified
+    let g:buftabline_numbers    = 1 " Show buffer numbers
+
+    nmap <C-w>1 <Plug>BufTabLine.Go(1)
+    nmap <C-w>2 <Plug>BufTabLine.Go(2)
+    nmap <C-w>3 <Plug>BufTabLine.Go(3)
+    nmap <C-w>4 <Plug>BufTabLine.Go(4)
+    nmap <C-w>5 <Plug>BufTabLine.Go(5)
+    nmap <C-w>6 <Plug>BufTabLine.Go(6)
+    nmap <C-w>7 <Plug>BufTabLine.Go(7)
+    nmap <C-w>8 <Plug>BufTabLine.Go(8)
+    nmap <C-w>9 <Plug>BufTabLine.Go(9)
+    nmap <C-w>0 <Plug>BufTabLine.Go(-1)
+
+
+Plug 'tpope/vim-surround'               " ds, cs, ys to change text surroundings
+
+Plug 'tpope/vim-markdown',  { 'for': 'markdown' }
+        let g:markdown_fenced_languages = [
+                    \ 'html',
+                    \ 'python',
+                    \ 'bash=sh',
+                    \ 'c',
+                    \ 'cpp',
+                    \ 'ocaml',
+                    \ 'haskell'
+                    \ ]
+Plug 'jtratner/vim-flavored-markdown', { 'for': 'markdown' }
+Plug 'fatih/vim-go',            { 'for': 'go' }
+Plug 'rust-lang/rust.vim',      { 'for': 'rust' }
+
+call plug#end()
 
 " =============================================================================
 " # COMPLETION
