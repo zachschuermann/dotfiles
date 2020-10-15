@@ -6,7 +6,7 @@
 "use `if !has('nvim')` to do vim-specific things, put nvim stuff in `init.vim`
 
 " turn on syntax
-syntax on
+" syntax on => moved to 'COLORS'
 
 " Enable filetype plugins
 filetype plugin on
@@ -59,10 +59,10 @@ let g:maplxeader ="\<Space>"
 " # COLORS
 " =============================================================================
 "colorscheme base16-gruvbox-dark-medium
-color dracula
+"color dracula
 "autocmd BufEnter * colorscheme default
 "autocmd BufEnter *.hs colorscheme spacecamp
-highlight CursorLineNr guifg=#6272a4
+"highlight CursorLineNr guifg=#6272a4
 " =============================================================================
 " # GUI
 " =============================================================================
@@ -113,6 +113,8 @@ nnoremap <silent> g* g*zz
 " =============================================================================
 
 call plug#begin('~/.vim/plugged')
+
+Plug 'chriskempson/base16-vim'
 
 if has('nvim')
     " Collection of common configurations for the Nvim LSP client
@@ -357,3 +359,32 @@ let g:go_bin_path = expand("~/dev/go/bin")
 " autocmd InsertLeave * set nopaste
 " (unused) Set to auto read when a file is changed from the outside
 " set autoread
+
+
+" TODO clipboard integration
+" <space>p will paste clipboard into buffer
+" <space>c will copy entire buffer into clipboard
+"noremap <leader>p :read !xsel --clipboard --output<cr>
+"noremap <leader>y :w !xsel -ib<cr><cr>
+
+
+" let s:bgdarker  = ['', 234]
+
+
+" set background=dark
+" set background=#191A21
+let base16colorspace=256
+"let g:base16_shell_path="~/dev/others/base16/templates/shell/scripts/"
+
+colorscheme base16-gruvbox-dark-hard
+syntax on
+hi Normal ctermbg=NONE
+set cursorline
+" call Base16hi("Comment", g:base16_gui04, "", g:base16_cterm04, "", "", "")
+call Base16hi("Comment", "6272A4", "", "6272A4", "", "", "")
+call Base16hi("Normal", g:base16_gui07, g:base16_gui00, g:base16_cterm07, g:base16_cterm00, "", "")
+
+call Base16hi("LineNr",        g:base16_gui02, g:base16_gui00, g:base16_cterm02, g:base16_cterm00, "", "")
+call Base16hi("SignColumn",    g:base16_gui02, g:base16_gui00, g:base16_cterm02, g:base16_cterm00, "", "")
+call Base16hi("CursorLine",    "", "1a1a1a", "", "1a", "", "")
+call Base16hi("CursorLineNr",    g:base16_gui03, g:base16_gui00, g:base16_cterm03, g:base16_cterm00, "", "")
