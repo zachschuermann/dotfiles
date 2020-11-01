@@ -248,24 +248,24 @@ Plug 'ap/vim-buftabline'            " Tab bar at top
 
 
 Plug 'tpope/vim-surround'               " ds, cs, ys to change text surroundings
-
-Plug 'tpope/vim-markdown',  { 'for': 'markdown' }
-        let g:markdown_fenced_languages = [
-                    \ 'html',
-                    \ 'python',
-                    \ 'bash=sh',
-                    \ 'c',
-                    \ 'cpp',
-                    \ 'ocaml',
-                    \ 'haskell',
-                    \ 'rust',
-                    \ 'go',
-                    \ 'json=javascript',
-                    \ ]
-Plug 'jtratner/vim-flavored-markdown', { 'for': 'markdown' }
+Plug 'plasticboy/vim-markdown', { 'for': 'markdown' }
+"         let g:markdown_fenced_languages = [
+"                     \ 'html',
+"                     \ 'python',
+"                     \ 'bash=sh',
+"                     \ 'c',
+"                     \ 'cpp',
+"                     \ 'ocaml',
+"                     \ 'haskell',
+"                     \ 'rust',
+"                     \ 'go',
+"                     \ 'json=javascript',
+"                     \ ]
+" Plug 'tpope/vim-markdown',  { 'for': 'markdown' }
+"Plug 'jtratner/vim-flavored-markdown', { 'for': 'markdown' }
 Plug 'fatih/vim-go',            { 'for': 'go' }
 Plug 'rust-lang/rust.vim',      { 'for': 'rust' }
-
+Plug 'JuliaEditorSupport/julia-vim'
 call plug#end()
 
 " =============================================================================
@@ -319,8 +319,10 @@ nnoremap <leader>e :e <C-R>=expand("%:p:h") . "/" <CR>
 " -------------------------------------
 set hidden " Allow buffers to be hidden if you've modified a buffer
 
-" leader-leader toggels between buffers
-nnoremap <leader><leader> <c-^>
+" leader-leader toggels between buffers DEPRECATED
+" nnoremap <leader><leader> <c-^>
+" leader-leader does FZF for files in current folder
+nnoremap <leader><leader> :Files<CR>
 
 " Move to the next buffer
 nmap <leader>l :bnext<CR>
@@ -388,3 +390,5 @@ call Base16hi("LineNr",        g:base16_gui02, g:base16_gui00, g:base16_cterm02,
 call Base16hi("SignColumn",    g:base16_gui02, g:base16_gui00, g:base16_cterm02, g:base16_cterm00, "", "")
 call Base16hi("CursorLine",    "", "1a1a1a", "", "1a", "", "")
 call Base16hi("CursorLineNr",    g:base16_gui03, g:base16_gui00, g:base16_cterm03, g:base16_cterm00, "", "")
+
+autocmd bufreadpre *.md setlocal textwidth=100

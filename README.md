@@ -37,6 +37,14 @@ $ stow fish
 etc.
 ```
 
+### Language Tools
+#### Rust
+- [Rust Analyzer](https://github.com/rust-analyzer/rust-analyzer)
+- default tooling
+
+#### Haskell
+- [Haskell Language Server](https://github.com/haskell/haskell-language-server)
+
 ### Vim
 Neovim/COC requires: node/python3
 ```
