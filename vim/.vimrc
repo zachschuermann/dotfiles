@@ -127,7 +127,7 @@ if has('nvim')
     Plug 'nvim-lua/completion-nvim'
     
     " Diagnostic navigation and settings for built-in LSP
-    Plug 'nvim-lua/diagnostic-nvim'
+    " Plug 'nvim-lua/diagnostic-nvim' DEPRECATED
 
     Plug 'nvim-lua/lsp-status.nvim'
 end
@@ -307,8 +307,15 @@ inoremap <right> <nop>
 map <C-h> ^
 map <C-l> $
 
-" RustFmt is space-f
+" Formatting is <leader>-f
+" RustFmt/GoFmt is space-f
+" TODO add GoFmt
 nnoremap <leader>f :RustFmt<CR>
+
+" hacky, see: https://vi.stackexchange.com/questions/10664/file-type-dependent-key-mapping
+autocmd FileType rust   nnoremap <buffer> <leader>f :RustFmt<CR>
+" autocmd FileType go     nnoremap <buffer> <leader>f :call LanguageClient#textDocument_formatting_sync()<CR>
+
 
 " leader-e
 " Open new file adjacent to current file
@@ -355,6 +362,11 @@ nnoremap <leader>, :Buffers<CR>
 
 " Golang path stuff
 let g:go_bin_path = expand("~/dev/go/bin")
+
+" Go setup
+let g:go_def_mode='gopls'
+let g:go_info_mode='gopls'
+
 
 """ Try these out?
 " Leave paste mode when leaving insert mode

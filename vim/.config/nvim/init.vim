@@ -95,7 +95,7 @@ lua <<EOF
 -- vim.cmd('packadd nvim-lspconfig')  -- installed as a Vim "package".
 -- vim.cmd('packadd lsp-status.nvim')  -- installed as a Vim "package".
 
-local nvim_lsp = require'nvim_lsp'
+local nvim_lsp = require'lspconfig'
 local lsp_status = require'lsp-status'
 
 
@@ -124,7 +124,6 @@ lsp_status.config({
 -- when setting up lsp
 local on_attach = function(client, bufnr)
     require'completion'.on_attach(client, bufnr)
-    require'diagnostic'.on_attach(client, bufnr)
     lsp_status.on_attach(client, bufnr)
 end
 
@@ -133,11 +132,18 @@ nvim_lsp.rust_analyzer.setup({
     on_attach=on_attach,
     capabilities = lsp_status.capabilities
 })
+
+-- Enable gopls
+nvim_lsp.gopls.setup({
+    on_attach=on_attach,
+    capabilities = lsp_status.capabilities
+})
+
 EOF
 
 " change the E/W to ×/• for error/warning highlights in the gutter
-call sign_define("LspDiagnosticsErrorSign", {"text" : "×", "texthl" : "LspDiagnosticsError"})
-call sign_define("LspDiagnosticsWarningSign", {"text" : "•", "texthl" : "LspDiagnosticsWarning"})
+call sign_define("LspDiagnosticsSignError", {"text" : "×", "texthl" : "LspDiagnosticsSignError"})
+call sign_define("LspDiagnosticsSignWarning", {"text" : "•", "texthl" : "LspDiagnosticsSignWarning"})
 
 " Trigger completion with <Tab>
 inoremap <silent><expr> <TAB>
@@ -155,7 +161,7 @@ function! s:check_back_space() abort
 endfunction
 
 " fix left/right shifting when errors are present/absent
-" TODO update to signcolumn=number after update
+" TODO update to signcolumn=number after update?
 set signcolumn=yes
 
 " Code navigation shortcuts
@@ -181,7 +187,7 @@ let g:diagnostic_insert_delay = 1
 " You will have bad experience for diagnostic messages when it's default 4000.
 set updatetime=300
 " Show diagnostic popup on cursor hold
-autocmd CursorHold * lua vim.lsp.util.show_line_diagnostics()
+autocmd CursorHold * lua vim.lsp.diagnostic.show_line_diagnostics()
 
 " Goto previous/next diagnostic warning/error
 " nnoremap <silent> g[ <cmd>PrevDiagnosticCycle<cr>
