@@ -110,7 +110,7 @@ install_mac() {
 
 install_linux() {
     tell "installing basics"
-    sudo apt install -y software-properties-common build-essential curl git stow fd-find ripgrep htop tree exa
+    sudo apt install -y software-properties-common build-essential curl git stow fd-find fzf ripgrep htop tree exa
 
     tell "installing bat"
     curl -LO "https://github.com/sharkdp/bat/releases/download/v0.16.0/bat_0.16.0_amd64.deb"
