@@ -7,6 +7,10 @@ brew_install() {
     fi
 }
 
+# TODOs
+# - add rust-analyzer
+# - add gopls
+
 install_mac() {
 
     ### Dependencies
@@ -117,15 +121,21 @@ install_linux() {
     sudo dpkg -i "bat_0.16.0_amd64.deb"
     rm "bat_0.16.0_amd64.deb"
 
-    tell "installing neovim"
+    tell "building neovim"
+    sudo apt-get install ninja-build gettext libtool libtool-bin autoconf automake cmake g++ pkg-config unzip
+    git clone git@github.com:neovim/neovim.git
+    pushd neovim
+    make CMAKE_BUILD_TYPE=Release
     #sudo add-apt-repository ppa:neovim-ppa/unstable
     #sudo apt update && sudo apt install -y neovim
-    curl -LO https://github.com/neovim/neovim/releases/download/nightly/nvim-linux64.tar.gz
-    tar -xzf nvim-linux64.tar.gz
-    sudo mv nvim-linux64/bin/nvim /usr/bin/nvim
-    rm nvim-linux64.tar.gz
-    rm -rf nvim-linux64/
-
+    # curl -LO https://github.com/neovim/neovim/releases/download/nightly/nvim-linux64.tar.gz
+    # tar -xzf nvim-linux64.tar.gz
+    # sudo mv nvim-linux64/bin/nvim /usr/bin/nvim
+    # rm nvim-linux64.tar.gz
+    # rm -rf nvim-linux64/
+    tell "installing neovim"
+    sudo make install
+    popd && rm -rf neovim
 
     tell "installing fish"
     # curl -LO "https://download.opensuse.org/repositories/shells:/fish:/release:/3/Debian_10/amd64/fish_3.1.2-1_amd64.deb"
