@@ -115,6 +115,7 @@ nnoremap <silent> g* g*zz
 call plug#begin('~/.vim/plugged')
 
 Plug 'chriskempson/base16-vim'
+Plug 'neovimhaskell/haskell-vim'
 
 if has('nvim')
     " Collection of common configurations for the Nvim LSP client
