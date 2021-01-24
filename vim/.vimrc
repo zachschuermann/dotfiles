@@ -79,10 +79,11 @@ endif
 " TODO idk man need to figure out colors
 " used to have this added below: (annoying with tmux so removed)
 " && (match($TERM, "screen-256color") == -1)
-if (match($TERM, "-256color") != -1)
-    " screen does not (yet) support truecolor
-    set termguicolors
-endif
+" if (match($TERM, "-256color") != -1)
+"     " screen does not (yet) support truecolor
+"     set termguicolors
+" endif
+set termguicolors
 
 " =============================================================================
 " # FONTS/CHARS

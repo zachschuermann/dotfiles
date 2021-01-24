@@ -5,6 +5,13 @@
 { config, pkgs, ... }:
 
 let
+  neovim-nightly-metadata = {
+    upattr = "neovim-unwrapped";
+    repo_git = "https://github.com/neovim/neovim";
+    branch = "master";
+    rev = "444e60ab39ec44a51aa3606f007c9272743df6c9";
+    sha256 = "0rpsjxqd3a0lalsa7v5pzhr48c27f91310pbm3hf9fq2508kyjd3";
+  };
   unstable = import <nixpkgs-unstable> { config.allowUnfree = true; };
 in
 {
@@ -74,10 +81,10 @@ in
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-    bash sudo git tmux screen
+    bash fish sudo git tmux screen
     curl wget vim git unzip
     htop tree
-    fzf ripgrep fd bat dust
+    fzf ripgrep fd bat dust exa
    
     stow 
     bspwm sxhkd
@@ -90,9 +97,23 @@ in
     gcc gnumake cmake autoconf pkg-config libtool dpkg
     pandoc zathura
 
+    unstable.rustup
+    unstable.rust-analyzer
+
     mprime
 
     unstable.kitty
+
+    (wrapNeovim (neovim-unwrapped.overrideAttrs(old: {
+      version = "0.5.0-${neovim-nightly-metadata.rev}";
+      src = fetchFromGitHub {
+        owner = "neovim";
+        repo = "neovim";
+        rev = neovim-nightly-metadata.rev;
+        sha256 = neovim-nightly-metadata.sha256;
+      };
+      buildInputs = old.buildInputs ++ [ unstable.tree-sitter ];
+    })) {})    
 
     google-chrome
     firefox
