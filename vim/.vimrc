@@ -49,7 +49,7 @@ set wildmode=list:longest
 set wildignore=.hg,.svn,*~,*.png,*.jpg,*.gif,*.settings,Thumbs.db,*.min.js,*.swp,publish/*,intermediate/*,*.o,*.hi,Zend,vendor
 
 " Fish doesn't play all that well with others
-set shell=/bin/bash
+set shell=bash
 
 " leader is spacebar
 let mapleader ="\<Space>"
@@ -184,8 +184,10 @@ set rtp+=/usr/local/opt/fzf
 set rtp+=/usr/bin/fzf
 
 " FZF + rg = <3
-Plug 'junegunn/fzf.vim'                                 " Fuzzy finder
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+"Plug 'junegunn/fzf.vim'                                 " Fuzzy finder
+"Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
     let g:fzf_preview_window = 'right:60%'
     "nnoremap <leader>ff   :Files    <space>
     "nnoremap <leader>fe   :Files    <CR>

@@ -18,6 +18,8 @@ in
   imports =
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
+      # Include secret config
+      /etc/nixos/secret.nix
     ];
 
   # Use the systemd-boot EFI boot loader.
@@ -72,10 +74,13 @@ in
   # Enable touchpad support (enabled default in most desktopManager).
   # services.xserver.libinput.enable = true;
 
+  programs.fish.enable = true;
+
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.zach = {
     isNormalUser = true;
     extraGroups = [ "wheel" "docker" ]; # Enable ‘sudo’ for the user.
+    shell = pkgs.fish;
   };
 
   # List packages installed in system profile. To search, run:
@@ -85,6 +90,7 @@ in
     curl wget vim git unzip
     htop tree
     fzf ripgrep fd bat dust exa
+    wireguard
    
     stow 
     bspwm sxhkd
@@ -95,10 +101,11 @@ in
     lm_sensors
     
     gcc gnumake cmake autoconf pkg-config libtool dpkg
-    pandoc zathura
+    pandoc zathura python3 binutils ninja
 
     unstable.rustup
     unstable.rust-analyzer
+    stack
 
     mprime
 
@@ -120,6 +127,10 @@ in
     discord
     slack
     zoom-us
+
+    #TODO
+    alsaLib
+    udev
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
@@ -220,6 +231,10 @@ in
       screenSection = "Option \"metamodes\" \"DP-2: nvidia-auto-select +2160+840, HDMI-0: nvidia-auto-select +0+0 {rotation=left}\"";
       dpi = 163;
     };
+    datadog-agent = {
+      enable = true;
+      apiKeyFile = builtins.path { path = "/home/zach/.dd-key"; name = "dd-key"; };
+    };
   };
   fonts = {
         enableFontDir = true;
@@ -250,6 +265,7 @@ in
 
   # Enable the OpenSSH daemon.
   services.openssh.enable = true;
+  services.openssh.passwordAuthentication = false;
 
   # Open ports in the firewall.
   # networking.firewall.allowedTCPPorts = [ ... ];
@@ -264,6 +280,9 @@ in
   # Before changing this value read the documentation for this option
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
   system.stateVersion = "20.09"; # Did you read the comment?
+
+
+
 
 }
 
