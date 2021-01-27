@@ -99,6 +99,7 @@ in
     rofi
     dunst libnotify
     lm_sensors
+    xflux-gui
     
     gcc gnumake cmake autoconf pkg-config libtool dpkg
     pandoc zathura python3 binutils ninja
@@ -110,6 +111,7 @@ in
     mprime
 
     unstable.kitty
+    unstable.alacritty
 
     (wrapNeovim (neovim-unwrapped.overrideAttrs(old: {
       version = "0.5.0-${neovim-nightly-metadata.rev}";
@@ -132,6 +134,8 @@ in
     alsaLib
     udev
   ];
+
+  environment.variables.XCURSOR_SIZE = "32";
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
@@ -229,7 +233,7 @@ in
       #   EndSection
       # '';
       screenSection = "Option \"metamodes\" \"DP-2: nvidia-auto-select +2160+840, HDMI-0: nvidia-auto-select +0+0 {rotation=left}\"";
-      dpi = 163;
+      dpi = 192;
     };
     datadog-agent = {
       enable = true;
