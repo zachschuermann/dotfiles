@@ -79,7 +79,7 @@ in
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.zach = {
     isNormalUser = true;
-    extraGroups = [ "wheel" "docker" ]; # Enable ‘sudo’ for the user.
+    extraGroups = [ "wheel" "docker" "audio" ]; # Enable ‘sudo’ for the user.
     shell = pkgs.fish;
   };
 
@@ -91,11 +91,13 @@ in
     htop tree
     fzf ripgrep fd bat dust exa
     wireguard
-   
+  
+    # busybox - this breaks 'reboot?'
+    lsof
     stow 
     bspwm sxhkd
     xorg.xmodmap
-    polybar
+    polybarFull
     rofi
     dunst libnotify
     lm_sensors
