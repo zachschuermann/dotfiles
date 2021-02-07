@@ -1,5 +1,7 @@
 # This file contains fish universal variable definitions.
 # VERSION: 3.0
+SETUVAR --export FZF_CTRL_R_OPTS:\x2d\x2dreverse
+SETUVAR --export FZF_CTRL_T_OPTS:\x2d\x2dreverse
 SETUVAR __fish_initialized:3100
 SETUVAR _fish_abbr_br:broot
 SETUVAR _fish_abbr_c:clear
@@ -16,7 +18,7 @@ SETUVAR _fish_abbr_lll:exa\x20\x2dl
 SETUVAR _fish_abbr_logout:exit
 SETUVAR _fish_abbr_ls:exa
 SETUVAR _fish_abbr_m:make
-SETUVAR _fish_abbr_ping:prettyping\x20\x2d\x2dnolegend
+SETUVAR _fish_abbr_pping:prettyping\x20\x2d\x2dnolegend
 SETUVAR _fish_abbr_vim:nvim
 SETUVAR _fish_abbr_vimdiff:nvim\x20\x2dd
 SETUVAR fish_color_autosuggestion:555\x1ebrblack

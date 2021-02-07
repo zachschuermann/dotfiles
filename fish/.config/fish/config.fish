@@ -20,7 +20,7 @@ switch (uname)
 end
 
 # set default CLI commands
-abbr -a ping 'prettyping --nolegend'
+abbr -a pping 'prettyping --nolegend'
 abbr -a l 'exa -F'
 abbr -a ls exa
 abbr -a ll 'exa -alF'
