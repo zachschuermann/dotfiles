@@ -49,11 +49,30 @@ set wildmode=list:longest
 set wildignore=.hg,.svn,*~,*.png,*.jpg,*.gif,*.settings,Thumbs.db,*.min.js,*.swp,publish/*,intermediate/*,*.o,*.hi,Zend,vendor
 
 " Fish doesn't play all that well with others
-set shell=/bin/bash
+set shell=bash
 
 " leader is spacebar
 let mapleader ="\<Space>"
 let g:maplxeader ="\<Space>"
+
+" from vim/runtime/defaults.vim
+" Put these in an autocmd group, so that you can revert them with:
+" ":augroup vimStartup | au! | augroup END"
+augroup vimStartup
+  au!
+
+  " When editing a file, always jump to the last known cursor position.
+  " Don't do it when the position is invalid, when inside an event handler
+  " (happens when dropping a file on gvim) and for a commit message (it's
+  " likely a different one than last time).
+  autocmd BufReadPost *
+    \ if line("'\"") >= 1 && line("'\"") <= line("$") && &ft !~# 'commit'
+    \ |   exe "normal! g`\""
+    \ | endif
+
+augroup END
+
+
 
 " =============================================================================
 " # COLORS
@@ -79,10 +98,11 @@ endif
 " TODO idk man need to figure out colors
 " used to have this added below: (annoying with tmux so removed)
 " && (match($TERM, "screen-256color") == -1)
-if (match($TERM, "-256color") != -1)
-    " screen does not (yet) support truecolor
-    set termguicolors
-endif
+" if (match($TERM, "-256color") != -1)
+"     " screen does not (yet) support truecolor
+"     set termguicolors
+" endif
+set termguicolors
 
 " =============================================================================
 " # FONTS/CHARS
@@ -183,8 +203,10 @@ set rtp+=/usr/local/opt/fzf
 set rtp+=/usr/bin/fzf
 
 " FZF + rg = <3
-Plug 'junegunn/fzf.vim'                                 " Fuzzy finder
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+"Plug 'junegunn/fzf.vim'                                 " Fuzzy finder
+"Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
     let g:fzf_preview_window = 'right:60%'
     "nnoremap <leader>ff   :Files    <space>
     "nnoremap <leader>fe   :Files    <CR>

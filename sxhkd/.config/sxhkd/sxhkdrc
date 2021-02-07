@@ -1,0 +1,15 @@
+# launcher
+super + space
+    rofi -show run
+
+super + w
+    bspc node -{c,k}
+
+ctrl + shift + k
+    kitty
+
+ctrl + shift + space
+    rofi -show run
+
+super + escape
+    {pkill -USR1 -x sxhkd,bspc quit}
