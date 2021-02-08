@@ -4,6 +4,7 @@ switch (uname)
         setenv TZ "America/New_York"
         set -g PATH /snap/bin $PATH
         set -Ua fish_user_paths /home/zach/.fzf/bin/fzf
+        set -x GPG_TTY (tty)
     case Darwin
         #if status --is-interactive
             #tmux ^ /dev/null; and exec true
@@ -35,6 +36,9 @@ abbr -a vim nvim
 abbr -a find fd
 abbr -a du dust
 abbr -a br broot
+
+set -U FZF_CTRL_R_OPTS --reverse
+set -U FZF_CTRL_T_OPTS --reverse
 
 # add 'logout' command to fish
 abbr -a logout exit
