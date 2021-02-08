@@ -1,15 +1,20 @@
 # launcher
-super + space
-    rofi -show run
+{super,ctrl + shift} + space
+    rofi -show run -font "DejaVu Sans Mono 20"
 
-super + w
+# bspc close/kill window
+{super,ctrl + shift} + w
     bspc node -{c,k}
 
-ctrl + shift + k
+{super,ctrl + shift} + k
     kitty
 
-ctrl + shift + space
-    rofi -show run
-
-super + escape
+{super,ctrl + shift} + escape
     {pkill -USR1 -x sxhkd,bspc quit}
+
+{super,ctrl + shift} + tab
+    rofi -show {window,windowcd} -font "DejaVu Sans Mono 20"
+
+## bspc set fullscreen
+super {_, + shift} + f
+    bspc node -t {fullscreen,floating}

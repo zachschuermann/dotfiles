@@ -13,6 +13,15 @@ let
     sha256 = "0rpsjxqd3a0lalsa7v5pzhr48c27f91310pbm3hf9fq2508kyjd3";
   };
   unstable = import <nixpkgs-unstable> { config.allowUnfree = true; };
+  zach-python-packages = python-packages: with python-packages; [
+    jupyterlab
+    matplotlib
+    numpy
+    scipy
+    pandas
+    requests
+  ]; 
+  python-with-zach-packages = pkgs.python3.withPackages zach-python-packages;
 in
 {
   imports =
@@ -25,7 +34,14 @@ in
   # Use the systemd-boot EFI boot loader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
-  boot.kernelPackages = unstable.pkgs.linuxPackages_5_10;
+  # boot.kernelPackages = unstable.pkgs.linuxPackages_5_10;
+  boot.kernelPackages = unstable.pkgs.linuxPackages_latest;
+
+  boot.kernelParams = [
+    "usbcore.autosuspend=-1"
+    "processor.max_cstate=1"
+    # "intel_idle.max_cstate=1" I don't have intel..
+  ];
 
   networking.hostName = "gandalf"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
@@ -135,6 +151,8 @@ in
     #TODO
     alsaLib
     udev
+    python-with-zach-packages
+    unstable.julia
   ];
 
   environment.variables.XCURSOR_SIZE = "32";
@@ -142,10 +160,10 @@ in
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.
   # programs.mtr.enable = true;
-  # programs.gnupg.agent = {
-  #   enable = true;
-  #   enableSSHSupport = true;
-  # };
+  programs.gnupg.agent = {
+    enable = true;
+    enableSSHSupport = true;
+  };
 
   # List services that you want to enable:
 
@@ -268,6 +286,8 @@ in
   };
 
   virtualisation.docker.enable = true;
+  hardware.opengl.driSupport32Bit = true;
+  virtualisation.docker.enableNvidia = true;
 
   # Enable the OpenSSH daemon.
   services.openssh.enable = true;
