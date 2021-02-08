@@ -1,3 +1,4 @@
 *.DS_Store*
 vim/.vim/plugged
 vim/.vim/.netrwhist
+fish/.config/fish/functions/fzf_key_bindings.fish

@@ -36,6 +36,10 @@ $ stow vim
 $ stow fish
 etc.
 ```
+MANUAL:
+```
+ln -s $HOME/.fzf/shell/key-bindings.fish $HOME/dotfiles/fish/.config/fish/functions/fzf_key_bindings.fish
+```
 
 ### Language Tools
 #### Rust

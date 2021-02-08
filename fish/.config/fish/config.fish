@@ -1,17 +1,17 @@
-# if [[ ! -v TMUX && $TERM_PROGRAM != "vscode" ]]; then
-# if not set -q TMUX
- #    bash dotfiles/fish/.config/fish/tmux_chooser.sh && exit
-# end
-
 # OS-specific
 switch (uname)
     case Linux
         setenv TZ "America/New_York"
         set -g PATH /snap/bin $PATH
+        set -Ua fish_user_paths /home/zach/.fzf/bin/fzf
     case Darwin
-        if status --is-interactive
-            tmux ^ /dev/null; and exec true
-        end
+        #if status --is-interactive
+            #tmux ^ /dev/null; and exec true
+            #if [[ ! -v TMUX && $TERM_PROGRAM != "vscode" ]]; then
+            #if not set -q TMUX
+            #    bash $HOME/dotfiles/tmux-chooser.sh && exit
+            #end
+        #end
         setenv TZ "America/Chicago"
     case FreeBSD NetBSD DragonFly
             echo Uh...
@@ -20,7 +20,7 @@ switch (uname)
 end
 
 # set default CLI commands
-abbr -a ping 'prettyping --nolegend'
+abbr -a pping 'prettyping --nolegend'
 abbr -a l 'exa -F'
 abbr -a ls exa
 abbr -a ll 'exa -alF'

@@ -141,10 +141,20 @@ nvim_lsp.gopls.setup({
 
 EOF
 
+" Statusline
+function! LspStatus() abort
+  if luaeval('#vim.lsp.buf_get_clients() > 0')
+    return luaeval("require('lsp-status').status()")
+  endif
+
+  return ''
+endfunction
+
 " change the E/W to ×/• for error/warning highlights in the gutter
 call sign_define("LspDiagnosticsSignError", {"text" : "×", "texthl" : "LspDiagnosticsSignError"})
 call sign_define("LspDiagnosticsSignWarning", {"text" : "•", "texthl" : "LspDiagnosticsSignWarning"})
-
+call sign_define("LspDiagnosticsSignHint", {"text" : "»", "texthl" : "LspDiagnosticsSignHint"})
+" ›
 " Trigger completion with <Tab>
 inoremap <silent><expr> <TAB>
     \ pumvisible() ? "\<C-n>" :
