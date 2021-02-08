@@ -167,7 +167,7 @@ end
 "     cnoreabbrev csw call ToggleCursorWord()
 
 " -------------------------------------
-" ## AIRLINE
+" ## ~~AIRLINE~~ LIGHTLINE
 " -------------------------------------
 " Enable the list of buffers
 " let g:airline#extensions#tabline#enabled = 1
@@ -186,11 +186,15 @@ Plug 'itchyny/lightline.vim'        " Lightweight status line at bottom
         \       [ 'lineinfo' ],
         \       [ 'percent' ],
         \       [ 'scrollbar'],
-        \       [ 'fileformat', 'fileencoding', 'filetype' ],
+        \       [ 'lsp_status', 'fileformat', 'fileencoding', 'filetype' ],
         \   ],
+        \ },
+        \ 'component_expand': {
+        \   'lsp_status': 'LspStatus'
         \ },
     \ }
 
+autocmd User LspDiagnosticsChanged call lightline#update()
         "\ 'component': {
         "\   'scrollbar': '%{ScrollStatus()}',
         "\ },
