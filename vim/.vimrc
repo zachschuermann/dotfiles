@@ -337,12 +337,17 @@ map <C-l> $
 " Formatting is <leader>-f
 " RustFmt/GoFmt is space-f
 " TODO add GoFmt
-nnoremap <leader>f :RustFmt<CR>
+" nnoremap <leader>f :RustFmt<CR>
+" autocmd FileType rust nnoremap <buffer> <leader>f :RustFmt<CR>
 
 " hacky, see: https://vi.stackexchange.com/questions/10664/file-type-dependent-key-mapping
-autocmd FileType rust   nnoremap <buffer> <leader>f :RustFmt<CR>
-" autocmd FileType go     nnoremap <buffer> <leader>f :call LanguageClient#textDocument_formatting_sync()<CR>
+autocmd FileType rust     nnoremap <buffer> <leader>f :RustFmt<CR>
+autocmd FileType go       nnoremap <buffer> <leader>f :call LanguageClient#textDocument_formatting_sync()<CR>
+autocmd FileType markdown nnoremap <buffer> <leader>f gqap
+autocmd FileType tex      nnoremap <buffer> <leader>f gqap
 
+autocmd FileType markdown setlocal textwidth=100
+autocmd FileType tex      setlocal textwidth=100
 
 " leader-e
 " Open new file adjacent to current file

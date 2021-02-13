@@ -36,6 +36,9 @@ abbr -a find fd
 abbr -a du dust
 abbr -a br broot
 
+# 'notes' command
+abbr -a n nvim ~/notes
+
 # add 'logout' command to fish
 abbr -a logout exit
 
