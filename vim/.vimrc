@@ -221,6 +221,7 @@ Plug 'junegunn/fzf.vim'
     "nnoremap <leader>f:   :History: <CR>
     "nnoremap <leader>f/   :History/ <CR>
 
+" TODO check nocolor speed
 let g:fzf_layout = { 'down': '~30%' }
 command! -bang -nargs=* Rg
     \ call fzf#vim#grep(
