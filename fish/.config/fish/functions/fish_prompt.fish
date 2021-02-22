@@ -9,6 +9,9 @@ function fish_prompt
     set_color ff8700
     echo -n $HOSTCHECK
 
+    set_color 8e42ff
+    echo -n $NIXCHECK
+
     set_color d8fa3b
     echo -n (basename $PWD)
 

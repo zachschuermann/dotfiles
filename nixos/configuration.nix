@@ -105,7 +105,7 @@ in
     bash fish sudo git tmux screen
     curl wget vim git unzip
     htop tree
-    fzf ripgrep fd bat dust exa
+    unstable.fzf ripgrep fd bat dust exa
     wireguard
   
     # busybox - this breaks 'reboot?'
@@ -153,6 +153,14 @@ in
     udev
     python-with-zach-packages
     unstable.julia
+    go
+    gopls
+    openssl
+    openssl.dev
+
+    protobuf
+
+    texlive.combined.scheme-full
   ];
 
   environment.variables.XCURSOR_SIZE = "32";
