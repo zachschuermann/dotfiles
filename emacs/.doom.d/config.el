@@ -48,10 +48,13 @@
 
 ;; set notes dir
 (require 'org)
-(if (eq system-type 'darwin)
-    (setq org-directory "~/notes")
-  (setq org-directory "~/notes"))
-(setq org-default-notes-file (concat org-directory "/index.org"))
+;;(if (eq system-type 'darwin)
+    ;;(setq org-directory "~/notes")
+  ;;(setq org-directory "~/notes"))
+(after! org
+  (setq org-directory "~/org/")
+  (setq org-agenda-files (list "~/org/")))
+(setq org-default-notes-file (concat org-directory "/notes.org"))
 
 ;; theme
 ;; (setq doom-theme 'doom-dracula)

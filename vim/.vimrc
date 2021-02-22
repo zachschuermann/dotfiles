@@ -23,6 +23,8 @@ set tabstop=4
 set shiftwidth=4
 set autoindent
 set nocindent
+map <ScrollWheelUp> <C-Y>
+map <ScrollWheelDown> <C-E>
 " Sane splits
 set splitright
 set splitbelow
