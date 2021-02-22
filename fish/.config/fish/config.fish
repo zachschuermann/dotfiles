@@ -37,8 +37,12 @@ abbr -a find fd
 abbr -a du dust
 abbr -a br broot
 
+# 'notes' command
+abbr -a n nvim ~/notes
 set -U FZF_CTRL_R_OPTS --reverse
 set -U FZF_CTRL_T_OPTS --reverse
+
+contains $HOME/.emacs.d/bin $fish_user_paths; or set -Ua fish_user_paths $HOME/.emacs.d/bin
 
 # add 'logout' command to fish
 abbr -a logout exit

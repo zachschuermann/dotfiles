@@ -7,4 +7,4 @@
 ;; (package! builtin-package :disable t)
 
 ;;(package! cargo)
-(package! xcscope)
+;;(package! xcscope)

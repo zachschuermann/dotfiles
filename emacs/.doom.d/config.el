@@ -14,17 +14,17 @@
 ;; TODO change haskell keybindings: C-c C-j jump to def, etc
 
 ;; cscope
-(after! xcscope
-  (define-key cscope-minor-mode-keymap cscope-keymap-prefix nil)
-  (setq cscope-keymap-prefix (kbd "C-\\"))
-  (define-key cscope-minor-mode-keymap cscope-keymap-prefix
-    cscope-command-map))
+;; (after! xcscope
+;;   (define-key cscope-minor-mode-keymap cscope-keymap-prefix nil)
+;;   (setq cscope-keymap-prefix (kbd "C-\\"))
+;;   (define-key cscope-minor-mode-keymap cscope-keymap-prefix
+;;     cscope-command-map))
 
 ;; gopath hacks
-(defvar gopathroot "/Users/zach/go" "default gopath")
-(setenv "GOPATH"
-        (concat gopathroot
-                ":/Users/zach/Documents/fall19/class/distributed-systems/4113"))
+;; (defvar gopathroot "/Users/zach/go" "default gopath")
+;; (setenv "GOPATH"
+;;         (concat gopathroot
+;;                 ":/Users/zach/Documents/fall19/class/distributed-systems/4113"))
 
 ;; messing around
 ;; (setq doom-font (font-spec :family "JetBrains Mono" :size 24)
@@ -33,42 +33,43 @@
 ;;       doom-serif-font (font-spec :family "IBM Plex Mono" :weight 'light))
 
 ;; path hacks
-(setenv "PATH"
-        (concat
-         gopathroot "/bin:"
-         "/usr/local/bin/:"
-         (getenv "PATH")))
-(add-to-list 'exec-path "/Users/zach/go/bin")
-(add-to-list 'exec-path "/usr/local/bin/")
-(add-to-list 'exec-path "/Users/zach/.cargo/bin/")
-(add-to-list 'exec-path "/Users/zach/.opam/default/bin/")
+;; (setenv "PATH"
+;;         (concat
+;;          gopathroot "/bin:"
+;;          "/usr/local/bin/:"
+;;          (getenv "PATH")))
+;; (add-to-list 'exec-path "/Users/zach/go/bin")
+;; (add-to-list 'exec-path "/usr/local/bin/")
+;; (add-to-list 'exec-path "/Users/zach/.cargo/bin/")
+;; (add-to-list 'exec-path "/Users/zach/.opam/default/bin/")
 
-(setq haskell-interactive-popup-errors 'nil)
+;; (setq haskell-interactive-popup-errors 'nil)
 ;; (setq exec-path (append '(concat gopathroot "/bin:") exec-path))
 
 ;; set notes dir
 (require 'org)
 (if (eq system-type 'darwin)
-    (setq org-directory "~/Documents/home-base")
-  (setq org-directory "~/dev/home-base"))
-(setq org-default-notes-file (concat org-directory "/notes.org"))
+    (setq org-directory "~/notes")
+  (setq org-directory "~/notes"))
+(setq org-default-notes-file (concat org-directory "/index.org"))
 
 ;; theme
-(setq doom-theme 'doom-dracula)
+;; (setq doom-theme 'doom-dracula)
+(setq doom-theme 'doom-gruvbox)
 
 ;; set dictionary to GNU aspell
-(setq ispell-program-name "aspell")
+;;(setq ispell-program-name "aspell")
 
 ;; speed up company
-(setq company-dabbrev-downcase 0)
-(setq company-idle-delay 0)
+;; (setq company-dabbrev-downcase 0)
+;; (setq company-idle-delay 0)
 
 ;; macos config for mapping command to meta
-(setq mac-option-modifier 'super)
-(setq mac-command-modifier 'meta)
+;; (setq mac-option-modifier 'super)
+;; (setq mac-command-modifier 'meta)
 
 ;; macos python -> python3 interpreter for babel
-(setq org-babel-python-command "python3")
+;; (setq org-babel-python-command "python3")
 
 ;; use j/k for org mode up/down
 (after! org
@@ -78,8 +79,8 @@
 
 ;; auto line-wrapping
 ;; set to 120 (half-screen)
-(setq-default auto-fill-function 'do-auto-fill)
-(setq fill-column 120)
+;; (setq-default auto-fill-function 'do-auto-fill)
+;; (setq fill-column 120)
 
 ;; default for remote editing --> ssh
 ;; faster than scp (default)
@@ -89,7 +90,7 @@
 (setq mouse-wheel-scroll-amount '(1 ((shift) . 1) ((control) . nil)))
 
 ;; use cargo.el with rust-mode
-(add-hook 'rust-mode-hook 'cargo-minor-mode)
+;; (add-hook 'rust-mode-hook 'cargo-minor-mode)
 
 ;; custom background color
 (custom-set-faces
