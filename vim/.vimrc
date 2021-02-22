@@ -5,6 +5,10 @@
 
 "use `if !has('nvim')` to do vim-specific things, put nvim stuff in `init.vim`
 
+" Use Vim settings, rather than Vi settings (much better!).
+" This must be first, because it changes other options as a side effect.
+set nocompatible
+
 " turn on syntax
 " syntax on => moved to 'COLORS'
 
@@ -16,8 +20,11 @@ filetype plugin indent on
 set laststatus=2
 
 " sane defaults
+set ruler
+set backup
 set number
-set relativenumber
+" set relativenumber
+set number
 set expandtab
 set tabstop=4
 set shiftwidth=4
@@ -33,6 +40,7 @@ set history=1000
 "" trying these out
 set nowrap
 set nojoinspaces
+set incsearch
 ""
 
 " Very magic by default
@@ -74,6 +82,78 @@ augroup vimStartup
 
 augroup END
 
+" =============================================================================
+" # INDENT
+" =============================================================================
+
+"""
+" C
+"""
+autocmd BufNewFile,BufReadPost *.c set filetype=c
+autocmd BufNewFile,BufReadPost *.h set filetype=c
+autocmd FileType c setlocal
+            \ tabstop=4
+            \ expandtab
+            \ shiftwidth=4
+            \ softtabstop=4
+
+"""
+" C++
+"""
+autocmd BufNewFile,BufReadPost *.cpp set filetype=cpp
+autocmd FileType cpp setlocal
+            \ tabstop=4
+            \ expandtab
+            \ shiftwidth=4
+            \ softtabstop=4
+
+
+""""""""""
+" Makefile
+""""""""""
+autocmd FileType make setlocal noexpandtab
+
+""""""""""
+" Markdown
+""""""""""
+autocmd Filetype markdown setlocal
+            \ tabstop=4
+            \ expandtab
+            \ shiftwidth=4
+            \ softtabstop=4
+            \ textwidth=112
+
+""""""""""
+" Text
+""""""""""
+autocmd FileType text setlocal autoindent expandtab softtabstop=2 textwidth=100
+
+""""""""""
+" Python
+"""""""""""
+autocmd FileType python setlocal
+            \ tabstop=4
+            \ expandtab
+            \ shiftwidth=4
+            \ softtabstop=4
+
+""""""""""
+" go 
+"""""""""""
+autocmd FileType go setlocal
+            \ tabstop=2
+            \ expandtab
+            \ shiftwidth=2
+            \ softtabstop=2
+
+""""""""""
+" Haskell
+"""""""""""
+autocmd FileType haskell setlocal
+            \ tabstop=4
+            \ expandtab
+            \ shiftwidth=4
+            \ softtabstop=4
 
 
 " =============================================================================
@@ -84,6 +164,40 @@ augroup END
 "autocmd BufEnter * colorscheme default
 "autocmd BufEnter *.hs colorscheme spacecamp
 "highlight CursorLineNr guifg=#6272a4
+
+" Enable all py highlighting
+let g:python_highlight_all=1
+let g:indentLine_color_term=8
+let g:indentLine_char = '▏'
+
+" Enable all Haskell highlighting features
+let g:haskell_enable_quantification = 1   " to enable highlighting of `forall`
+let g:haskell_enable_recursivedo = 1      " to enable highlighting of `mdo` and `rec`
+let g:haskell_enable_arrowsyntax = 1      " to enable highlighting of `proc`
+let g:haskell_enable_pattern_synonyms = 1 " to enable highlighting of `pattern`
+let g:haskell_enable_typeroles = 1        " to enable highlighting of type roles
+let g:haskell_enable_static_pointers = 1  " to enable highlighting of `static`
+let g:haskell_backpack = 1                " to enable highlighting of backpack keywords
+
+" Go highlighting
+let g:go_highlight_array_whitespace_error = 1
+let g:go_highlight_chan_whitespace_error = 1
+let g:go_highlight_extra_types = 1
+let g:go_highlight_space_tab_error = 1
+let g:go_highlight_trailing_whitespace_error = 1
+let g:go_highlight_operators = 1
+let g:go_highligh_functions = 1
+let g:go_highlight_function_parameters = 1
+let g:go_highlight_function_calls = 1
+let g:go_highlight_types = 1
+let g:go_highlight_fields = 1
+let g:go_highlight_build_constraints = 1
+let g:go_highlight_variable_declarations = 1
+let g:go_highlight_variable_assignments = 1
+let g:go_highlight_diagnostic_errors = 1
+let g:go_highlight_diagnostic_warnings = 1
+
+
 " =============================================================================
 " # GUI
 " =============================================================================
@@ -248,14 +362,14 @@ endif
 nnoremap <leader>s :Rg<CR>
 
 " -------------------------------------
-" ## NERDTREE
+" ## NERDTREE - deprecated
 " -------------------------------------
 " show hidden files by default
-let g:NERDTreeShowHidden=1
+" let g:NERDTreeShowHidden=1
 " open and close file tree
-map <C-n> :NERDTreeToggle<CR>
+" map <C-n> :NERDTreeToggle<CR>
 " open current buffer in file tree
-nmap <leader>n :NERDTreeFind<CR>
+" nmap <leader>n :NERDTreeFind<CR>
 
 
 " Plug 'ojroques/vim-scrollstatus'    " Scroll bar on status line
@@ -295,7 +409,7 @@ Plug 'plasticboy/vim-markdown', { 'for': 'markdown' }
 "Plug 'jtratner/vim-flavored-markdown', { 'for': 'markdown' }
 Plug 'fatih/vim-go',            { 'for': 'go' }
 Plug 'rust-lang/rust.vim',      { 'for': 'rust' }
-Plug 'JuliaEditorSupport/julia-vim'
+"Plug 'JuliaEditorSupport/julia-vim'
 call plug#end()
 
 " =============================================================================
@@ -437,5 +551,8 @@ call Base16hi("LineNr",        g:base16_gui02, g:base16_gui00, g:base16_cterm02,
 call Base16hi("SignColumn",    g:base16_gui02, g:base16_gui00, g:base16_cterm02, g:base16_cterm00, "", "")
 call Base16hi("CursorLine",    "", "1a1a1a", "", "1a", "", "")
 call Base16hi("CursorLineNr",    g:base16_gui03, g:base16_gui00, g:base16_cterm03, g:base16_cterm00, "", "")
+hi BufTabLineCurrent guibg=#689d6a
+hi BufTabLineHidden guibg=#3c3836
+hi TabLineFill guibg=#1d2021
 
-autocmd bufreadpre *.md setlocal textwidth=100
+" autocmd bufreadpre *.md setlocal textwidth=100
