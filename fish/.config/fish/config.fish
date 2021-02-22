@@ -63,6 +63,10 @@ if test $HOSTCHECK = "[zach-macbook-pro.local] "
     set -g HOSTCHECK ""
 end
 
+if string length -q -- $IN_NIX_SHELL
+    set -g NIXCHECK "[nix-shell] "
+end
+
 # no prompt greeting for speed
 set fish_greeting
 
