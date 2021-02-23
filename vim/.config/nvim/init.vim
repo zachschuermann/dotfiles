@@ -1,108 +1,42 @@
+" Zach Schuermann neovim-specific vimconfig
+
+" first, make sure we load .vimrc
 " get shared vim/nvim packages (in Vim's normal runtime path)
 set runtimepath^=~/.vim runtimepath+=~/.vim/after
 let &packpath = &runtimepath
 " pull shared config (.vimrc)
 source ~/.vimrc
 
-" Zach Schuermann neovim-specific vimconfig
-" =============================================================================
-" # BASIC SETTINGS
-" =============================================================================
-
-" remove the thin cursor on insert mode (leave normal block cursor)
-" if has('nvim')
-    " set guicursor=n-v-c:block-Cursor/lCursor-blinkon0,i-ci:ver25-Cursor/lCursor,r-cr:hor20-Cursor/lCursor
-    " set guicursor=
-    " set inccommand=nosplit
-" end
-
-" =============================================================================
-" # FONTS/CHARS
-" =============================================================================
-
-" =============================================================================
-" # EDITING
-" =============================================================================
-
-" =============================================================================
-" # PLUGINS
-" =============================================================================
-
-" -------------------------------------
-" ## nvim-treesitter
-" -------------------------------------
-
-" lua <<EOF
-" require'nvim-treesitter.configs'.setup {
-"   -- one of "all", "maintained" (parsers with maintainers), or a list of languages
-"   ensure_installed = "maintained",
-"   highlight = {
-"     enable = true,            -- false will disable the whole extension
-"     disable = { "clojure" },  -- list of language that will be disabled
-"     custom_captures = {
-"       -- Highlight the @foo.bar capture group with the "Identifier" highlight group.
-"       ["mut"] = "TSTypeBuiltin",
-"     },
-"   },
-"   incremental_selection = {
-"     enable = true,
-"     keymaps = {
-"       init_selection = "gnn",
-"       node_incremental = "grn",
-"       scope_incremental = "grc",
-"       node_decremental = "grm",
-"     },
-"   },
-"   indent = {
-"     enable = true
-"   }
-" }
-" EOF
-
-" -------------------------------------
-" ## AIRLINE - DEPRECATED (using lightline/tabline instead)
-" -------------------------------------
-" Below is set in .vimrc
-" Enable the list of buffers
-" let g:airline#extensions#tabline#enabled = 1
-" Show just the filename
-" let g:airline#extensions#tabline#fnamemod = ':t'
-" end below
-
-" Statusline
-" function! LspStatus() abort
-"   if luaeval('#vim.lsp.buf_get_clients() > 0')
-"     return luaeval("require('lsp-status').status()")
-"   endif
-"
-"   return ''
-" endfunction
-" function! LspStatus() abort
-"     let status = luaeval('require("lsp-status").status()')
-"     return trim(status)
-" endfunction
-" autocmd VimEnter * call airline#parts#define_function('lsp_status', 'LspStatus')
-" autocmd VimEnter * call airline#parts#define_condition('lsp_status', 'luaeval("#vim.lsp.buf_get_clients() > 0")')
-
-" DEPRECATED powerline-fonts - idk don't need it and it just introduces gray
-" box next to mode indicator on the far left
-" let g:airline_powerline_fonts = 1
-
-" let g:airline#extensions#nvimlsp#enabled = 1
-" autocmd VimEnter * let g:airline_section = airline#section#create_right(['lsp_status'])
-
-" -------------------------------------
-" ## NVIM-LSPCONFIG
-" -------------------------------------
-" DEPRECATED: moved below under completion
-" lua <<EOF
-" vim.cmd('packadd nvim-lspconfig')  -- If installed as a Vim package.
-" require'nvim_lsp'.rust_analyzer.setup{}
-" EOF
-
-" =============================================================================
-" # COMPLETION
-" =============================================================================
+" nvim-treesitter: {{{
+" using for everything except rust - doesnt parse 'mut', 'static', etc.
+lua <<EOF
+require'nvim-treesitter.configs'.setup {
+  -- one of "all", "maintained" (parsers with maintainers), or a list of languages
+  ensure_installed = "maintained",
+  highlight = {
+    enable = true,            -- false will disable the whole extension
+    disable = { "rust" },     -- list of language that will be disabled
+    custom_captures = {
+      -- Highlight the @foo.bar capture group with the "Identifier" highlight group.
+      ["mut"] = "TSTypeBuiltin",
+    },
+  },
+  incremental_selection = {
+    enable = true,
+    keymaps = {
+      init_selection = "gnn",
+      node_incremental = "grn",
+      scope_incremental = "grc",
+      node_decremental = "grm",
+    },
+  },
+  indent = {
+    enable = true
+  }
+}
+EOF
+" }}}
+" Completion: {{{
 " see: https://sharksforarms.dev/posts/neovim-rust/
 
 " Better display for messages
@@ -241,19 +175,46 @@ autocmd CursorMoved,InsertLeave,BufEnter,BufWinEnter,TabEnter,BufWritePost *
 " Use auocmd to force lightline update.
 " autocmd User CocStatusChange,CocDiagnosticChange call lightline#update()
 
-""
+" }}}
+" Scala (Metals): {{{
+if has('nvim-0.5')
+  set shortmess-=F
+  augroup lsp
+    au!
+    au FileType scala,sbt lua require('metals').initialize_or_attach({})
+  augroup end
+endif
+" }}}
+" airline - DEPRECATED - (using lightline/tabline instead): {{{
+" Below is set in .vimrc
+" Enable the list of buffers
+" let g:airline#extensions#tabline#enabled = 1
+" Show just the filename
+" let g:airline#extensions#tabline#fnamemod = ':t'
+" end below
 
-" =============================================================================
-" # KEYBINDS
-" =============================================================================
-" note plugin-specific keybinds are above with the plugin configs
-" and completion keybinds are above with completion configs
-" leader is spacebar (assigned at top)
+" Statusline
+" function! LspStatus() abort
+"   if luaeval('#vim.lsp.buf_get_clients() > 0')
+"     return luaeval("require('lsp-status').status()")
+"   endif
+"
+"   return ''
+" endfunction
+" function! LspStatus() abort
+"     let status = luaeval('require("lsp-status").status()')
+"     return trim(status)
+" endfunction
+" autocmd VimEnter * call airline#parts#define_function('lsp_status', 'LspStatus')
+" autocmd VimEnter * call airline#parts#define_condition('lsp_status', 'luaeval("#vim.lsp.buf_get_clients() > 0")')
 
-" -------------------------------------
-" ## BUFFER MANAGEMENT
-" -------------------------------------
+" DEPRECATED powerline-fonts - idk don't need it and it just introduces gray
+" box next to mode indicator on the far left
+" let g:airline_powerline_fonts = 1
 
-" =============================================================================
-" # MISC
-" =============================================================================
+" let g:airline#extensions#nvimlsp#enabled = 1
+" autocmd VimEnter * let g:airline_section = airline#section#create_right(['lsp_status'])
+
+" }}}
+
+" vim: set sw=2 ts=2 sts=2 et tw=100 ft=vim fdm=marker:
