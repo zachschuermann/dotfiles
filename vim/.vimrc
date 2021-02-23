@@ -1,7 +1,14 @@
-" Zach Schuermann vimconfig - see 'init.vim' for neovim-specific additions
-" =============================================================================
-" # BASIC SETTINGS
-" =============================================================================
+" Zach Schuermann's vim config - see 'init.vim' for neovim-specific additions
+" -----------------------------------------------------------------------------
+" File: .vimrc
+" Description: Zach Schuermann's (n)vim configuration
+" Author: Zach Schuermann <zachary.schuermann@gmail.com>
+" Source: https://github.com/schuermannator/dotfiles
+" Last Modified: 22 Feb 2021
+" -----------------------------------------------------------------------------
+
+" Basic Settings ---------------------------------------------------------
+" General Settings: {{{
 
 "use `if !has('nvim')` to do vim-specific things, put nvim stuff in `init.vim`
 
@@ -88,9 +95,8 @@ augroup vimStartup
 
 augroup END
 
-" =============================================================================
-" # INDENT
-" =============================================================================
+" }}}
+" Indentation: {{{
 
 """
 " C
@@ -161,15 +167,12 @@ autocmd FileType haskell setlocal
             \ shiftwidth=4
             \ softtabstop=4
 
-
-" =============================================================================
-" # COLORS
-" =============================================================================
+" }}}
+" Colors: {{{
 
 autocmd vimenter * ++nested colorscheme gruvbox
 let g:gruvbox_contrast_dark="hard"
 let g:gruvbox_sign_column="bg0"
-
 
 set foldmethod=expr
 set foldexpr=nvim_treesitter#foldexpr()
@@ -212,10 +215,8 @@ let g:go_highlight_variable_assignments = 1
 let g:go_highlight_diagnostic_errors = 1
 let g:go_highlight_diagnostic_warnings = 1
 
-
-" =============================================================================
-" # GUI
-" =============================================================================
+" }}}
+" GUI: {{{
 " its the 21st century, turn on mouse support
 set mouse=a
 set ttyfast
@@ -234,17 +235,13 @@ endif
 "     set termguicolors
 " endif
 set termguicolors
-
-" =============================================================================
-" # FONTS/CHARS
-" =============================================================================
+" }}}
+" Fonts: {{{
 " Show annoying hidden characters
 set listchars=nbsp:¬,extends:»,precedes:«,trail:•
 set guifont=Monospace\ 12
-
-" =============================================================================
-" # EDITING
-" =============================================================================
+" }}}
+" Editing: {{{
 " Wrapping options
 set formatoptions=tc " wrap text and comments using textwidth
 set formatoptions+=r " continue comments when pressing ENTER in I mode
@@ -260,10 +257,10 @@ nnoremap <silent> # #zz
 nnoremap <silent> g* g*zz
 
 nnoremap <silent> <Tab> za
+" }}}
 
-" =============================================================================
-" # PLUGINS
-" =============================================================================
+" Plugins ---------------------------------------------------------
+" Plugins: {{{
 
 call plug#begin('~/.vim/plugged')
 
@@ -285,6 +282,10 @@ if has('nvim')
 
     Plug 'nvim-lua/lsp-status.nvim'
     Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+end
+
+if has('nvim-0.5')
+    Plug 'scalameta/nvim-metals'
 end
 
 " Unintrusive * preview
@@ -432,16 +433,14 @@ Plug 'fatih/vim-go',            { 'for': 'go' }
 Plug 'rust-lang/rust.vim',      { 'for': 'rust' }
 "Plug 'JuliaEditorSupport/julia-vim'
 call plug#end()
-
-" =============================================================================
-" # COMPLETION
+" }}}
+" Completion: {{{
 " =============================================================================
 " see: https://sharksforarms.dev/posts/neovim-rust/
 " NEOVIM ONLY
-
 " =============================================================================
-" # KEYBINDS
-" =============================================================================
+" }}}
+" Keybinds: {{{
 " note plugin-specific keybinds are above with the plugin configs
 " and completion keybinds are above with completion configs
 " leader is spacebar (assigned at top)
@@ -492,9 +491,8 @@ autocmd FileType tex      setlocal textwidth=100
 " Open new file adjacent to current file
 nnoremap <leader>e :e <C-R>=expand("%:p:h") . "/" <CR>
 
-" -------------------------------------
-" ## BUFFER MANAGEMENT
-" -------------------------------------
+" }}}
+" Buffer Management: {{{
 set hidden " Allow buffers to be hidden if you've modified a buffer
 
 " leader-leader toggels between buffers DEPRECATED
@@ -527,9 +525,8 @@ nnoremap <right> :bn<CR>
 nnoremap <leader>. :GFiles<CR>
 nnoremap <leader>, :Buffers<CR>
 
-" =============================================================================
-" # MISC
-" =============================================================================
+" }}}
+" Misc: {{{
 
 " Golang path stuff
 let g:go_bin_path = expand("~/dev/go/bin")
@@ -578,3 +575,7 @@ hi BufTabLineHidden guibg=#3c3836
 hi TabLineFill guibg=#1d2021
 
 " autocmd bufreadpre *.md setlocal textwidth=100
+
+" }}}
+
+" vim: set sw=2 ts=2 sts=2 et tw=100 ft=vim fdm=marker:
