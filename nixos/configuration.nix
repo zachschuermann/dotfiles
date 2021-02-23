@@ -95,7 +95,7 @@ in
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.zach = {
     isNormalUser = true;
-    extraGroups = [ "wheel" "docker" "audio" ]; # Enable ‘sudo’ for the user.
+    extraGroups = [ "libvirtd" "wheel" "docker" "audio" ]; # Enable ‘sudo’ for the user.
     shell = pkgs.fish;
   };
 
@@ -121,6 +121,9 @@ in
     
     gcc gnumake cmake autoconf pkg-config libtool dpkg
     pandoc zathura python3 binutils ninja
+
+    # virtualization
+    libvirt virt-manager qemu
 
     unstable.rustup
     unstable.rust-analyzer
@@ -293,9 +296,11 @@ in
         ];
   };
 
+  # Virtualisation
   virtualisation.docker.enable = true;
   hardware.opengl.driSupport32Bit = true;
   virtualisation.docker.enableNvidia = true;
+  virtualisation.libvirtd.enable = true;
 
   # Enable the OpenSSH daemon.
   services.openssh.enable = true;
@@ -314,9 +319,6 @@ in
   # Before changing this value read the documentation for this option
   # (e.g. man configuration.nix or on https://nixos.org/nixos/options.html).
   system.stateVersion = "20.09"; # Did you read the comment?
-
-
-
 
 }
 
