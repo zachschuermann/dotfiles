@@ -1,6 +1,6 @@
 # .files
 Requires GNU Stow.
-Vim: Requires Vim 8+/Neovim 0.3+
+Vim: Requires Vim 8+/Neovim 0.5+
 Emacs: Requires GNU Emacs 26.2+
 - installs:
 Emacs: Modified version of DOOM
@@ -9,16 +9,22 @@ Emacs/Vim Theme: Custom Doom/Dracula
 shells: bash/zsh/fish
 terminal: alacritty
 
+**nixos todo**:
+- [ ] sxhkd keybinds that don't revert when keyboard unplugs/plugs in
+- [ ] how to handle passphrase entry over ssh and gui
+- [ ] vim create ~/.vimbackup?
+
 **TODO:**
 - [x] Symlinks with GNU Stow
 - [x] Add git submodules inside `.vim`  
+- [ ] gccemacs
 - [ ] Add macOS configs
-- [ ] Add other dotfiles - alacritty, etc. 
+- [x] Add other dotfiles - alacritty, etc. 
 - [ ] Add software installation scripts for GNU/Linux and macOS
-- [ ] Homebrew stuff
-- [ ] Bootstrap scripts
+- [x] Homebrew stuff
+- [x] Bootstrap scripts
 - [ ] Better docs
-- [ ] Add completion stuff with vim keybind j/k up down
+- [x] Add completion stuff with vim keybind j/k up down
 - [ ] Nix for predictable bootstrapping
 
 ## Installation
