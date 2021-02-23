@@ -21,7 +21,6 @@ set laststatus=2
 
 " sane defaults
 set ruler
-set backup
 set number
 " set relativenumber
 set number
@@ -41,6 +40,9 @@ set history=1000
 set nowrap
 set nojoinspaces
 set incsearch
+" lets me type :plugi<tab> => :PlugInstall
+set ignorecase
+set smartcase
 ""
 
 " Very magic by default
@@ -51,6 +53,10 @@ cnoremap %s/ %sm/
 " Permanent undo
 set undodir=~/.vimdid
 set undofile
+
+" Backup
+set backupdir=~/.vimbackup
+set backup
 
 " Decent wildmenu
 " look into this later
@@ -159,6 +165,15 @@ autocmd FileType haskell setlocal
 " =============================================================================
 " # COLORS
 " =============================================================================
+
+autocmd vimenter * ++nested colorscheme gruvbox
+let g:gruvbox_contrast_dark="hard"
+let g:gruvbox_sign_column="bg0"
+
+
+set foldmethod=expr
+set foldexpr=nvim_treesitter#foldexpr()
+
 "colorscheme base16-gruvbox-dark-medium
 "color dracula
 "autocmd BufEnter * colorscheme default
@@ -244,13 +259,15 @@ nnoremap <silent> * *zz
 nnoremap <silent> # #zz
 nnoremap <silent> g* g*zz
 
+nnoremap <silent> <Tab> za
+
 " =============================================================================
 " # PLUGINS
 " =============================================================================
 
 call plug#begin('~/.vim/plugged')
 
-Plug 'chriskempson/base16-vim'
+Plug 'schuermannator/gruvbox'
 Plug 'neovimhaskell/haskell-vim'
 
 if has('nvim')
@@ -267,6 +284,7 @@ if has('nvim')
     " Plug 'nvim-lua/diagnostic-nvim' DEPRECATED
 
     Plug 'nvim-lua/lsp-status.nvim'
+    Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 end
 
 " Unintrusive * preview
@@ -309,7 +327,10 @@ Plug 'itchyny/lightline.vim'        " Lightweight status line at bottom
         \   'lsp_status': 'LspStatus'
         \ },
     \ }
+" don't show mode since we show in lightline now
+set noshowmode
 
+" TODO
 autocmd User LspDiagnosticsChanged call lightline#update()
         "\ 'component': {
         "\   'scrollbar': '%{ScrollStatus()}',
@@ -430,15 +451,16 @@ map <F1> <Esc>
 imap <F1> <Esc>
 
 " ctrl-g is just esc
-nnoremap <C-g> <Esc>
-inoremap <C-g> <Esc>
-vnoremap <C-g> <Esc>
-snoremap <C-g> <Esc>
-xnoremap <C-g> <Esc>
-cnoremap <C-g> <Esc>
-onoremap <C-g> <Esc>
-lnoremap <C-g> <Esc>
-tnoremap <C-g> <Esc>
+" nnoremap <C-g> <Esc>
+" inoremap <C-g> <Esc>
+" vnoremap <C-g> <Esc>
+" snoremap <C-g> <Esc>
+" xnoremap <C-g> <Esc>
+" cnoremap <C-g> <Esc>
+" onoremap <C-g> <Esc>
+" lnoremap <C-g> <Esc>
+" tnoremap <C-g> <Esc>
+
 " No arrow keys
 nnoremap <up> <nop>
 nnoremap <down> <nop>
@@ -536,21 +558,21 @@ let g:go_info_mode='gopls'
 
 " set background=dark
 " set background=#191A21
-let base16colorspace=256
+" let base16colorspace=256
 "let g:base16_shell_path="~/dev/others/base16/templates/shell/scripts/"
 
-colorscheme base16-gruvbox-dark-hard
+" colorscheme base16-gruvbox-dark-hard
 syntax on
 hi Normal ctermbg=NONE
 set cursorline
 " call Base16hi("Comment", g:base16_gui04, "", g:base16_cterm04, "", "", "")
-call Base16hi("Comment", "6272A4", "", "6272A4", "", "", "")
-call Base16hi("Normal", g:base16_gui07, g:base16_gui00, g:base16_cterm07, g:base16_cterm00, "", "")
+" call Base16hi("Comment", "6272A4", "", "6272A4", "", "", "")
+" call Base16hi("Normal", g:base16_gui07, g:base16_gui00, g:base16_cterm07, g:base16_cterm00, "", "")
 
-call Base16hi("LineNr",        g:base16_gui02, g:base16_gui00, g:base16_cterm02, g:base16_cterm00, "", "")
-call Base16hi("SignColumn",    g:base16_gui02, g:base16_gui00, g:base16_cterm02, g:base16_cterm00, "", "")
-call Base16hi("CursorLine",    "", "1a1a1a", "", "1a", "", "")
-call Base16hi("CursorLineNr",    g:base16_gui03, g:base16_gui00, g:base16_cterm03, g:base16_cterm00, "", "")
+" call Base16hi("LineNr",        g:base16_gui02, g:base16_gui00, g:base16_cterm02, g:base16_cterm00, "", "")
+" call Base16hi("SignColumn",    g:base16_gui02, g:base16_gui00, g:base16_cterm02, g:base16_cterm00, "", "")
+" call Base16hi("CursorLine",    "", "1a1a1a", "", "1a", "", "")
+" call Base16hi("CursorLineNr",    g:base16_gui03, g:base16_gui00, g:base16_cterm03, g:base16_cterm00, "", "")
 hi BufTabLineCurrent guibg=#689d6a
 hi BufTabLineHidden guibg=#3c3836
 hi TabLineFill guibg=#1d2021

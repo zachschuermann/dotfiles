@@ -29,6 +29,37 @@ source ~/.vimrc
 " =============================================================================
 
 " -------------------------------------
+" ## nvim-treesitter
+" -------------------------------------
+
+" lua <<EOF
+" require'nvim-treesitter.configs'.setup {
+"   -- one of "all", "maintained" (parsers with maintainers), or a list of languages
+"   ensure_installed = "maintained",
+"   highlight = {
+"     enable = true,            -- false will disable the whole extension
+"     disable = { "clojure" },  -- list of language that will be disabled
+"     custom_captures = {
+"       -- Highlight the @foo.bar capture group with the "Identifier" highlight group.
+"       ["mut"] = "TSTypeBuiltin",
+"     },
+"   },
+"   incremental_selection = {
+"     enable = true,
+"     keymaps = {
+"       init_selection = "gnn",
+"       node_incremental = "grn",
+"       scope_incremental = "grc",
+"       node_decremental = "grm",
+"     },
+"   },
+"   indent = {
+"     enable = true
+"   }
+" }
+" EOF
+
+" -------------------------------------
 " ## AIRLINE - DEPRECATED (using lightline/tabline instead)
 " -------------------------------------
 " Below is set in .vimrc
@@ -75,7 +106,7 @@ source ~/.vimrc
 " see: https://sharksforarms.dev/posts/neovim-rust/
 
 " Better display for messages
-set cmdheight=2
+set cmdheight=1
 
 " Set completeopt to have a better completion experience
 " :help completeopt
