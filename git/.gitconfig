@@ -13,7 +13,7 @@
     keepBackup = true
 
 [merge]
-    tool = nvim -d
+    tool = nvimdiff
 
 [alias]
     c = commit
