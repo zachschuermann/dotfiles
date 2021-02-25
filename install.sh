@@ -146,6 +146,9 @@ install_linux() {
     curl -fsSL https://download.opensuse.org/repositories/shells:fish:release:3/Debian_10/Release.key | gpg --dearmor | sudo tee /etc/apt/trusted.gpg.d/shells:fish:release:3.gpg > /dev/null
     sudo apt update && sudo apt install -y fish
 
+    # make vim's backup dir
+    mkdir ~/.vimbackup
+
     #while true; do
     read -p "stow fish config? [Y/n] " yn
     case $yn in
@@ -184,5 +187,8 @@ install_linux() {
        [Nn]* ) ;;
        * ) chsh -s $(which fish);;
     esac
+
+    tell "all done!"
+    cecho "Go be great." $green
 }
 
