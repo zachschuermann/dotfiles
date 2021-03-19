@@ -4,7 +4,7 @@
 " Description: Zach Schuermann's (n)vim configuration
 " Author: Zach Schuermann <zachary.schuermann@gmail.com>
 " Source: https://github.com/schuermannator/dotfiles
-" Last Modified: 22 Feb 2021
+" Last Modified: 18 Mar 2021
 " -----------------------------------------------------------------------------
 
 " Basic Settings ---------------------------------------------------------
@@ -36,11 +36,16 @@ set tabstop=4
 set shiftwidth=4
 set autoindent
 set nocindent
+" highlight the cursor line
+set cursorline
+" single-line scrolling is less jumpy
 map <ScrollWheelUp> <C-Y>
 map <ScrollWheelDown> <C-E>
 " Sane splits
 set splitright
 set splitbelow
+" Allow buffers to be hidden if you've modified a buffer
+set hidden
 " Sets how many lines of history VIM has to remember
 set history=1000
 "" trying these out
@@ -97,6 +102,9 @@ augroup END
 
 " }}}
 " Indentation: {{{
+
+autocmd FileType markdown setlocal textwidth=100
+autocmd FileType tex      setlocal textwidth=100
 
 """
 " C
@@ -177,11 +185,8 @@ let g:gruvbox_sign_column="bg0"
 set foldmethod=expr
 set foldexpr=nvim_treesitter#foldexpr()
 
-"colorscheme base16-gruvbox-dark-medium
-"color dracula
 "autocmd BufEnter * colorscheme default
 "autocmd BufEnter *.hs colorscheme spacecamp
-"highlight CursorLineNr guifg=#6272a4
 
 " Enable all py highlighting
 let g:python_highlight_all=1
@@ -217,7 +222,7 @@ let g:go_highlight_diagnostic_warnings = 1
 
 " }}}
 " GUI: {{{
-" its the 21st century, turn on mouse support
+" it's the 21st century, turn on mouse support
 set mouse=a
 set ttyfast
 set nofoldenable
@@ -265,6 +270,7 @@ nnoremap <silent> g* g*zz
 call plug#begin('~/.vim/plugged')
 
 Plug 'schuermannator/gruvbox'
+"Plug 'simnalamburt/vim-mundo'
 Plug 'neovimhaskell/haskell-vim'
 "Plug 'ziglang/zig.vim'
 
@@ -278,12 +284,18 @@ if has('nvim')
     " Autocompletion framework for built-in LSP
     "Plug 'nvim-lua/completion-nvim'
     Plug 'hrsh7th/nvim-compe'
+    Plug 'hrsh7th/vim-vsnip'
     
     " Diagnostic navigation and settings for built-in LSP
     " Plug 'nvim-lua/diagnostic-nvim' DEPRECATED
 
     Plug 'nvim-lua/lsp-status.nvim'
     Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+
+    " telescope
+    Plug 'nvim-lua/popup.nvim'
+    Plug 'nvim-lua/plenary.nvim'
+    Plug 'nvim-telescope/telescope.nvim'
 end
 
 if has('nvim-0.5')
@@ -304,12 +316,8 @@ end
 "     cnoreabbrev csw call ToggleCursorWord()
 
 " -------------------------------------
-" ## ~~AIRLINE~~ LIGHTLINE
+" ## LIGHTLINE
 " -------------------------------------
-" Enable the list of buffers
-" let g:airline#extensions#tabline#enabled = 1
-" Show just the filename
-" let g:airline#extensions#tabline#fnamemod = ':t'
 
 Plug 'itchyny/lightline.vim'        " Lightweight status line at bottom
     let g:lightline = {
@@ -330,11 +338,14 @@ Plug 'itchyny/lightline.vim'        " Lightweight status line at bottom
         \   'lsp_status': 'LspStatus'
         \ },
     \ }
+
 " don't show mode since we show in lightline now
 set noshowmode
 
 " TODO
-autocmd User LspDiagnosticsChanged call lightline#update()
+au User LspDiagnosticsChanged call lightline#update()
+au User LspMessageUpdate  call lightline#update()
+au User LspStatusUpdate  call lightline#update()
         "\ 'component': {
         "\   'scrollbar': '%{ScrollStatus()}',
         "\ },
@@ -372,7 +383,7 @@ command! -bang -nargs=* Rg
 
 " leader-. does FZF for git files
 " leader-, does FZF for buffers
-" keybinds done below under KEYBINDS > BUFFER MANAGEMENT
+" keybinds done below under KEYBINDS
 
 " -------------------------------------
 " ## RIPGREP
@@ -381,9 +392,6 @@ if executable('rg')
     set grepprg=rg\ --no-heading\ --vimgrep
     set grepformat=%f:%l:%c:%m
 endif
-
-" <leader>s for Rg search
-nnoremap <leader>s :Rg<CR>
 
 " -------------------------------------
 " ## NERDTREE - deprecated
@@ -438,7 +446,7 @@ call plug#end()
 " }}}
 " Completion: {{{
 " =============================================================================
-" see: https://sharksforarms.dev/posts/neovim-rust/
+" see: https://sharksforarms.dev/posts/neovim-rust/ -- kinda deprecated - doing stuff differently
 " NEOVIM ONLY
 " =============================================================================
 " }}}
@@ -474,33 +482,48 @@ inoremap <right> <nop>
 map <C-h> ^
 map <C-l> $
 
+" FZF/telescope (TODO) bindings
+nnoremap <leader>n :Lines<CR>
+" leader-. does FZF for git files
+" leader-, does FZF for buffers
+nnoremap <leader>. :GFiles<CR>
+nnoremap <leader>, :Buffers<CR>
+" leader-leader does FZF for files in current folder
+nnoremap <leader><leader> :Files<CR>
+
+" Find files using Telescope command-line sugar.
+"nnoremap <leader>ff <cmd>Telescope find_files<cr>
+"nnoremap <leader>fg <cmd>Telescope live_grep<cr>
+"nnoremap <leader>fb <cmd>Telescope buffers<cr>
+nnoremap <leader>fh <cmd>Telescope help_tags<cr>
+nnoremap <leader>fr <cmd>Telescope oldfiles<cr>
+nnoremap <leader>fm <cmd>Telescope marks<cr>
+nnoremap <leader>ff <cmd>Telescope lsp_references<cr>
+nnoremap <leader>fa <cmd>Telescope lsp_code_actions<cr>
+nnoremap <leader>fc <cmd>Telescope commands<cr>
+
+" vim-mundo
+" nnoremap <leader>u :MundoToggle<CR>
+
+" <leader>s for Rg search
+nnoremap <leader>s :Rg<CR>
+
 " Formatting is <leader>-f
 " RustFmt/GoFmt is space-f
-" TODO add GoFmt
 " nnoremap <leader>f :RustFmt<CR>
 " autocmd FileType rust nnoremap <buffer> <leader>f :RustFmt<CR>
 
 " hacky, see: https://vi.stackexchange.com/questions/10664/file-type-dependent-key-mapping
-autocmd FileType rust     nnoremap <buffer> <leader>f :RustFmt<CR>
-autocmd FileType go       nnoremap <buffer> <leader>f :call LanguageClient#textDocument_formatting_sync()<CR>
-autocmd FileType markdown nnoremap <buffer> <leader>f gqap
-autocmd FileType tex      nnoremap <buffer> <leader>f gqap
-
-autocmd FileType markdown setlocal textwidth=100
-autocmd FileType tex      setlocal textwidth=100
+autocmd FileType rust     nnoremap <buffer> <leader>F :RustFmt<CR>
+autocmd FileType go       nnoremap <buffer> <leader>F :call LanguageClient#textDocument_formatting_sync()<CR>
+autocmd FileType markdown nnoremap <buffer> <leader>F gqap
+autocmd FileType tex      nnoremap <buffer> <leader>F gqap
 
 " leader-e
 " Open new file adjacent to current file
 nnoremap <leader>e :e <C-R>=expand("%:p:h") . "/" <CR>
 
-" }}}
-" Buffer Management: {{{
-set hidden " Allow buffers to be hidden if you've modified a buffer
-
-" leader-leader toggels between buffers DEPRECATED
-" nnoremap <leader><leader> <c-^>
-" leader-leader does FZF for files in current folder
-nnoremap <leader><leader> :Files<CR>
+""" Buffer Management 
 
 " Move to the next buffer
 nmap <leader>l :bnext<CR>
@@ -521,11 +544,6 @@ nnoremap <leader>b g<c-g>
 " left/right arrows cycle buffers
 nnoremap <left> :bp<CR>
 nnoremap <right> :bn<CR>
-
-" leader-. does FZF for git files
-" leader-, does FZF for buffers
-nnoremap <leader>. :GFiles<CR>
-nnoremap <leader>, :Buffers<CR>
 
 " }}}
 " Misc: {{{
@@ -550,33 +568,6 @@ let g:go_info_mode='gopls'
 " <space>c will copy entire buffer into clipboard
 "noremap <leader>p :read !xsel --clipboard --output<cr>
 "noremap <leader>y :w !xsel -ib<cr><cr>
-
-
-" let s:bgdarker  = ['', 234]
-
-
-" set background=dark
-" set background=#191A21
-" let base16colorspace=256
-"let g:base16_shell_path="~/dev/others/base16/templates/shell/scripts/"
-
-" colorscheme base16-gruvbox-dark-hard
-syntax on
-hi Normal ctermbg=NONE
-set cursorline
-" call Base16hi("Comment", g:base16_gui04, "", g:base16_cterm04, "", "", "")
-" call Base16hi("Comment", "6272A4", "", "6272A4", "", "", "")
-" call Base16hi("Normal", g:base16_gui07, g:base16_gui00, g:base16_cterm07, g:base16_cterm00, "", "")
-
-" call Base16hi("LineNr",        g:base16_gui02, g:base16_gui00, g:base16_cterm02, g:base16_cterm00, "", "")
-" call Base16hi("SignColumn",    g:base16_gui02, g:base16_gui00, g:base16_cterm02, g:base16_cterm00, "", "")
-" call Base16hi("CursorLine",    "", "1a1a1a", "", "1a", "", "")
-" call Base16hi("CursorLineNr",    g:base16_gui03, g:base16_gui00, g:base16_cterm03, g:base16_cterm00, "", "")
-hi BufTabLineCurrent guibg=#689d6a
-hi BufTabLineHidden guibg=#3c3836
-hi TabLineFill guibg=#1d2021
-
-" autocmd bufreadpre *.md setlocal textwidth=100
 
 " }}}
 

@@ -79,11 +79,11 @@ let g:compe.source.snippets_nvim = v:false
 let g:compe.source.treesitter = v:true
 let g:compe.source.omni = v:false
 
-inoremap <silent><expr> <C-Space> compe#complete()
 inoremap <silent><expr> <CR>      compe#confirm('<CR>')
-inoremap <silent><expr> <C-e>     compe#close('<C-e>')
-inoremap <silent><expr> <C-f>     compe#scroll({ 'delta': +4 })
-inoremap <silent><expr> <C-d>     compe#scroll({ 'delta': -4 })
+" inoremap <silent><expr> <C-Space> compe#complete()
+" inoremap <silent><expr> <C-e>     compe#close('<C-e>')
+" inoremap <silent><expr> <C-f>     compe#scroll({ 'delta': +4 })
+" inoremap <silent><expr> <C-d>     compe#scroll({ 'delta': -4 })
 
 " Configure LSP
 " https://github.com/neovim/nvim-lspconfig#rust_analyzer
@@ -106,10 +106,12 @@ setmetatable(kind_labels, kind_labels_mt)
 lsp_status.register_progress()
 lsp_status.config({
     kind_labels = kind_labels,
+    current_function = false,
     indicator_errors = "×",
     indicator_warnings = "!",
     indicator_info = "i",
     indicator_hint = "›",
+    indicator_ok = "OK",
     -- the default is a wide codepoint which breaks absolute and relative
     -- line counts if placed before airline's Z section
     status_symbol = "",
@@ -117,6 +119,9 @@ lsp_status.config({
 
 -- Set default client capabilities plus window/workDoneProgress
 -- config.capabilities = vim.tbl_extend('keep', config.capabilities or {}, lsp_status.capabilities)
+
+local capabilities = vim.lsp.protocol.make_client_capabilities()
+capabilities.textDocument.completion.completionItem.snippetSupport = true
 
 -- function to attach completion and diagnostics
 -- when setting up lsp
@@ -128,7 +133,7 @@ end
 -- Enable rust_analyzer
 nvim_lsp.rust_analyzer.setup({
     on_attach=on_attach,
-    capabilities = lsp_status.capabilities
+    capabilities = capabilities,
 })
 
 -- Enable gopls
@@ -137,6 +142,30 @@ nvim_lsp.gopls.setup({
     capabilities = lsp_status.capabilities
 })
 
+EOF
+
+lua <<EOF
+local actions = require('telescope.actions')
+-- Global remapping
+------------------------------
+require('telescope').setup{
+  defaults = {
+    mappings = {
+      i = {
+        -- To disable a keymap, put [map] = false
+        -- So, to not map "<C-n>", just put
+        -- ["<c-x>"] = false,
+
+        ["<C-j>"] = actions.move_selection_next,
+        ["<C-k>"] = actions.move_selection_previous,
+      },
+      -- n = {
+        -- ["<esc>"] = actions.close,
+        -- ["<C-i>"] = my_cool_custom_action,
+      -- },
+    },
+  }
+}
 EOF
 
 " Statusline
@@ -154,10 +183,10 @@ call sign_define("LspDiagnosticsSignWarning", {"text" : "•", "texthl" : "LspDi
 call sign_define("LspDiagnosticsSignHint", {"text" : "»", "texthl" : "LspDiagnosticsSignHint"})
 " ›
 " Trigger completion with <Tab>
-inoremap <silent><expr> <TAB>
-    \ pumvisible() ? "\<C-n>" :
-    \ <SID>check_back_space() ? "\<TAB>" :
-    \ completion#trigger_completion()
+" inoremap <silent><expr> <TAB>
+"     \ pumvisible() ? "\<C-n>" :
+"     \ <SID>check_back_space() ? "\<TAB>" :
+"     \ completion#trigger_completion()
 
 " Use `C-j` and `C-k` to navigate diagnostics
 inoremap <expr> <C-j> pumvisible() ? "\<C-n>" : "\<C-j>"
