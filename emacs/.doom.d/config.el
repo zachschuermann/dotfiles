@@ -53,8 +53,10 @@
   ;;(setq org-directory "~/notes"))
 (after! org
   (setq org-directory "~/org/")
-  (setq org-agenda-files (list "~/org/")))
-(setq org-default-notes-file (concat org-directory "/notes.org"))
+  (setq org-agenda-files (list "~/org/"))
+  (setq org-default-notes-file (concat org-directory "/notes.org"))
+  (setq org-log-done 'time))
+
 
 ;; theme
 ;; (setq doom-theme 'doom-dracula)
