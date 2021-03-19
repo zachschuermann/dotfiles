@@ -270,6 +270,16 @@ in
       enable = true;
       apiKeyFile = builtins.path { path = "/home/zach/.dd-key"; name = "dd-key"; };
     };
+    postgresql = {
+      enable = true;
+      package = unstable.postgresql_13;
+    enableTCPIP = true;
+    authentication = pkgs.lib.mkOverride 10 ''
+      local all all trust
+      host all all 127.0.0.1/32 trust
+      host all all ::1/128 trust
+    '';
+    };
   };
   fonts = {
         enableFontDir = true;
