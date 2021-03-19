@@ -256,7 +256,7 @@ nnoremap <silent> * *zz
 nnoremap <silent> # #zz
 nnoremap <silent> g* g*zz
 
-nnoremap <silent> <Tab> za
+" nnoremap <silent> <Tab> za
 " }}}
 
 " Plugins ---------------------------------------------------------
@@ -266,6 +266,7 @@ call plug#begin('~/.vim/plugged')
 
 Plug 'schuermannator/gruvbox'
 Plug 'neovimhaskell/haskell-vim'
+"Plug 'ziglang/zig.vim'
 
 if has('nvim')
     " Collection of common configurations for the Nvim LSP client
@@ -275,7 +276,8 @@ if has('nvim')
     Plug 'tjdevries/lsp_extensions.nvim'
     
     " Autocompletion framework for built-in LSP
-    Plug 'nvim-lua/completion-nvim'
+    "Plug 'nvim-lua/completion-nvim'
+    Plug 'hrsh7th/nvim-compe'
     
     " Diagnostic navigation and settings for built-in LSP
     " Plug 'nvim-lua/diagnostic-nvim' DEPRECATED
