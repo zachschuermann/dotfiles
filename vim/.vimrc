@@ -85,7 +85,7 @@ let g:maplxeader ="\<Space>"
 
 " from vim/runtime/defaults.vim
 " Put these in an autocmd group, so that you can revert them with:
-" ":augroup vimStartup | au! | augroup END"
+" :augroup vimStartup | au! | augroup END
 augroup vimStartup
   au!
 
@@ -106,74 +106,74 @@ augroup END
 autocmd FileType markdown setlocal textwidth=100
 autocmd FileType tex      setlocal textwidth=100
 
-"""
-" C
-"""
-autocmd BufNewFile,BufReadPost *.c set filetype=c
-autocmd BufNewFile,BufReadPost *.h set filetype=c
-autocmd FileType c setlocal
-            \ tabstop=4
-            \ expandtab
-            \ shiftwidth=4
-            \ softtabstop=4
-
-"""
-" C++
-"""
-autocmd BufNewFile,BufReadPost *.cpp set filetype=cpp
-autocmd FileType cpp setlocal
-            \ tabstop=4
-            \ expandtab
-            \ shiftwidth=4
-            \ softtabstop=4
-
-
-""""""""""
-" Makefile
-""""""""""
+" """
+" " C
+" """
+" autocmd BufNewFile,BufReadPost *.c set filetype=c
+" autocmd BufNewFile,BufReadPost *.h set filetype=c
+" autocmd FileType c setlocal
+"             \ tabstop=4
+"             \ expandtab
+"             \ shiftwidth=4
+"             \ softtabstop=4
+" 
+" """
+" " C++
+" """
+" autocmd BufNewFile,BufReadPost *.cpp set filetype=cpp
+" autocmd FileType cpp setlocal
+"             \ tabstop=4
+"             \ expandtab
+"             \ shiftwidth=4
+"             \ softtabstop=4
+" 
+" 
+" """"""""""
+" " Makefile
+" """"""""""
 autocmd FileType make setlocal noexpandtab
-
-""""""""""
-" Markdown
-""""""""""
-autocmd Filetype markdown setlocal
-            \ tabstop=4
-            \ expandtab
-            \ shiftwidth=4
-            \ softtabstop=4
-            \ textwidth=112
-
-""""""""""
-" Text
-""""""""""
-autocmd FileType text setlocal autoindent expandtab softtabstop=2 textwidth=100
-
-""""""""""
-" Python
-"""""""""""
-autocmd FileType python setlocal
-            \ tabstop=4
-            \ expandtab
-            \ shiftwidth=4
-            \ softtabstop=4
-
-""""""""""
-" go 
-"""""""""""
-autocmd FileType go setlocal
-            \ tabstop=2
-            \ expandtab
-            \ shiftwidth=2
-            \ softtabstop=2
-
-""""""""""
-" Haskell
-"""""""""""
-autocmd FileType haskell setlocal
-            \ tabstop=4
-            \ expandtab
-            \ shiftwidth=4
-            \ softtabstop=4
+" 
+" """"""""""
+" " Markdown
+" """"""""""
+" autocmd Filetype markdown setlocal
+"             \ tabstop=4
+"             \ expandtab
+"             \ shiftwidth=4
+"             \ softtabstop=4
+"             \ textwidth=112
+" 
+" """"""""""
+" " Text
+" """"""""""
+" autocmd FileType text setlocal autoindent expandtab softtabstop=2 textwidth=100
+" 
+" """"""""""
+" " Python
+" """""""""""
+" autocmd FileType python setlocal
+"             \ tabstop=4
+"             \ expandtab
+"             \ shiftwidth=4
+"             \ softtabstop=4
+" 
+" """"""""""
+" " go 
+" """""""""""
+" autocmd FileType go setlocal
+"             \ tabstop=2
+"             \ expandtab
+"             \ shiftwidth=2
+"             \ softtabstop=2
+" 
+" """"""""""
+" " Haskell
+" """""""""""
+" autocmd FileType haskell setlocal
+"             \ tabstop=4
+"             \ expandtab
+"             \ shiftwidth=4
+"             \ softtabstop=4
 
 " }}}
 " Colors: {{{
@@ -228,9 +228,9 @@ set ttyfast
 set nofoldenable
 
 " deal with colors
-if !has('gui_running')
-    set t_Co=256
-endif
+" if !has('gui_running')
+"     set t_Co=256
+" endif
 
 " TODO idk man need to figure out colors
 " used to have this added below: (annoying with tmux so removed)
@@ -296,10 +296,12 @@ if has('nvim')
     Plug 'nvim-lua/popup.nvim'
     Plug 'nvim-lua/plenary.nvim'
     Plug 'nvim-telescope/telescope.nvim'
-end
 
-if has('nvim-0.5')
+    " gitsigns requires plenary
+    Plug 'lewis6991/gitsigns.nvim'
     Plug 'scalameta/nvim-metals'
+
+    Plug 'glepnir/galaxyline.nvim' , {'branch': 'main'}
 end
 
 " Unintrusive * preview
@@ -319,33 +321,32 @@ end
 " ## LIGHTLINE
 " -------------------------------------
 
-Plug 'itchyny/lightline.vim'        " Lightweight status line at bottom
-    let g:lightline = {
-        \ 'colorscheme': 'PaperColor',
-        \ 'active': {
-        \   'left': [
-        \       [ 'mode', 'paste' ],
-        \       [ 'gitbranch', 'readonly', 'relativepath', 'modified' ],
-        \   ],
-        \   'right': [
-        \       [ 'lineinfo' ],
-        \       [ 'percent' ],
-        \       [ 'scrollbar'],
-        \       [ 'lsp_status', 'fileformat', 'fileencoding', 'filetype' ],
-        \   ],
-        \ },
-        \ 'component_expand': {
-        \   'lsp_status': 'LspStatus'
-        \ },
-    \ }
+" Plug 'itchyny/lightline.vim'        " Lightweight status line at bottom
+"     let g:lightline = {
+"         \ 'colorscheme': 'PaperColor',
+"         \ 'active': {
+"         \   'left': [
+"         \       [ 'mode', 'paste' ],
+"         \       [ 'gitbranch', 'readonly', 'relativepath', 'modified' ],
+"         \   ],
+"         \   'right': [
+"         \       [ 'lineinfo' ],
+"         \       [ 'percent' ],
+"         \       [ 'scrollbar'],
+"         \       [ 'lsp_status', 'fileformat', 'fileencoding', 'filetype' ],
+"         \   ],
+"         \ },
+"         \ 'component_expand': {
+"         \   'lsp_status': 'LspStatus'
+"         \ },
+"     \ }
 
 " don't show mode since we show in lightline now
 set noshowmode
 
-" TODO
-au User LspDiagnosticsChanged call lightline#update()
-au User LspMessageUpdate  call lightline#update()
-au User LspStatusUpdate  call lightline#update()
+" au User LspDiagnosticsChanged call lightline#update()
+" au User LspMessageUpdate  call lightline#update()
+" au User LspStatusUpdate  call lightline#update()
         "\ 'component': {
         "\   'scrollbar': '%{ScrollStatus()}',
         "\ },
@@ -373,7 +374,8 @@ Plug 'junegunn/fzf.vim'
     "nnoremap <leader>f/   :History/ <CR>
 
 " TODO check nocolor speed
-let g:fzf_layout = { 'down': '~30%' }
+" let g:fzf_layout = { 'down': '~30%' }
+let g:fzf_layout = { 'window': { 'width': 1, 'height': 0.4, 'yoffset': 1, 'border': 'horizontal' } }
 command! -bang -nargs=* Rg
     \ call fzf#vim#grep(
     \   'rg --column --line-number --no-heading --color=never '.shellescape(<q-args>), 1,
@@ -388,10 +390,10 @@ command! -bang -nargs=* Rg
 " -------------------------------------
 " ## RIPGREP
 " -------------------------------------
-if executable('rg')
-    set grepprg=rg\ --no-heading\ --vimgrep
-    set grepformat=%f:%l:%c:%m
-endif
+" if executable('rg')
+set grepprg=rg\ --no-heading\ --vimgrep
+set grepformat=%f:%l:%c:%m
+" endif
 
 " -------------------------------------
 " ## NERDTREE - deprecated
@@ -526,9 +528,9 @@ nnoremap <leader>e :e <C-R>=expand("%:p:h") . "/" <CR>
 """ Buffer Management 
 
 " Move to the next buffer
-nmap <leader>l :bnext<CR>
+nnoremap <leader>l :bnext<CR>
 " Move to the previous buffer
-nmap <leader>h :bprevious<CR>
+nnoremap <leader>h :bprevious<CR>
 
 " leader-q: Close the current buffer and move to the previous one
 " This replicates the idea of closing a tab

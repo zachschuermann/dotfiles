@@ -34,6 +34,8 @@ require'nvim-treesitter.configs'.setup {
     enable = true
   }
 }
+
+require'galaxy'
 EOF
 " }}}
 " Completion: {{{
@@ -166,16 +168,17 @@ require('telescope').setup{
     },
   }
 }
+require('gitsigns').setup()
 EOF
 
 " Statusline
-function! LspStatus() abort
-  if luaeval('#vim.lsp.buf_get_clients() > 0')
-    return luaeval("require('lsp-status').status()")
-  endif
-
-  return ''
-endfunction
+" function! LspStatus() abort
+"   if luaeval('#vim.lsp.buf_get_clients() > 0')
+"     return luaeval("require('lsp-status').status()")
+"   endif
+" 
+"   return ''
+" endfunction
 
 " change the E/W to ×/• for error/warning highlights in the gutter
 call sign_define("LspDiagnosticsSignError", {"text" : "×", "texthl" : "LspDiagnosticsSignError"})
@@ -239,13 +242,13 @@ autocmd CursorMoved,InsertLeave,BufEnter,BufWinEnter,TabEnter,BufWritePost *
 
 " }}}
 " Scala (Metals): {{{
-if has('nvim-0.5')
-  set shortmess-=F
-  augroup lsp
-    au!
-    au FileType scala,sbt lua require('metals').initialize_or_attach({})
-  augroup end
-endif
+" if has('nvim-0.5')
+"   set shortmess-=F
+"   augroup lsp
+"     au!
+"     au FileType scala,sbt lua require('metals').initialize_or_attach({})
+"   augroup end
+" endif
 " }}}
 " airline - DEPRECATED - (using lightline/tabline instead): {{{
 " Below is set in .vimrc

@@ -1,7 +1,7 @@
 # OS-specific
 switch (uname)
     case Linux
-        setenv TZ "America/New_York"
+        setenv TZ "America/Los_Angeles"
         set -g PATH /snap/bin $PATH
         set -Ua fish_user_paths /home/zach/.fzf/bin/fzf
         set -x GPG_TTY (tty)
@@ -13,7 +13,7 @@ switch (uname)
             #    bash $HOME/dotfiles/tmux-chooser.sh && exit
             #end
         #end
-        setenv TZ "America/Chicago"
+        setenv TZ "America/Los_Angeles"
     case FreeBSD NetBSD DragonFly
             echo Uh...
     case '*'
