@@ -7,6 +7,12 @@ let &packpath = &runtimepath
 " pull shared config (.vimrc)
 source ~/.vimrc
 
+Plug 'folke/which-key.nvim'
+
+lua << EOF
+  require("which-key").setup {}
+EOF
+
 " nvim-treesitter: {{{
 " using for everything except rust - doesnt parse 'mut', 'static', etc.
 lua <<EOF
