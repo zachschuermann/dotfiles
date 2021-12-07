@@ -15,6 +15,7 @@ switch (uname)
         #end
         setenv TZ "America/Los_Angeles"
         fish_add_path /usr/local/opt/llvm/bin/clangd
+        fish_add_path /opt/homebrew/bin
     case FreeBSD NetBSD DragonFly
             echo Uh...
     case '*'

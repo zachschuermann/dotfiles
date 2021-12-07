@@ -8,5 +8,7 @@ GNU Stow for the daily driver dev configuration:
 ## install
 ```
 brew install alacritty tmux fish neovim stow
-stow alacritty fish git input tmux vim
+stow alacritty fish input tmux vim
+brew install fzf exa dust
+/opt/homebrew/opt/fzf/install
 ```

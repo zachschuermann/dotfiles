@@ -361,7 +361,8 @@ colors:
 #   - (Linux/BSD) user login shell
 #   - (Windows) powershell
 shell:
-  program: /usr/local/bin/fish
+  #  /usr/local/bin/fish
+  program: /opt/homebrew/bin/fish
   args:
     - --login
       # shell:

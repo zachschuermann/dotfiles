@@ -36,6 +36,9 @@
 " Bash not fish
 set shell=bash
 
+" fixme?
+set runtimepath^=~/.vim
+
 " leader is spacebar
 let mapleader ="\<Space>"
 let g:mapleader ="\<Space>"
