@@ -6,7 +6,11 @@
 " Source: https://github.com/schuermannator/dotfiles
 " Last Modified: 18 Mar 2021
 " -----------------------------------------------------------------------------
-
+let data_dir = has('nvim') ? stdpath('data') . '/site' : '~/.vim'
+if empty(glob(data_dir . '/autoload/plug.vim'))
+  silent execute '!curl -fLo '.data_dir.'/autoload/plug.vim --create-dirs  https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
+  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+endif
 " Basic Settings ---------------------------------------------------------
 " General Settings: {{{
 
@@ -302,7 +306,15 @@ if has('nvim')
     Plug 'scalameta/nvim-metals'
 
     Plug 'glepnir/galaxyline.nvim' , {'branch': 'main'}
+    Plug 'folke/which-key.nvim'
 end
+
+" Metals
+set shortmess-=F
+augroup lsp
+    au!
+    au FileType scala,sbt lua require("metals").initialize_or_attach({})
+  augroup end
 
 " Unintrusive * preview
 " Plug 'itchyny/vim-cursorword'
