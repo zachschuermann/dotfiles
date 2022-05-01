@@ -100,7 +100,7 @@ Plug 'ap/vim-buftabline'            " Tab bar at top
     let g:buftabline_indicators = 1 " Show whether modified
     let g:buftabline_numbers    = 1 " Show buffer numbers
 Plug 'b3nj5m1n/kommentary'
-Plug 'blackcauldron7/surround.nvim'
+Plug 'ur4ltz/surround.nvim'
 
 " fuzzy finding
 Plug 'ibhagwan/fzf-lua'
@@ -139,9 +139,17 @@ Plug 'dag/vim-fish'
 Plug 'godlygeek/tabular'
 Plug 'plasticboy/vim-markdown'
 
-" Plug 'scalameta/nvim-metals'
+Plug 'scalameta/nvim-metals'
 
 call plug#end()
+
+" needed for nvim-metals
+" set shortmess-=F
+" 
+" augroup lsp
+"   au!
+"   au FileType java,scala,sbt lua require("metals").initialize_or_attach({})
+" augroup end
 
 filetype plugin indent on
 set autoindent
@@ -324,7 +332,8 @@ local on_attach = function(client, bufnr)
   buf_set_keymap('n', '<leader>r', '<cmd>lua vim.lsp.buf.rename()<CR>', opts)
   buf_set_keymap('n', '<leader>a', '<cmd>lua vim.lsp.buf.code_action()<CR>', opts)
   buf_set_keymap('n', 'gr', '<cmd>lua vim.lsp.buf.references()<CR>', opts)
-  buf_set_keymap('n', '<leader>e', '<cmd>lua vim.lsp.diagnostic.show_line_diagnostics()<CR>', opts)
+  buf_set_keymap('n', '<leader>e', '<cmd>lua vim.diagnostic.open_float(0, { scope = "line", border = "single" })<CR>', opts)
+
   buf_set_keymap('n', '[d', '<cmd>lua vim.lsp.diagnostic.goto_prev()<CR>', opts)
   buf_set_keymap('n', ']d', '<cmd>lua vim.lsp.diagnostic.goto_next()<CR>', opts)
   -- buf_set_keymap('n', '<leader>q', '<cmd>lua vim.lsp.diagnostic.set_loclist()<CR>', opts)
@@ -399,18 +408,10 @@ let g:diagnostic_insert_delay = 1
 " You will have bad experience for diagnostic messages when it's default 4000.
 set updatetime=150
 " Show diagnostic popup on cursor hold
-autocmd CursorHold * lua vim.lsp.diagnostic.show_line_diagnostics({focusable = false})
+" DEPRECATED
+" autocmd CursorHold * lua vim.lsp.diagnostic.show_line_diagnostics({focusable = false})
+autocmd CursorHold * lua vim.diagnostic.open_float(0, { scope = "line", border = "single", focusable = false})
 
-" }}}
-
-" Scala (Metals): {{{
-" if has('nvim-0.5')
-"   set shortmess-=F
-"   augroup lsp
-"     au!
-"     au FileType scala,sbt lua require('metals').initialize_or_attach({})
-"   augroup end
-" endif
 " }}}
 
 " FZF keys
