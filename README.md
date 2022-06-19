@@ -12,3 +12,6 @@ stow alacritty fish input tmux vim
 brew install fzf exa dust
 /opt/homebrew/opt/fzf/install
 ```
+
+todo
+- check out github/copilot.vim
