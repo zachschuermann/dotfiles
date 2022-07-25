@@ -17,3 +17,4 @@ todo
 - check out github/copilot.vim
 - https://github.com/kevinhwang91/nvim-ufo
 - https://github.com/kylechui/nvim-surround
+- https://github.com/catppuccin/nvim
