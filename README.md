@@ -8,5 +8,13 @@ GNU Stow for the daily driver dev configuration:
 ## install
 ```
 brew install alacritty tmux fish neovim stow
-stow alacritty fish git input tmux vim
+stow alacritty fish input tmux vim
+brew install fzf exa dust
+/opt/homebrew/opt/fzf/install
 ```
+
+todo
+- check out github/copilot.vim
+- https://github.com/kevinhwang91/nvim-ufo
+- https://github.com/kylechui/nvim-surround
+- https://github.com/catppuccin/nvim
