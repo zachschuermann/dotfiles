@@ -26,6 +26,9 @@
 " - [ ] fix markdown highlighting
 " - [ ] make some of my own plugins for tracking at work, etc.
 "
+" TODO use this to show current code context
+" https://github.com/SmiteshP/nvim-navic
+"
 " Credit:
 " https://github.com/jonhoo/configs/blob/master/editor/.config/nvim/init.vim
 " https://github.com/j-hui/pokerus
@@ -136,6 +139,8 @@ Plug 'dag/vim-fish'
 Plug 'godlygeek/tabular'
 Plug 'plasticboy/vim-markdown'
 
+Plug 'dstein64/vim-startuptime'
+
 " Plug 'scalameta/nvim-metals'
 
 call plug#end()
@@ -186,7 +191,7 @@ set completeopt=menu,menuone,noselect
 set shortmess+=c
 
 " LSP configuration
-lua << END
+lua <<EOF
 local cmp = require'cmp'
 local lspconfig = require'lspconfig'
 local lsp_status = require'lsp-status'
@@ -266,12 +271,22 @@ cmp.setup({
   sources = cmp.config.sources({
     -- TODO: currently snippets from lsp end up getting prioritized -- stop that!
     { name = 'nvim_lsp' },
-  }, {
+    { name = 'vsnip' },
+    { name = 'buffer' },
     { name = 'path' },
   }),
   experimental = {
     ghost_text = true,
   },
+})
+
+-- Set configuration for specific filetype.
+cmp.setup.filetype('gitcommit', {
+  sources = cmp.config.sources({
+    { name = 'cmp_git' }, -- You can specify the `cmp_git` source if you were installed it.
+  }, {
+    { name = 'buffer' },
+  })
 })
 
 -- Enable completing paths in :
@@ -282,7 +297,8 @@ cmp.setup({
 -- })
 
 -- Use buffer source for `/`
-cmp.setup.cmdline('/', {
+cmp.setup.cmdline({ '/', '?' }, {
+  mapping = cmp.mapping.preset.cmdline(),
   sources = {
     { name = 'buffer' }
   }
@@ -290,6 +306,7 @@ cmp.setup.cmdline('/', {
 
 -- Use cmdline & path source for ':'
 cmp.setup.cmdline(':', {
+  mapping = cmp.mapping.preset.cmdline(),
   sources = cmp.config.sources({
     { name = 'path' }
   }, {
@@ -337,14 +354,15 @@ local on_attach = function(client, bufnr)
 end
 
 
-local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
+-- local capabilities = require('cmp_nvim_lsp').default_capabilities(vim.lsp.protocol.make_client_capabilities())
+local capabilities = require('cmp_nvim_lsp').default_capabilities()
 -- Set default client capabilities plus window/workDoneProgress
 capabilities = vim.tbl_extend('keep', capabilities or {}, lsp_status.capabilities)
 
 lspconfig.rust_analyzer.setup {
   on_attach = on_attach,
   flags = {
-    debounce_text_changes = 150,
+    debounce_text_changes = 100,
   },
   settings = {
     ["rust-analyzer"] = {
@@ -368,7 +386,7 @@ lspconfig.rust_analyzer.setup {
 --     update_in_insert = true,
 --   }
 -- )
-END
+EOF
 
 " Enable type inlay hints
 autocmd CursorHold,CursorHoldI *.rs :lua require'lsp_extensions'.inlay_hints{ prefix = '» ', only_current_line = true }
@@ -396,7 +414,7 @@ let g:diagnostic_insert_delay = 1
 " You will have bad experience for diagnostic messages when it's default 4000.
 set updatetime=150
 " Show diagnostic popup on cursor hold
-autocmd CursorHold * lua vim.lsp.diagnostic.show_line_diagnostics({focusable = false})
+autocmd CursorHold * lua vim.diagnostic.open_float({focusable = false})
 
 " }}}
 
